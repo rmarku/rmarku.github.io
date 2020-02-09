@@ -21,9 +21,16 @@ contact:
       url: rmarku
 summary:
   description: |
-    I am currently working as a teacher in Universidad Católica de Córdoba.
-  highlights:
-    - ""
+    I am a passionate about technology, I am interested in hardware and software development,
+    from microcontrolers and IOT to FrontEnd technologies, like React and Vue.
+    I also enjoy building and using software that make life simpler and easier. I consider
+    important that software to be performant and that use hardware resources to max, thats why
+    I like programming languages like C and C++.
+    I love teaching about software and hardware design, good practicies and patterns.
+
+
+#  highlights:
+#    - ""
 
 experiences:
   - organization: Universidad Católica de Córdoba
@@ -151,7 +158,7 @@ skills:
         level: 90
       - name: HTML/CSS/SASS/LESS
         level: 80
-      - name: Shell Script
+      - name: Shell Scripting
         level: 80
       - name: Python
         level: 50
@@ -165,7 +172,7 @@ skills:
       - name: NodeJS
         level: 90
       - name: Docker
-        level: 60
+        level: 70
       - name: React
         level: 75
       - name: Microcontrollers
@@ -174,9 +181,17 @@ skills:
         level: 90
       - name: Embeded Software
         level: 90
+      - name: IOT
+        level: 80
+      - name: CI
+        level: 60
+      - name: GraphQL
+        level: 40
 
   - type: Data Bases
     list:
+      - name: MySQL
+        level: 60
       - name: SQL
         level: 60
       - name: MongoDB
@@ -187,9 +202,20 @@ skills:
       - name: Linux
         level: 100
       - name: Windows
-        level: 100
+        level: 90
       - name: FreeRTOS
         level: 100
+
+  - type: Others
+    list:
+      - name: Team Work
+        level: 100
+      - name: Agile
+        level: 90
+      - name: DevOps
+        level: 70
+      - name: Testing
+        level: 70
 
 
 languages:

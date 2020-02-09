@@ -21,7 +21,14 @@ contact:
       url: rmarku
 summary:
   description: |
-    No se que poner
+    Soy un apacionado de la tecnología, me interesa el desarrollo de software y hardware,
+    desde sistemas embebidos e Internet de las cosas a tecnologías FrontEnd como React y Vue.
+    Tambien disfruto programando y usando software que haga la vida mas simple y facil. Considero
+    importante que el
+    software sea performante y utilize al maximo los recursos de hardware, por eso me gustan los lenguajes de bajo nivel
+    como C y C++.
+    Me encanta enseñar a programar, diseñar hardware haciendo enfacis en buenas practicas y patrones.
+
 #  highlights:
 #    - ""
 
@@ -162,7 +169,7 @@ skills:
         level: 90
       - name: HTML/CSS/SASS/LESS
         level: 80
-      - name: Shell Script
+      - name: Shell Scripting
         level: 80
       - name: Python
         level: 50
@@ -176,7 +183,7 @@ skills:
       - name: NodeJS
         level: 90
       - name: Docker
-        level: 60
+        level: 70
       - name: React
         level: 75
       - name: Microcontrollers
@@ -185,6 +192,12 @@ skills:
         level: 90
       - name: Embeded Software
         level: 90
+      - name: IOT
+        level: 80
+      - name: CI
+        level: 60
+      - name: GraphQL
+        level: 40
 
   - type: Base de Datos
     list:
@@ -201,6 +214,17 @@ skills:
         level: 100
       - name: FreeRTOS
         level: 100
+
+  - type: Others
+    list:
+      - name: Team Work
+        level: 100
+      - name: Agile
+        level: 90
+      - name: DevOps
+        level: 70
+      - name: Testing
+        level: 70
 
 
 languages:

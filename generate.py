@@ -43,7 +43,7 @@ if __name__ == '__main__':
             'page-size': 'A4',
             'margin-top': '2cm',
             'margin-right': '1cm',
-            'margin-bottom': '1.5cm',
+            'margin-bottom': '1cm',
             'margin-left': '2cm',
             'encoding': "UTF-8",
         }
