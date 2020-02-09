@@ -17,6 +17,10 @@ if __name__ == '__main__':
     with open(sys.argv[1], encoding="utf8") as f:
         data = yaml.safe_load(f)
 
+    # Sort skill by lvl
+    for sk in data['skills']:
+        sk['list'].sort(key=lambda val: (val['level']), reverse=True)
+
     md = markdown.Markdown(extensions=['meta'])
 
     # Render with jinja2

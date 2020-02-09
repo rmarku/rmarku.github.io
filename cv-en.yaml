@@ -1,0 +1,269 @@
+config:
+  template: template.html
+  css: style.css
+  out:
+    html: index.html
+    pdf: cv.pdf
+  lang: en
+
+info:
+  name: Ricardo Martín Marcucci
+  picture: img/photo.jpg
+  titles: Computer Engineer
+contact:
+  phone: +549-351-5164006
+  email: rmarku@gmail.com
+  website: rmarku.github.io
+  profiles:
+    - network: linkedin
+      url: martinmarcucci
+    - network: github
+      url: rmarku
+summary:
+  description: |
+    I am currently working as a teacher in Universidad Católica de Córdoba.
+  highlights:
+    - ""
+
+experiences:
+  - organization: Universidad Católica de Córdoba
+    position: Teacher
+    period: 2016 - present
+
+  - organization:
+    position: Freelancer Engineer
+    period: 2013 - present
+    detail: '* Development of Consortia Management web application with on line payment.
+
+    * Development of House Rent Management web application
+    '
+
+  - organization: Instituto Universitario Aeronáutico
+    position: Teacher
+    period: 2016 - present
+
+  - organization: Universidad Católica de Córdoba
+    position: Coordinador de Ciclo Básico
+    period: Mar 2018 - Feb 2020
+
+  - organization: CONICET
+    position: Doctoral scholarship
+    period: May. 0016 - Jan. 2018
+    detail: I worked with reconfigurable hardware and evolutionary algorithms to make fault tolerant devices.
+    technology:
+      - C
+      - ASM
+      - Genetic Algorithms
+  - organization: CINECA
+    position: Full Stack Developer
+    period: Jun. 2014 - Jan. 2016
+    detail: I worked programming platforms for new medical procedures tests.
+    technology:
+      - PHP
+      - HTML/JS/CSS
+      - AngularJS
+      - SQL
+  - organization: Omikron Ingeniería
+    position: Full Stack Developer and Embedded Software Developer
+    detail: I worked developing the Climatium Platform for weather stations and programming embedded microcontrollers
+    period: 2008 - 2013
+    technology:
+      - PHP
+      - HTML/JS/CSS
+      - SQL
+      - C / C++
+
+teaching:
+  - university: Universidad Católica de Córdoba
+    subject: Programación 3
+    position: Jefe de Trabajos Prácticos
+    period: 2016 - present
+    details: Student learn algorithms and data structures in general. They use **C++** to program and use the data structures
+
+  - university: Universidad Católica de Córdoba
+    subject: Laboratorio de Computación I
+    position: Titular
+    period: 2016 - present
+    details: "Students learn the hardware parts of the PC. Then they design in
+     **KiCad** the PCB of a Attiny85 board and program it in **C**"
+
+  - university: Universidad Católica de Córdoba
+    subject: Laboratorio de Computación II
+    position: Titular
+    period: 2016 - present
+    details: "Student learn **HTML/CSS/JS** to build a WebApp with canvas animation.
+     They learn and use **Git** for the development process and deployment of the WebApp"
+
+  - university: Universidad Católica de Córdoba
+    subject: Arquitectura de Software
+    position: Titular
+    period: 2018 - present
+    details: "* Student Learn about parallelism and concurrency, they make  concurrent software in **C++**.
+
+    * Students learn about Design Patterns and build a web platform with a MVC framework in **Node.js**
+    "
+
+  - university: Universidad Católica de Córdoba
+    subject: Seminario II (IOT)
+    position: Jefe de Trabajos Prácticos
+    period: 2018 - 2018
+    details: "Student learn about IOT technology and use ESP8266, **Node.js** and MongoDB to build a complete IOT system"
+
+  - university: Instituto Universitario Aeronáutico
+    subject: Informática III
+    position: Jefe de Trabajos Prácticos
+    period: 2016 - present
+    details: Student learn algorithms and data structures in general. They use **Java** to develop and use the data structures
+
+  - university: Instituto Universitario Aeronáutico
+    subject: Arquitectura del Computador II
+    position: Jefe de Trabajos Prácticos
+    period: 2016 - present
+    details: "Students learn advanced techniques to speed up microprocessors as Cache, Pipe-lining, Hazards fixes, etc."
+
+  - university: Instituto Universitario Aeronáutico
+    subject: Informática II
+    position: Titular
+    period: 2018 - present
+    details: "For Informatics Engineering. **C++** pointers, memory management, data structures, object modeling and graphic programming."
+
+  - university: Instituto Universitario Aeronáutico
+    subject: Informática II
+    position: Jefe de Trabajos Prácticos
+    period: 2018 - present
+    details: "For Telecommunication Engineering. **C** pointers, memory management, files and embedded programming"
+
+  - university: Universidad Católica de Córdoba
+    subject: Diplomatura en Sistemas Embebidos
+    position: Titular
+    period: 2014 - 2016
+    details: "Design flow, programming techniques and patterns for embedded software development in **c**"
+
+
+skills:
+  - type: Languages
+    list:
+      - name: C
+        level: 100
+      - name: C++
+        level: 90
+      - name: Javascript
+        level: 90
+      - name: HTML/CSS/SASS/LESS
+        level: 80
+      - name: Shell Script
+        level: 80
+      - name: Python
+        level: 50
+      - name: PHP
+        level: 50
+      - name: Java
+        level: 30
+
+  - type: Technologies/Tools
+    list:
+      - name: NodeJS
+        level: 90
+      - name: Docker
+        level: 60
+      - name: React
+        level: 75
+      - name: Microcontrollers
+        level: 100
+      - name: Git
+        level: 90
+      - name: Embeded Software
+        level: 90
+
+  - type: Data Bases
+    list:
+      - name: SQL
+        level: 60
+      - name: MongoDB
+        level: 30
+
+  - type: Operating Systems
+    list:
+      - name: Linux
+        level: 100
+      - name: Windows
+        level: 100
+      - name: FreeRTOS
+        level: 100
+
+
+languages:
+  - language: Spanish
+    fluency: Native speaker
+  - language: English
+    fluency: Advanced
+
+educations:
+  - degree: Data Science Career
+    university: Acamica
+    period: Jan. 2020 - Jul.  2020
+
+  - degree: Computer Engineering
+    university: Universidad Católica de Córdoba
+    period: 2013 a 2015
+    detail: "
+    * _Thesis:_ Massive Multiplayer Online Educational Game (HTML/JS/CSS, nodejs, Angular.js)
+
+    * Grade Average: 8,82"
+  - degree: Electronic Technician
+    university: Instituto Técnico Salesiano Villada
+    period: 1998 – 2004
+    detail: Third best grade
+
+journals:
+  - authors: Marcucci Martin, Aliciardi Agustina Edmé, Collino Fabricio, De Cunto Guillermo, Bosio, M. Alejandra, Chiodi Gustavo A
+    title: "Videojuegos como parte del aprendizaje"
+    journal: 44° Jornadas Argentinas de Informática
+    date: Septiembre 2015
+    ISSN: 2451-7631
+    website: http://44jaiio.sadio.org.ar/sites/default/files/sts44-53.pdf
+
+  - authors: Chiodi Gustavo A, Bosio, M. Alejandra , Aliciardi Agustina E., Pautasso Pablo y Marcucci Martin
+    title: "Plataforma informática aplicada como ayuda al proceso de enseñanza-aprendizaje en el área de matemáticas"
+    journal: 43° Jornadas Argentinas de Informática
+    date: Septiembre de 2014
+    ISSN: 2362-5139
+    website: http://43jaiio.sadio.org.ar/proceedings/STS/781-Chiodi%20et%20al.pdf
+
+interests:
+  - name: Swiming
+  - name: 3D Printing
+  - name: Cycling
+  - name: Home Automation
+
+i18n:
+  career_summary:
+    es: Trayectoria profesional
+    en: Career Summary
+  work_exp:
+    es: Experiencia Laboral
+    en: Work Experience
+  details:
+    es: 'Detalles:'
+    en: 'Details:'
+  used_tech:
+    es: 'Tecnologías utilizadas:'
+    en: 'Used Technologies: '
+  education:
+    es: Educación
+    en: Education
+  teaching:
+    es: Enseñanza
+    en: Teaching
+  journals:
+    es: Publicaciones
+    en: Journals
+  skills:
+    es: Habilidades
+    en: Skills
+  languages:
+    es: Idiomas
+    en: Languages
+  interests:
+    es: Intereses
+    en: Interests

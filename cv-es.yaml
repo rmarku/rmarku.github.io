@@ -1,0 +1,281 @@
+config:
+  template: template.html
+  css: style.css
+  out:
+    html: index.html
+    pdf: cv.pdf
+  lang: es
+
+info:
+  name: Ricardo Martín Marcucci
+  picture: img/photo.jpg
+  titles: Ingeniero en Computación
+contact:
+  phone: +549-351-5164006
+  email: rmarku@gmail.com
+  website: rmarku.github.io
+  profiles:
+    - network: linkedin
+      url: martinmarcucci
+    - network: github
+      url: rmarku
+summary:
+  description: |
+    No se que poner
+#  highlights:
+#    - ""
+
+experiences:
+  - organization: Universidad Católica de Córdoba
+    position: Profesor
+    period: 2016 - actualidad
+
+  - organization:
+    position: Actividad Profecional Independiente
+    period: 2013 - actualidad
+    detail: '* Desarrollo de aplicación web para la gestión de consorcio de edificios
+
+    * Desarrollo de aplicación weba para gestión de alquileres imobiliarios
+    '
+
+  - organization: Instituto Universitario Aeronáutico
+    position: Teacher
+    period: 2016 - actualidad
+
+  - organization: Universidad Católica de Córdoba
+    position: Coordinador de Ciclo Básico
+    period: Mar 2018 - Feb 2020
+
+  - organization: CONICET
+    position: Doctoral scholarship
+    period: May. 0016 - Ene. 2018
+    detail: "Trabajé con hardware reconfigurable y algoritmos geneticos para desarrollar tecnicas de tolerancia a falla
+    en dispositivos electrónicos"
+    technology:
+      - C
+      - ASM
+      - Algorítmos Genéticos
+
+  - organization: CINECA
+    position: Desarrollador Full Stack
+    period: Jun. 2014 - ene. 2016
+    detail: "Desarrollo de plataformas medicas para recolección de datos de tratamientos experimentales
+     y medicamentos experimentales"
+    technology:
+      - PHP
+      - HTML/JS/CSS
+      - AngularJS
+      - SQL
+
+  - organization: Omikron Ingeniería
+    position: Desarrollador Full Stack y desarrollo de Sistemas Embebidos
+    detail: "Desarrollo de una aplicación web para gestión de estaciones meteorologicas y programación de
+    microcontroladores de estaciones meteorológicas"
+    period: 2008 - 2013
+    technology:
+      - PHP
+      - HTML/JS/CSS
+      - MySQL
+      - C / C++
+
+teaching:
+  - university: Universidad Católica de Córdoba
+    subject: Programación 3
+    position: Jefe de Trabajos Prácticos
+    period: 2016 - actualidad
+    details: "Los estudiantes aprenden a construir y utilizar Estructuras de Datos en **C++** "
+
+  - university: Universidad Católica de Córdoba
+    subject: Laboratorio de Computación I
+    position: Titular
+    period: 2016 - actualidad
+    details: "Los estudiantes aprenden sobre el Hardware de las Computadoras. Luego diseñan y construllen una placa con un
+    microcontrolador en **KiCad** y la programan en **C**"
+
+  - university: Universidad Católica de Córdoba
+    subject: Laboratorio de Computación II
+    position: Titular
+    period: 2016 - actualidad
+    details: "Los estudiantes aprenden **HTML/CSS/JS** para construir una aplicación web con manejo de canvas para
+    animaciones. Los estudiantes aprenden sobre herramientas para el desarrollo, particularmente **Git** y lo
+    utilizan para todo el desarrollo del proyecto"
+
+  - university: Universidad Católica de Córdoba
+    subject: Arquitectura de Software I
+    position: Titular
+    period: 2018 - actualidad
+    details: "* Los estudiantes aprenden sobre paralelismo y concurrencia en **C++**.
+
+    * Los estudiantes aprenden y desarrollan una aplicación web con backend **Node.js** utilizando frameworks MVC y OMR
+    "
+
+  - university: Universidad Católica de Córdoba
+    subject: Seminario II (IOT)
+    position: Jefe de Trabajos Prácticos
+    period: 2018 - 2018
+    details: "Los estudiantes aprenden las tecnologías que dan forma al IOT. Luego utlizan un ESP8266, **Node.js** y
+    **MongoDB** para desarrollar un sistema IOT"
+
+  - university: Instituto Universitario Aeronáutico
+    subject: Informática III
+    position: Jefe de Trabajos Prácticos
+    period: 2016 - actualidad
+    details: "Los estudiantes aprenden a construir y utilizar Estructuras de Datos en **JAVA** "
+
+  - university: Instituto Universitario Aeronáutico
+    subject: Arquitectura del Computador II
+    position: Jefe de Trabajos Prácticos
+    period: 2016 - present
+    details: "Los estudiantes aprenden sobre el funcionamiento del microprocesador y tecnicas avanzadas para acelerar
+    su funcionamiento, como cache, pipelining, harzards, etc. Se hace desarrollos sobre la Raspberry Pi"
+
+  - university: Instituto Universitario Aeronáutico
+    subject: Informática II
+    position: Titular
+    period: 2018 - present
+    details: "Para Ing. Informática. Los estudiantes aprenden conceptos de punteros, uso de memoria, estructuras de datos
+    simples en **C++**. Realizan un trabajo programando con librerías graficas 2D y utilizando los conceptos vistos."
+
+  - university: Instituto Universitario Aeronáutico
+    subject: Informática II
+    position: Jefe de Trabajos Prácticos
+    period: 2018 - present
+    details: "Para Ing. en Telecomunicaciones. Los estudiantes aprenden conceptos de punteros, uso de memoria, estructuras,
+     archivos en **C**. Realizan un trabajo programando una Raspberry Pi."
+
+  - university: Universidad Católica de Córdoba
+    subject: Diplomatura en Sistemas Embebidos
+    position: Titular
+    period: 2014 - 2016
+    details: "Los alumnos aprenden sobre el flujo de diseño, herramientas y tecnicas utilizadas para programar sistemas
+     embebidos en **c**. Se utilizó la plataforma STM32"
+
+
+skills:
+  - type: Programación
+    list:
+      - name: C
+        level: 100
+      - name: C++
+        level: 90
+      - name: Javascript
+        level: 90
+      - name: HTML/CSS/SASS/LESS
+        level: 80
+      - name: Shell Script
+        level: 80
+      - name: Python
+        level: 50
+      - name: PHP
+        level: 50
+      - name: Java
+        level: 30
+
+  - type: Tecnologías/Herramientas
+    list:
+      - name: NodeJS
+        level: 90
+      - name: Docker
+        level: 60
+      - name: React
+        level: 75
+      - name: Microcontrollers
+        level: 100
+      - name: Git
+        level: 90
+      - name: Embeded Software
+        level: 90
+
+  - type: Base de Datos
+    list:
+      - name: SQL
+        level: 60
+      - name: MongoDB
+        level: 30
+
+  - type: Sistemas Operativos
+    list:
+      - name: Linux
+        level: 100
+      - name: Windows
+        level: 100
+      - name: FreeRTOS
+        level: 100
+
+
+languages:
+  - language: Español
+    fluency: Native speaker
+  - language: Ingles
+    fluency: Advanced
+
+educations:
+  - degree: Data Science Career
+    university: Acamica
+    period: Ene. 2020 - Jul.  2020
+
+  - degree: Ingeniería en Computación
+    university: Universidad Católica de Córdoba
+    period: 2013 a 2015
+    detail: "
+    * _Tesis:_ Juego Multijugador Online en tiempo real (HTML/JS/CSS, nodejs, Angular.js)
+
+    * Promedio: 8,82"
+
+  - degree: Técnico Electrónico
+    university: Instituto Técnico Salesiano Villada
+    period: 1998 – 2004
+    detail: Tercer mejor promedio
+
+journals:
+  - authors: Marcucci Martin, Aliciardi Agustina Edmé, Collino Fabricio, De Cunto Guillermo, Bosio, M. Alejandra, Chiodi Gustavo A
+    title: "Videojuegos como parte del aprendizaje"
+    journal: 44° Jornadas Argentinas de Informática
+    date: Septiembre 2015
+    ISSN: 2451-7631
+    website: http://44jaiio.sadio.org.ar/sites/default/files/sts44-53.pdf
+
+  - authors: Chiodi Gustavo A, Bosio, M. Alejandra , Aliciardi Agustina E., Pautasso Pablo y Marcucci Martin
+    title: "Plataforma informática aplicada como ayuda al proceso de enseñanza-aprendizaje en el área de matemáticas"
+    journal: 43° Jornadas Argentinas de Informática
+    date: Septiembre de 2014
+    ISSN: 2362-5139
+    website: http://43jaiio.sadio.org.ar/proceedings/STS/781-Chiodi%20et%20al.pdf
+
+interests:
+  - name: Natación
+  - name: Impreción 3D
+  - name: Domótica
+  - name: Jardinería
+
+i18n:
+  career_summary:
+    es: Trayectoria profesional
+    en: Career Summary
+  work_exp:
+    es: Experiencia Laboral
+    en: Work Experience
+  details:
+    es: 'Detalles:'
+    en: 'Details:'
+  used_tech:
+    es: 'Tecnologías utilizadas:'
+    en: 'Used Technologies: '
+  education:
+    es: Educación
+    en: Education
+  teaching:
+    es: Enseñanza
+    en: Teaching
+  journals:
+    es: Publicaciones
+    en: Journals
+  skills:
+    es: Habilidades
+    en: Skills
+  languages:
+    es: Idiomas
+    en: Languages
+  interests:
+    es: Intereses
+    en: Interests

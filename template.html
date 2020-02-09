@@ -103,7 +103,7 @@
         <div class="col-12 summary">
             <!-- SUMMARY -->
             {% if summary is defined %}
-                <h2><i class="fa fa-user ico"></i> Career Summary</h2>
+                <h2><i class="fa fa-user ico"></i> {{ i18n.career_summary[config.lang] }}</h2>
                 <p>{{ summary.description }}</p>
                 {% if summary.highlights is defined %}
                     <ul class="list-group" id="summary_hl">
@@ -119,7 +119,7 @@
     <div class="row">
         <div class="col-8 ">
             <!-- Experience -->
-            <h2><i class="fas fa-suitcase"></i> Work Experience</h2>
+            <h2><i class="fas fa-suitcase"></i> {{ i18n.work_exp[config.lang] }}</h2>
             <ul class="timeline">
                 <!-- WORK EXPERIENCE -->
                 {% if experiences is defined %}
@@ -131,12 +131,12 @@
                             <div class="resume-time">{{ experience.period }}</div>
 
                             {% if experience.detail is defined %}
-                                <h4>Details:</h4>
+                                <h4>{{ i18n.details[config.lang] }}</h4>
                                 {{ experience.detail | markdown }}
                             {% endif %}
                             {% if experience.technology is defined %}
                                 <div class="tech_used">
-                                    <h4>Technology Used:</h4>
+                                    <h4>{{ i18n.used_tech[config.lang] }}</h4>
                                     <ul class="list-inline">
                                         {% for tech in experience.technology %}
                                             <li class="list-inline-item">
@@ -154,7 +154,7 @@
 
             <!-- EDUCATION -->
             {% if educations is defined %}
-                <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+                <h2><i class="fas fa-graduation-cap"></i> {{ i18n.education[config.lang] }}</h2>
                 <ul>
                     {% for degree in educations %}
                         <li class="item-list">
@@ -163,7 +163,7 @@
                             <div class="resume-time">{{ degree.period }}</div>
 
                             {% if degree.detail is defined %}
-                                <h5>Details: </h5>
+                                <h5>{{ i18n.details[config.lang] }}</h5>
                                 {{ degree.detail | markdown }}
                             {% endif %}
                             </p>
@@ -175,7 +175,7 @@
 
             <!-- TEACHING EXP -->
             {% if teaching is defined %}
-                <h2><i class="fas fa-school"></i> Teaching</h2>
+                <h2><i class="fas fa-school"></i> {{ i18n.teaching[config.lang] }}</h2>
                 <ul>
                     {% for teach in teaching %}
                         <li class="item-list">
@@ -185,7 +185,7 @@
                             <small>{{ teach.position }}</small> - <span class="resume-time">{{ teach.period }} </span>
 
                             {% if teach.details is defined %}
-                                <h5>Details: </h5>
+                                <h5>{{ i18n.details[config.lang] }}</h5>
                                 {{ teach.details | markdown }}
                             {% endif %}
                             </p>
@@ -198,7 +198,7 @@
 
             <!-- JOURNALS -->
             {% if journals is defined %}
-                <h2><i class="fa fa-book"></i> Journals</h2>
+                <h2><i class="fa fa-book"></i> {{ i18n.journals[config.lang] }}</h2>
                 <ul>
                     {% for journal in journals %}
                         <li>
@@ -223,7 +223,7 @@
 
             <!-- SKILLS -->
             {% if skills is defined %}
-                <h2><i class="fa fa-wrench"></i> Skills</h2>
+                <h2><i class="fa fa-wrench"></i> {{ i18n.skills[config.lang] }}</h2>
                 {% for type in skills %}
 
                     <h4>{{ type.type }}</h4>
@@ -246,7 +246,7 @@
 
             <!-- LANGUAGE -->
             {% if languages is defined %}
-                <h2><i class="fas fa-language"></i> Languages</h2>
+                <h2><i class="fas fa-language"></i> {{ i18n.languages[config.lang] }}</h2>
                 <ul>
                     {% for language in languages %}
                         <li class="list-unstyled">
@@ -261,7 +261,7 @@
             {% endif %}
             <!-- INTERESTS -->
             {% if interests is defined %}
-                <h2><i class="fas fa-lightbulb"></i> Interests</h2>
+                <h2><i class="fas fa-lightbulb"></i> {{ i18n.interests[config.lang] }}</h2>
                 <ul>
                     {% for interest in interests %}
                         <li class="list-unstyled">
