@@ -37,7 +37,6 @@
                 {{ info.name }}
             </h1>
             <h2>{{ info.titles }}</h2>
-            <br/>
             {% if contact.location is defined %}
                 <div class="contact-item">
                     <div class="icon pull-left text-center"><span class="fa fa-map-marker"></span></div>
@@ -150,75 +149,7 @@
                     {% endfor %}
                 {% endif %}
             </ul>
-
-
-            <!-- EDUCATION -->
-            {% if educations is defined %}
-                <h2><i class="fas fa-graduation-cap"></i> {{ i18n.education[config.lang] }}</h2>
-                <ul>
-                    {% for degree in educations %}
-                        <li class="item-list">
-                            <h3 class=" d-inline-block">{{ degree.degree }}</h3>
-                            <div class="float-right font-weight-bold">{{ degree.university }}</div>
-                            <div class="resume-time">{{ degree.period }}</div>
-
-                            {% if degree.detail is defined %}
-                                <h5>{{ i18n.details[config.lang] }}</h5>
-                                {{ degree.detail | markdown }}
-                            {% endif %}
-                            </p>
-                        </li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-
-
-            <!-- TEACHING EXP -->
-            {% if teaching is defined %}
-                <h2><i class="fas fa-school"></i> {{ i18n.teaching[config.lang] }}</h2>
-                <ul>
-                    {% for teach in teaching %}
-                        <li class="item-list">
-                            {{ teach.subject }}
-                            <div class="float-right font-weight-bold">{{ teach.university }}</div>
-                            <br>
-                            <small>{{ teach.position }}</small> - <span class="resume-time">{{ teach.period }} </span>
-
-                            {% if teach.details is defined %}
-                                <h5>{{ i18n.details[config.lang] }}</h5>
-                                {{ teach.details | markdown }}
-                            {% endif %}
-                            </p>
-                        </li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-
-
-
-            <!-- JOURNALS -->
-            {% if journals is defined %}
-                <h2><i class="fa fa-book"></i> {{ i18n.journals[config.lang] }}</h2>
-                <ul>
-                    {% for journal in journals %}
-                        <li>
-                        <b>"{{ journal.title }}"</b>, {{ journal.authors }}
-                        - <i>{{ journal.journal }}</i> - ({{ journal.date }})
-
-                        {% if journal.ISSN is defined %}
-                            <i> ISSN: {{ journal.ISSN }}</i>
-                        {% endif %}
-                        {% if journal.website is defined %}
-                            <br/>
-                            <i class="fa fa-globe"></i> <a href="{{ journal.website }}">{{ journal.website }}</a>
-                        {% endif %}
-                    {% endfor %}
-                    </li>
-                </ul>
-            {% endif %}
         </div>
-
-
         <div class="col-4">
 
             <!-- SKILLS -->
@@ -268,6 +199,77 @@
                             <i class="fa fa-chevron-circle-right ico"></i> {{ interest.name }}
                         </li>
                     {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-12">
+
+            <!-- EDUCATION -->
+            {% if educations is defined %}
+                <h2><i class="fas fa-graduation-cap"></i> {{ i18n.education[config.lang] }}</h2>
+                <ul>
+                    {% for degree in educations %}
+                        <li class="item-list-s">
+                            <h3 class=" d-inline-block">{{ degree.degree }}</h3>
+                            <div class="float-right font-weight-bold">{{ degree.university }}</div>
+                            <div class="resume-time">{{ degree.period }}</div>
+
+                            {% if degree.detail is defined %}
+                                <h5>{{ i18n.details[config.lang] }}</h5>
+                                {{ degree.detail | markdown }}
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+
+            <!-- TEACHING EXP -->
+            {% if teaching is defined %}
+                <h2><i class="fas fa-school"></i> {{ i18n.teaching[config.lang] }}</h2>
+                <ul>
+                    {% for teach in teaching %}
+                        <li class="item-list-s">
+                            {{ teach.subject }}
+                            <div class="float-right font-weight-bold">{{ teach.university }}</div>
+                            <br>
+                            <small>{{ teach.position }}</small> - <span
+                                class="resume-time">{{ teach.period }} </span>
+
+                            {% if teach.details is defined %}
+                                <h5>{{ i18n.details[config.lang] }}</h5>
+                                {{ teach.details | markdown }}
+                            {% endif %}
+
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+
+
+            <!-- JOURNALS -->
+            {% if journals is defined %}
+                <h2><i class="fa fa-book"></i> {{ i18n.journals[config.lang] }}</h2>
+                <ul>
+                    {% for journal in journals %}
+                        <li>
+                        <b>"{{ journal.title }}"</b>, {{ journal.authors }}
+                        - <i>{{ journal.journal }}</i> - ({{ journal.date }})
+
+                        {% if journal.ISSN is defined %}
+                            <i> ISSN: {{ journal.ISSN }}</i>
+                        {% endif %}
+                        {% if journal.website is defined %}
+                            <br/>
+                            <i class="fa fa-globe"></i> <a href="{{ journal.website }}">{{ journal.website }}</a>
+                        {% endif %}
+                    {% endfor %}
+                    </li>
                 </ul>
             {% endif %}
         </div>

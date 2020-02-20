@@ -61,4 +61,4 @@ if __name__ == '__main__':
                 }
         ''')
 
-        weasyprint.HTML(data["config"]["out"]["html"]).write_pdf("cv2.pdf", zoom=1, stylesheets=[Style])
+        #weasyprint.HTML(data["config"]["out"]["html"]).write_pdf("cv2.pdf", zoom=1, stylesheets=[Style])
