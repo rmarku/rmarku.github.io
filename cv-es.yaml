@@ -3,7 +3,7 @@ config:
   css: style.css
   out:
     html: index.html
-    pdf: cv.pdf
+    pdf: cv-es.pdf
   lang: es
 
 info:
@@ -13,7 +13,7 @@ info:
 contact:
   phone: +549-351-5164006
   email: rmarku@gmail.com
-  website: rmarku.github.io
+  website: https://www.marku.me
   profiles:
     - network: linkedin
       url: martinmarcucci
@@ -21,7 +21,7 @@ contact:
       url: rmarku
 summary:
   description:
-    'Me encanta la tecnología y aprender sobre ella. Trato de estar constantemente actualizado
+    'Soy un apasionado de la tecnología y de aprender sobre ella. Trato de estar constantemente actualizado
     sobre los últimos avances del area.
 
     Habiendo estudiado Ingeniería en computación, me interesa el desarrollo de hardware y software,
@@ -29,10 +29,10 @@ summary:
     También disfruto programando y usando software que haga la vida mas simple y facil. Considero
     importante la performance y el buen uso de los recursos de hardware, por eso me gustan los lenguajes de bajo nivel
     como C y C++.
-    Me encanta enseñar a programar, diseñar hardware haciendo énfasis en buenas prácticas y patrones.'
+    Me encanta enseñar a programar y a diseñar hardware haciendo énfasis en buenas prácticas y patrones.'
 
 #  highlights:
-#    - ""
+#   - ""
 
 experiences:
   - organization: 'Universidad Católica de Córdoba'
@@ -199,7 +199,7 @@ skills:
         level: 90
       - name: Javascript
         level: 90
-      - name: HTML/CSS/SASS/LESS
+      - name: HTML/CSS/SASS
         level: 80
       - name: Shell Scripting
         level: 80
@@ -269,6 +269,18 @@ educations:
   - degree: Data Science Career
     university: Acamica
     period: Ene. 2020 - Jul.  2020
+
+  - degree: Advanced React and GraphQL
+    university: Wes Bos Course
+    detail: 16 horas online dictadas por Wes Bos https://advancedreact.com/
+
+  - degree: React for Beginers
+    university: Wes Bos Course
+    detail: 5 horas online dictadas por Wes Bos https://reactforbeginners.com/
+
+  - degree: Learn Node
+    university: Wes Bos Course
+    detail: 10 horas online dictadas por Wes Bos https://learnnode.com/
 
   - degree: Ingeniería en Computación
     university: Universidad Católica de Córdoba
