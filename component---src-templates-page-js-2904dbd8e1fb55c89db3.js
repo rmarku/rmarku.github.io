@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[10],{sweJ:function(n,e,t){"use strict";t.r(e),t.d(e,"query",(function(){return d}));t("q1tI");var u=t("A2+M"),c=(t("iYuL"),t("Bl7J")),r=t("qKvR"),d="2679637139";e.default=function(n){return Object(r.c)(c.a,null,Object(r.c)(u.MDXRenderer,null,n.data.mdx.body))}}}]);
+//# sourceMappingURL=component---src-templates-page-js-2904dbd8e1fb55c89db3.js.map
