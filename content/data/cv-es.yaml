@@ -14,11 +14,8 @@ contact:
   phone: +549-351-5164006
   email: rmarku@gmail.com
   website: https://www.marku.me
-  profiles:
-    - network: linkedin
-      url: martinmarcucci
-    - network: github
-      url: rmarku
+  linkedin: martinmarcucci
+  github: rmarku
 summary:
   description:
     'Soy un apasionado de la tecnología y de aprender sobre ella. Trato de estar constantemente actualizado
@@ -38,6 +35,7 @@ experiences:
   - organization: 'Universidad Católica de Córdoba'
     position: 'Profesor'
     period: '2016 - actualidad'
+    
 
   - organization: ''
     position: 'Actividad Profesional Independiente'
@@ -76,7 +74,7 @@ experiences:
       - STM32 uC
       - Kicad
       - Embedded C
-      -
+
   - organization: 'Instituto Universitario Aeronáutico'
     position: Teacher
     period: 2016 - actualidad

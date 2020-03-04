@@ -14,11 +14,8 @@ contact:
   phone: +549-351-5164006
   email: rmarku@gmail.com
   website: https://www.marku.me
-  profiles:
-    - network: linkedin
-      url: martinmarcucci
-    - network: github
-      url: rmarku
+  linkedin: martinmarcucci
+  github: rmarku
 summary:
   description:
     "I am passionate about technology and learning about it. I try to
