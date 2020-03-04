@@ -1,8 +1,7 @@
+const siteMetadata = require('./src/siteMetadata')
+
 module.exports = {
-    siteMetadata: {
-        title: 'Entre transistores y bytes',
-        author: 'Marcucci Ricardo Martín'
-    },
+    siteMetadata,
     plugins: [
         {
             resolve: 'gatsby-theme-mdx-deck',
@@ -77,6 +76,19 @@ module.exports = {
             options: {
                 path: `${__dirname}/content/assets`,
                 name: 'assets',
+            },
+        },
+        {
+            resolve: `gatsby-plugin-intl`,
+            options: {
+                // language JSON resource path
+                path: `${__dirname}/src/intl`,
+                // supported language
+                languages: [`en`, `es`],
+                // language file path
+                defaultLanguage: `es`,
+                // option to redirect to `/es` when connecting `/`
+                redirect: false,
             },
         },
     ]

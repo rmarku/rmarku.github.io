@@ -73,7 +73,7 @@ root@OpenWrt:/$ dmesg|grep -e sd.
 
 Acá se puede ver que tengo 2 dispositivos, con dos particiones cada uno. En lo particular utilice un HDD USB y un pendrive de 8Gb. En el pendrive voy a tener el root del OpenWRT y en el disco, todos los archivos de las web, la base de datos, los torrent, y archivos que comparta como servidor de archivos.
 
-Es conveniente también agregar una partición SWAP en el HDD, no recomiendo hacerlo en el pendrive ya que se rompería muy rápido. La partición SWAP ayudara al router cuando este con poca memoria. En mi caso tiene 128Mb de ram, y Transmission sabe consumir entre 30Mb y 75Mb segun la cantidad de torrents que tenga cargados.
+Es conveniente también agregar una partición SWAP en el HDD, no recomiendo hacerlo en el pendrive ya que se rompería muy rápido. La partición SWAP ayudara al router cuando este con poca memoria. En mi caso tiene 128Mb de ram, y Transmission sabe consumir entre 30Mb y 75Mb según la cantidad de torrents que tenga cargados.
 
 Bueno, a lo nuestro. Ahora montamos nuestro dispositivo (previamente particionado en Ext4, 3 o 2)... si no se monta, hay que reiniciar para que cargue los módulos USB y detecte el pendrive.
 
@@ -156,7 +156,7 @@ tmpfs                   512.0K         0    512.0K   0% /dev
 
 Herramientas de Router
 
-Lo siguiente es instalar herramientas necesarias para poder trabajar comodos con nuestro router. OpenWRT utiliza un sistema web llamado Luci, así que lo instalaremos para poder realizar las configuraciones a través de nuestro navegador
+Lo siguiente es instalar herramientas necesarias para poder trabajar cómodos con nuestro router. OpenWRT utiliza un sistema web llamado Luci, así que lo instalaremos para poder realizar las configuraciones a través de nuestro navegador
 
 ```shell-session
 root@OpenWrt:/$ opkg update
@@ -167,4 +167,4 @@ root@OpenWrt:/$ /etc/init.d/uhttpd enable
 
 Listo, ahora podemos entrar a nuestro router con la url http://192.168.1.1/
 
-Si encuentras algún error, si piensas que algo se puede mejorar o simplemente te servió por favor deja tu comentario. Gracias.
+Si encuentras algún error, si piensas que algo se puede mejorar o simplemente te sirvió por favor deja tu comentario. Gracias.

@@ -12,4 +12,9 @@
   ul {
     page-break-before: avoid;
   }
+
+  .no-print,
+  .no-print * {
+    display: none !important;
+  }
 }

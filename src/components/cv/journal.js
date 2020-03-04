@@ -1,17 +1,18 @@
 import React from 'react'
+import { FormattedMessage } from "gatsby-plugin-intl"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGraduationCap } from '@fortawesome/free-solid-svg-icons'
+import { faGraduationCap, faGlobe } from '@fortawesome/free-solid-svg-icons'
 
 
 
 const Journal = (props) => {
     return (
         <>
-            <h2><FontAwesomeIcon icon={faGraduationCap} /> Journals</h2>
+            <h2><FontAwesomeIcon icon={faGraduationCap} /> <FormattedMessage id="journals" /></h2>
 
             <ul>
-                {props.journals.map((journal) =>
-                    <li>
+                {props.journals.map((journal,i ) =>
+                    <li key={i}>
                         <b>"{journal.title}"</b>, {journal.authors}
                         - <i>{journal.journal}</i> - ({journal.date})
 
@@ -20,7 +21,7 @@ const Journal = (props) => {
                          ?
                             <>
                                 <br />
-                                <i class="fa fa-globe"></i> <a href="{{ journal.website }}">{journal.website}</a>
+                                <FontAwesomeIcon icon={faGlobe} /> <a href="{{ journal.website }}">{journal.website}</a>
                             </>
                             : ''}
                     </li>

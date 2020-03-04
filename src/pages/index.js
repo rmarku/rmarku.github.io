@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, graphql, useStaticQuery } from 'gatsby'
+import { useIntl } from "gatsby-plugin-intl"
 import moment from "moment"
 import 'moment/locale/es'
 
@@ -22,28 +23,48 @@ const BlogPage = () => {
                     fields {
                         slug
                         type
+                        lang
                     }
                 }
             }
         }
     }
     `)
-    moment.locale('es')
+    const intl = useIntl();
+    const { locale, defaultLocale } = intl;
+    moment.locale(locale)
+
+    // Filtro por lenguaje
+
+    const slugs = new Set();
+    for (const {node} of data.allMdx.edges)
+        slugs.add(node.fields.slug);
+
+
+    const nodes = [];
+    for (const sl of slugs) {
+        const { node } =
+            data.allMdx.edges.find(({ node: { fields: { lang, slug } } }) => slug === sl && lang === locale) ||
+            data.allMdx.edges.find(({ node: { fields: { lang, slug } } }) => slug === sl && lang === defaultLocale);
+
+        if (node)
+            nodes.push(node);
+    }
 
     return (
         <Layout>
             <main className={blogStyles.blog}>
                 <h1>Blog</h1>
-                {data.allMdx.edges.map((edge) => {
+                {nodes.map((node) => {
                     return (
-                        <article>
-                            <Link to={`${edge.node.fields.slug}`}>
-                                <h2>{edge.node.frontmatter.title}</h2>
-                                <time datetime={moment.unix(edge.node.frontmatter.date).format('YYYY-MM-DD')}>{
-                                    moment.unix(edge.node.frontmatter.date).format('MMMM D, YYYY')
+                        <article key={node.fields.slug}>
+                            <Link to={node.fields.slug}>
+                                <h2>{node.frontmatter.title}</h2>
+                                <time dateTime={moment.unix(node.frontmatter.date).format('YYYY-MM-DD')}>{
+                                    moment.unix(node.frontmatter.date).format('MMMM D, YYYY')
                                 }</time><br />
 
-                                <description>{edge.node.frontmatter.description}</description>
+                                <p>{node.frontmatter.description}</p>
                             </Link>
                         </article>
                     )

@@ -41,4 +41,4 @@ root@OpenWrt:/$ /etc/init.d/nfsd start
 
 La instalación de samba esta bastante mas pulida, tiene integración con Luci, por lo que podemos compartir carpetas desde la interfaz WEB, para instalarla, debemos instalar el paquete **luci-app-samba** y listo. Ahora desde la interfaz web, podemos entrar y en la sección Services -> Network Shares podemos compartir carpetas
 
-Si encuentras algún error, si piensas que algo se puede mejorar o simplemente te servió por favor deja tu comentario. Gracias.
+Si encuentras algún error, si piensas que algo se puede mejorar o simplemente te sirvió por favor deja tu comentario. Gracias.

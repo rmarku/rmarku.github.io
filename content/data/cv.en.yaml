@@ -1,25 +1,5 @@
-config:
-  template: template.html
-  css: style.css
-  out:
-    html: index.html
-    pdf: cv-en.pdf
-  lang: en
-
-info:
-  name: Ricardo Martín Marcucci
-  picture: img/photo.jpg
-  titles: Computer Engineer
-contact:
-  phone: +549-351-5164006
-  email: rmarku@gmail.com
-  website: https://www.marku.me
-  linkedin: martinmarcucci
-  github: rmarku
-  skype: martin.marcucci
-summary:
-  description:
-    "I am passionate about technology and learning about it. I try to
+lang: en
+summary: "I am passionate about technology and learning about it. I try to
     be constantly updated with the latest advances the field.
     I am a responsible and self-motivated person, passionate for everything I do.
     Having studied Computer Engineering, I am interested in hardware and software development,
@@ -29,10 +9,6 @@ summary:
     performance and good use of hardware resources very important, thats why
     I like C and C++ programming languages.
     I love teaching about software and hardware design, good practices and patterns."
-
-
-#  highlights:
-#    - ""
 
 experiences:
   - organization: Universidad Católica de Córdoba
@@ -182,83 +158,6 @@ teaching:
       details: "For Telecommunication Engineering. **C** pointers, memory management, files and embedded programming"
 
 
-skills:
-  - type: Programing
-    list:
-      - name: C
-        level: 100
-      - name: C++
-        level: 90
-      - name: Javascript
-        level: 90
-      - name: HTML/CSS/SASS
-        level: 80
-      - name: Shell Scripting
-        level: 80
-      - name: Python
-        level: 50
-      - name: PHP
-        level: 50
-      - name: Java
-        level: 30
-
-  - type: Technologies/Tools
-    list:
-      - name: NodeJS
-        level: 90
-      - name: Docker
-        level: 40
-      - name: React
-        level: 50
-      - name: Microcontrollers
-        level: 100
-      - name: Git
-        level: 90
-      - name: Embeded Software
-        level: 90
-      - name: IOT
-        level: 80
-      - name: CI
-        level: 30
-      - name: GraphQL
-        level: 20
-
-  - type: Data Bases
-    list:
-      - name: MySQL
-        level: 40
-      - name: SQL
-        level: 50
-      - name: MongoDB
-        level: 25
-
-  - type: Operating Systems
-    list:
-      - name: Linux
-        level: 100
-      - name: Windows
-        level: 85
-      - name: FreeRTOS
-        level: 90
-
-  - type: Others
-    list:
-      - name: Team Work
-        level: 100
-      - name: Agile
-        level: 90
-      - name: DevOps
-        level: 40
-      - name: Testing
-        level: 40
-
-
-languages:
-  - language: Spanish
-    fluency: Native speaker
-  - language: English
-    fluency: Advanced writen and spoken
-
 educations:
   - degree: Data Science Career
     university: Acamica
@@ -302,41 +201,3 @@ journals:
     date: Septiember 2014
     ISSN: 2362-5139
     website: http://43jaiio.sadio.org.ar/proceedings/STS/781-Chiodi%20et%20al.pdf
-
-interests:
-  - name: Swiming
-  - name: 3D Printing
-  - name: Cycling
-  - name: Home Automation
-
-i18n:
-  career_summary:
-    es: Trayectoria profesional
-    en: Career Summary
-  work_exp:
-    es: Experiencia Laboral
-    en: Work Experience
-  details:
-    es: 'Detalles:'
-    en: 'Details:'
-  used_tech:
-    es: 'Tecnologías utilizadas:'
-    en: 'Used Technologies: '
-  education:
-    es: Educación
-    en: Education
-  teaching:
-    es: Enseñanza
-    en: Teaching
-  journals:
-    es: Publicaciones
-    en: Journals
-  skills:
-    es: Habilidades
-    en: Skills
-  languages:
-    es: Idiomas
-    en: Languages
-  interests:
-    es: Intereses
-    en: Interests
