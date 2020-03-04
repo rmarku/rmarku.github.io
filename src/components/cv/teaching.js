@@ -5,29 +5,37 @@ const ReactMarkdown = require('react-markdown')
 
 
 const Teaching = (props) => {
+    console.log(props.teaching)
     return (
         <>
             <h2><FontAwesomeIcon icon={faGraduationCap} /> Teaching</h2>
+            <div className="universidad">
+                {props.teaching.map((univ) =>
+                    <>
+                        <h3>{univ.university}</h3>
 
-            <ul>
-                {props.teaching.map((teach) =>
-                    <li class="item-list-s">
-                        {teach.subject}
-                        <div class="float-right font-weight-bold">{teach.university}</div>
-                        <br />
-                        <small>{teach.position}</small> - <span
-                            class="resume-time">{teach.period} </span>
+                        <ul className="two-cols">
 
-                        {(teach.details) ?
-                            <>
-                                <h5>Details</h5>
-                                <ReactMarkdown source={teach.detail} />
-                            </>
-                            : ''}
+                            {univ.subjects.map((teach) =>
+                                <li className="item-list-s">
+                                    <strong>{teach.subject}</strong>
+                                    <br />
+                                    <small>{teach.position}</small> - <span
+                                        className="resume-time">{teach.period} </span>
 
-                    </li>
+                                    {(teach.details) ?
+                                        <>
+                                            <h5>Details</h5>
+                                            <ReactMarkdown source={teach.details} />
+                                        </>
+                                        : ''}
+
+                                </li>
+                            )}
+                        </ul>
+                    </>
                 )}
-            </ul>
+            </div>
         </>
     )
 }

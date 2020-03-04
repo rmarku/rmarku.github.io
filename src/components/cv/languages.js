@@ -6,8 +6,10 @@ import { faLanguage, faChevronCircleRight } from '@fortawesome/free-solid-svg-ic
 
 const Lang = (props) => {
     return (
-        <>
-            <h2><FontAwesomeIcon icon={faLanguage} /> Languages</h2>
+        <article>
+            <header>
+                <h2><FontAwesomeIcon icon={faLanguage} /> Languages</h2>
+            </header>
 
             <ul>
                 {props.langs.map((language) =>
@@ -22,7 +24,7 @@ const Lang = (props) => {
                     </>
                 )}
             </ul>
-        </>
+        </article>
     )
 }
 

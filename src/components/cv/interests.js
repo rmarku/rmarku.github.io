@@ -1,6 +1,6 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLightbulb, faChevronCircleRight  } from '@fortawesome/free-solid-svg-icons'
+import { faLightbulb, faChevronCircleRight } from '@fortawesome/free-solid-svg-icons'
 //const ReactMarkdown = require('react-markdown')
 
 
@@ -9,18 +9,20 @@ import { faLightbulb, faChevronCircleRight  } from '@fortawesome/free-solid-svg-
 
 
 const Interests = (props) => {
-    
+
     return (
-        <>
-            <h2><FontAwesomeIcon icon={faLightbulb} /> Interests</h2>
+        <article>
+            <header>
+                <h2><FontAwesomeIcon icon={faLightbulb} /> Interests</h2>
+            </header>
             <ul>
                 {props.interests.map((interest) =>
                     <li class="list-unstyled">
-                        <FontAwesomeIcon icon={faChevronCircleRight} /> { interest.name }
+                        <FontAwesomeIcon icon={faChevronCircleRight} /> {interest.name}
                     </li>
                 )}
             </ul>
-        </>
+        </article>
     )
 }
 

@@ -16,6 +16,7 @@ contact:
   website: https://www.marku.me
   linkedin: martinmarcucci
   github: rmarku
+  skype: martin.marcucci
 summary:
   description:
     "I am passionate about technology and learning about it. I try to
@@ -92,6 +93,7 @@ experiences:
       - C
       - ASM
       - Genetic Algorithms
+
   - organization: CINECA
     position: 'Full Stack Developer'
     period: Jun. 2014 - Jan. 2016
@@ -101,6 +103,7 @@ experiences:
       - HTML/JS/CSS
       - AngularJS
       - SQL
+
   - organization: Omikron Ingeniería
     position: 'Full Stack Developer and Embedded Software Developer'
     period: 2008 - 2013
@@ -112,76 +115,75 @@ experiences:
       - C / C++
 
 teaching:
-  - university: Universidad Católica de Córdoba
-    subject: Programación 3
-    position: 'Assistant Professor'
-    period: 2016 - present
-    details: 'Students learn algorithms and data structures in general. They use **C++** to program and use the data structures'
+  - university: Universidad Católica de Córdoba 
+    subjects:
+    - subject: Programación 3
+      position: 'Assistant Professor'
+      period: 2016 - present
+      details: 'Students learn algorithms and data structures in general. They use **C++** to program and use the data structures'
 
-  - university: Universidad Católica de Córdoba
-    subject: Laboratorio de Computación I
-    position: 'Professor'
-    period: 2016 - present
-    details: "Students learn the hardware parts of the PC. Then they design in
-     **KiCad** the PCB of a Attiny85 board and program it in **C**"
+    - subject: 'Organización y Arquitectura de Computadoras'
+      position: 'Assistant Professor'
+      period: 2020 - present
+      details: "Students learn advanced techniques to speed up microprocessors like Cache, Pipe-lining, Hazards fixes, etc."
 
-  - university: Universidad Católica de Córdoba
-    subject: Laboratorio de Computación II
-    position: 'Professor'
-    period: 2016 - present
-    details: "Students learn **HTML/CSS/JS** to build a WebApp with canvas animation.
-     They learn and use **Git** for the development process and deployment of the WebApp"
+    - subject: Laboratorio de Computación I
+      position: 'Professor'
+      period: 2016 - present
+      details: "Students learn the hardware parts of the PC. Then they design in
+      **KiCad** the PCB of a Attiny85 board and program it in **C**"
 
-  - university: Universidad Católica de Córdoba
-    subject: Arquitectura de Software
-    position: 'Professor'
-    period: 2018 - present
-    details: "* Students Learn about parallelism and concurrency, they make  concurrent software in **C++**.
+    - subject: Laboratorio de Computación II
+      position: 'Professor'
+      period: 2016 - present
+      details: "Students learn **HTML/CSS/JS** to build a WebApp with canvas animation.
+      They learn and use **Git** for the development process and deployment of the WebApp"
 
-    * Students learn about Design Patterns and build a web platform with a MVC framework in **Node.js**
-    "
+    - subject: Arquitectura de Software
+      position: 'Professor'
+      period: 2018 - present
+      details: "* Students Learn about parallelism and concurrency, they make  concurrent software in **C++**.
 
-  - university: Universidad Católica de Córdoba
-    subject: Seminario II (IOT)
-    position: 'Assistant Professor'
-    period: 2018 - 2018
-    details: "Students learn about IOT technology and use ESP8266, **Node.js** and MongoDB to build a complete IOT system"
+      * Students learn about Design Patterns and build a web platform with a MVC framework in **Node.js**
+      "
 
-  - university: Instituto Universitario Aeronáutico
-    subject: Informática III
-    position: 'Assistant Professor'
-    period: 2016 - present
-    details: 'Students learn algorithms and data structures in general. They use **Java** to develop and use the
-      data structures'
+    - subject: Seminario II (IOT)
+      position: 'Assistant Professor'
+      period: 2018 - 2018
+      details: "Students learn about IOT technology and use ESP8266, **Node.js** and MongoDB to build a complete IOT system"
 
-  - university: Instituto Universitario Aeronáutico
-    subject: Arquitectura del Computador II
-    position: 'Assistant Professor'
-    period: 2016 - present
-    details: "Students learn advanced techniques to speed up microprocessors like Cache, Pipe-lining, Hazards fixes, etc."
+    - subject: Diplomatura en Sistemas Embebidos
+      position: 'Professor'
+      period: 2014 - 2016
+      details: "Design flow, programming techniques and patterns for embedded software development in **c**"
 
   - university: Instituto Universitario Aeronáutico
-    subject: Informática II
-    position: 'Professor'
-    period: 2018 - present
-    details: "For Informatics Engineering. **C++** pointers, memory management, data structures, object modeling
-    and graphic programming."
+    subjects:
+    - subject: Informática III
+      position: 'Assistant Professor'
+      period: 2016 - present
+      details: 'Students learn algorithms and data structures in general. They use **Java** to develop and use the
+        data structures'
 
-  - university: Instituto Universitario Aeronáutico
-    subject: Informática II
-    position: 'Assistant Professor'
-    period: 2018 - present
-    details: "For Telecommunication Engineering. **C** pointers, memory management, files and embedded programming"
+    - subject: Arquitectura del Computador II
+      position: 'Assistant Professor'
+      period: 2016 - present
+      details: "Students learn advanced techniques to speed up microprocessors like Cache, Pipe-lining, Hazards fixes, etc."
 
-  - university: Universidad Católica de Córdoba
-    subject: Diplomatura en Sistemas Embebidos
-    position: 'Professor'
-    period: 2014 - 2016
-    details: "Design flow, programming techniques and patterns for embedded software development in **c**"
+    - subject: Informática II
+      position: 'Professor'
+      period: 2018 - present
+      details: "For Informatics Engineering. **C++** pointers, memory management, data structures, object modeling
+      and graphic programming."
+
+    - subject: Informática II
+      position: 'Assistant Professor'
+      period: 2018 - present
+      details: "For Telecommunication Engineering. **C** pointers, memory management, files and embedded programming"
 
 
 skills:
-  - type: Languages
+  - type: Programing
     list:
       - name: C
         level: 100
@@ -205,9 +207,9 @@ skills:
       - name: NodeJS
         level: 90
       - name: Docker
-        level: 70
+        level: 40
       - name: React
-        level: 75
+        level: 50
       - name: Microcontrollers
         level: 100
       - name: Git
@@ -217,27 +219,27 @@ skills:
       - name: IOT
         level: 80
       - name: CI
-        level: 60
+        level: 30
       - name: GraphQL
-        level: 40
+        level: 20
 
   - type: Data Bases
     list:
       - name: MySQL
-        level: 60
+        level: 40
       - name: SQL
-        level: 60
+        level: 50
       - name: MongoDB
-        level: 30
+        level: 25
 
   - type: Operating Systems
     list:
       - name: Linux
         level: 100
       - name: Windows
-        level: 90
+        level: 85
       - name: FreeRTOS
-        level: 100
+        level: 90
 
   - type: Others
     list:
@@ -246,16 +248,16 @@ skills:
       - name: Agile
         level: 90
       - name: DevOps
-        level: 70
+        level: 40
       - name: Testing
-        level: 70
+        level: 40
 
 
 languages:
   - language: Spanish
     fluency: Native speaker
   - language: English
-    fluency: Advanced
+    fluency: Advanced writen and spoken
 
 educations:
   - degree: Data Science Career

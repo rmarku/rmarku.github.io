@@ -2,7 +2,7 @@ const path = require('path')
 
 module.exports.onCreateNode = ({ node, actions }) => {
     const { createNodeField } = actions
-
+    console.log(node.internal.type)
     if (node.internal.type === 'Mdx') {
         let slug = path.basename(node.fileAbsolutePath, '.md')
         let type = 'static'

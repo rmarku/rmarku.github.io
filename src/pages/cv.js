@@ -1,7 +1,7 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope, faPhone, faGlobe, faUser } from '@fortawesome/free-solid-svg-icons'
-import { faLinkedinIn, faGithub } from '@fortawesome/free-brands-svg-icons'
+import { faLinkedinIn, faGithub, faSkype } from '@fortawesome/free-brands-svg-icons'
 
 import { Container, Row, Col, Figure } from 'react-bootstrap';
 import foto from "../../content/assets/img/photo.jpg"
@@ -9,6 +9,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { graphql, useStaticQuery } from 'gatsby'
 
 import   '../components/cv/style.css'
+import   '../components/cv/print.scss'
+
 import WorkExp from '../components/cv/workexp'
 import Skills from '../components/cv/skills';
 import Lang from '../components/cv/languages';
@@ -23,69 +25,75 @@ const CV = () => {
     // Get document, or throw exception on error
     const { dataYaml } = useStaticQuery(graphql`
     query MyQuery {
-        dataYaml {
-          id
-          info {
+      dataYaml {
+        id
+        info {
+          name
+          picture
+          titles
+        }
+        educations {
+          degree
+          detail
+          period
+          university
+        }
+        experiences {
+          detail
+          organization
+          period
+          position
+          technology
+        }
+        interests {
+          name
+        }
+        summary {
+          description
+        }
+        skills {
+          type
+          list {
+            level
             name
-            picture
-            titles
           }
-          educations {
-            degree
-            detail
-            period
-            university
-          }
-          experiences {
-            detail
-            organization
-            period
-            position
-          }
-          interests {
-            name
-          }
-          teaching {
+        }
+        languages {
+          fluency
+          language
+        }
+        journals {
+          ISSN
+          authors
+          date
+          journal
+          title
+          website
+        }
+        contact {
+          email
+          phone
+          website
+          github
+          linkedin
+          skype
+        }
+        teaching {
+          subjects {
             details
             period
             position
             subject
-            university
           }
-          summary {
-            description
-          }
-          skills {
-            type
-            list {
-              level
-              name
-            }
-          }
-          languages {
-            fluency
-            language
-          }
-          journals {
-            ISSN
-            authors
-            date
-            journal
-            title
-            website
-          }
-          contact {
-            email
-            phone
-            website
-            github
-            linkedin
-          }
+          university
         }
       }
-      
+    }    
     `)
-    console.log(dataYaml)
+    for(let group of dataYaml.skills){
+      group.list.sort((a,b) => b.level - a.level);
+    } 
+
     return (
         <Container>
             <Row>
@@ -100,7 +108,8 @@ const CV = () => {
                     <FontAwesomeIcon icon={faPhone} /> {dataYaml.contact.phone}<br />
                     <FontAwesomeIcon icon={faGlobe} /> <a href={dataYaml.contact.website}>{dataYaml.contact.website}</a><br />
                     <FontAwesomeIcon icon={faLinkedinIn} /> <a href={"https://www.linkedin.com/in/" + dataYaml.contact.linkedin}>{dataYaml.contact.linkedin}</a><br />
-                    <FontAwesomeIcon icon={faGithub} /> <a href={"https://www.github.com/" + dataYaml.contact.github}>{dataYaml.contact.github}</a>
+                    <FontAwesomeIcon icon={faGithub} /> <a href={"https://www.github.com/" + dataYaml.contact.github}>{dataYaml.contact.github}</a><br/>
+                    <FontAwesomeIcon icon={faSkype} /> <a href={"skype:" + dataYaml.contact.skype}>{dataYaml.contact.skype}</a>
 
                 </Col>
             </Row>
@@ -115,8 +124,8 @@ const CV = () => {
                     <WorkExp exp={dataYaml.experiences} />
                 </Col>
                 <Col>
-                    <Skills skills={dataYaml.skills} />
                     <Lang langs={dataYaml.languages} />
+                    <Skills skills={dataYaml.skills} />
                     <Interests interests={dataYaml.interests} />
                 </Col>
             </Row>

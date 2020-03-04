@@ -16,6 +16,7 @@ contact:
   website: https://www.marku.me
   linkedin: martinmarcucci
   github: rmarku
+  skype: martin.marcucci
 summary:
   description:
     'Soy un apasionado de la tecnología y de aprender sobre ella. Trato de estar constantemente actualizado
@@ -116,76 +117,78 @@ experiences:
       - C / C++
 
 teaching:
-  - university: 'Universidad Católica de Córdoba'
-    subject: 'Programación 3'
-    position: 'Jefe de Trabajos Prácticos'
-    period: 2016 - actualidad
-    details: "Los estudiantes aprenden a construir y utilizar Estructuras de Datos en **C++** "
+  - university: 'Universidad Católica de Córdoba' 
+    subjects:
+    - subject: 'Programación 3'
+      position: 'Jefe de Trabajos Prácticos'
+      period: 2016 - actualidad
+      details: "Los estudiantes aprenden a construir y utilizar Estructuras de Datos en **C++** "
 
-  - university: 'Universidad Católica de Córdoba'
-    subject: 'Laboratorio de Computación I'
-    position: 'Titular'
-    period: 2016 - actualidad
-    details: "Los estudiantes aprenden sobre el Hardware de las Computadoras. Luego diseñan y construyen una placa con un
-    microcontrolador en **KiCad** y la programan en **C**"
+    - subject: 'Organización y Arquitectura de Computadoras'
+      position: 'Jefe de Trabajos Prácticos'
+      period: 2020 - actualidad
+      details: "Los estudiantes aprenden sobre el funcionamiento del microprocesador y técnicas avanzadas para acelerar
+      su funcionamiento, como cache, pipelining, harzards, etc. Se hacen desarrollos sobre la Raspberry Pi"
 
-  - university: 'Universidad Católica de Córdoba'
-    subject: 'Laboratorio de Computación II'
-    position: 'Titular'
-    period: 2016 - actualidad
-    details: "Los estudiantes aprenden **HTML/CSS/JS** para construir una aplicación web con manejo de canvas para
-    animaciones. Los estudiantes aprenden sobre herramientas para el desarrollo, particularmente **Git** y lo
-    utilizan para todo el desarrollo del proyecto"
+    - subject: 'Laboratorio de Computación I'
+      position: 'Titular'
+      period: 2016 - actualidad
+      details: "Los estudiantes aprenden sobre el Hardware de las Computadoras. Luego diseñan y construyen una placa con un
+      microcontrolador en **KiCad** y la programan en **C**"
 
-  - university: 'Universidad Católica de Córdoba'
-    subject: 'Arquitectura de Software I'
-    position: 'Titular'
-    period: 2018 - actualidad
-    details: "* Los estudiantes aprenden sobre paralelismo y concurrencia en **C++**.
+    - subject: 'Laboratorio de Computación II'
+      position: 'Titular'
+      period: 2016 - actualidad
+      details: "Los estudiantes aprenden **HTML/CSS/JS** para construir una aplicación web con manejo de canvas para
+      animaciones. Los estudiantes aprenden sobre herramientas para el desarrollo, particularmente **Git** y lo
+      utilizan para todo el desarrollo del proyecto"
 
-    * Los estudiantes aprenden y desarrollan una aplicación web con backend **Node.js** utilizando frameworks MVC y OMR
-    "
+    - subject: 'Arquitectura de Software I'
+      position: 'Titular'
+      period: 2018 - actualidad
+      details: "* Los estudiantes aprenden sobre paralelismo y concurrencia en **C++**.
 
-  - university: 'Universidad Católica de Córdoba'
-    subject: 'Seminario II (IOT)'
-    position: 'Jefe de Trabajos Prácticos'
-    period: 2018 - 2018
-    details: "Los estudiantes aprenden las tecnologías que dan forma al IOT. Luego utilizan un ESP8266, **Node.js** y
-    **MongoDB** para desarrollar un sistema IOT"
+      * Los estudiantes aprenden y desarrollan una aplicación web con backend **Node.js** utilizando frameworks MVC y OMR
+      "
 
-  - university: 'Instituto Universitario Aeronáutico'
-    subject: 'Informática III'
-    position: 'Jefe de Trabajos Prácticos'
-    period: 2016 - actualidad
-    details: "Los estudiantes aprenden a construir y utilizar Estructuras de Datos en **JAVA** "
+    - subject: 'Seminario II (IOT)'
+      position: 'Jefe de Trabajos Prácticos'
+      period: 2018 - 2018
+      details: "Los estudiantes aprenden las tecnologías que dan forma al IOT. Luego utilizan un ESP8266, **Node.js** y
+      **MongoDB** para desarrollar un sistema IOT"
 
-  - university: 'Instituto Universitario Aeronáutico'
-    subject: 'Arquitectura del Computador II'
-    position: 'Jefe de Trabajos Prácticos'
-    period: 2016 - present
-    details: "Los estudiantes aprenden sobre el funcionamiento del microprocesador y técnicas avanzadas para acelerar
-    su funcionamiento, como cache, pipelining, harzards, etc. Se hace desarrollos sobre la Raspberry Pi"
+    - subject: 'Diplomatura en Sistemas Embebidos'
+      position: 'Titular'
+      period: 2014 - 2016
+      details: "Los alumnos aprenden sobre el flujo de diseño, herramientas y técnicas utilizadas para programar sistemas
+      embebidos en **c**. Se utilizó la plataforma STM32"
 
   - university: 'Instituto Universitario Aeronáutico'
-    subject: 'Informática II'
-    position: 'Titular'
-    period: 2018 - present
-    details: "Para Ing. Informática. Los estudiantes aprenden conceptos de punteros, uso de memoria, estructuras de datos
-    simples en **C++**. Realizan un trabajo programando con librerías gráficas 2D y utilizando los conceptos vistos."
+    subjects:
+    - subject: 'Informática III'
+      position: 'Jefe de Trabajos Prácticos'
+      period: 2016 - actualidad
+      details: "Los estudiantes aprenden a construir y utilizar Estructuras de Datos en **JAVA** "
 
-  - university: 'Instituto Universitario Aeronáutico'
-    subject: 'Informática II'
-    position: 'Jefe de Trabajos Prácticos'
-    period: 2018 - present
-    details: "Para Ing. en Telecomunicaciones. Los estudiantes aprenden conceptos de punteros, uso de memoria, estructuras,
-     archivos en **C**. Realizan un trabajo programando una Raspberry Pi."
+    - subject: 'Arquitectura del Computador II'
+      position: 'Jefe de Trabajos Prácticos'
+      period: 2016 - present
+      details: "Los estudiantes aprenden sobre el funcionamiento del microprocesador y técnicas avanzadas para acelerar
+      su funcionamiento, como cache, pipelining, harzards, etc. Se hace desarrollos sobre la Raspberry Pi"
 
-  - university: 'Universidad Católica de Córdoba'
-    subject: 'Diplomatura en Sistemas Embebidos'
-    position: 'Titular'
-    period: 2014 - 2016
-    details: "Los alumnos aprenden sobre el flujo de diseño, herramientas y técnicas utilizadas para programar sistemas
-     embebidos en **c**. Se utilizó la plataforma STM32"
+    - subject: 'Informática II'
+      position: 'Titular'
+      period: 2018 - present
+      details: "Para Ing. Informática. Los estudiantes aprenden conceptos de punteros, uso de memoria, estructuras de datos
+      simples en **C++**. Realizan un trabajo programando con librerías gráficas 2D y utilizando los conceptos vistos."
+
+    - subject: 'Informática II'
+      position: 'Jefe de Trabajos Prácticos'
+      period: 2018 - present
+      details: "Para Ing. en Telecomunicaciones. Los estudiantes aprenden conceptos de punteros, uso de memoria, estructuras,
+      archivos en **C**. Realizan un trabajo programando una Raspberry Pi."
+
+
 
 
 skills:
@@ -213,9 +216,9 @@ skills:
       - name: NodeJS
         level: 90
       - name: Docker
-        level: 70
+        level: 40
       - name: React
-        level: 75
+        level: 50
       - name: Microcontrollers
         level: 100
       - name: Git
@@ -225,25 +228,27 @@ skills:
       - name: IOT
         level: 80
       - name: CI
-        level: 60
+        level: 30
       - name: GraphQL
-        level: 40
+        level: 20
 
   - type: 'Base de Datos'
     list:
+      - name: MySQL
+        level: 40
       - name: SQL
-        level: 60
+        level: 50
       - name: MongoDB
-        level: 30
+        level: 25
 
   - type: 'Sistemas Operativos'
     list:
       - name: Linux
         level: 100
       - name: Windows
-        level: 100
+        level: 85
       - name: FreeRTOS
-        level: 100
+        level: 90
 
   - type: 'Otros'
     list:
@@ -252,16 +257,16 @@ skills:
       - name: Agile
         level: 90
       - name: DevOps
-        level: 70
+        level: 40
       - name: Testing
-        level: 70
+        level: 40
 
 
 languages:
   - language: Español
     fluency: Native speaker
   - language: Ingles
-    fluency: Advanced
+    fluency: Avanzado escrito y oral
 
 educations:
   - degree: Data Science Career
