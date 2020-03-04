@@ -43,7 +43,6 @@ module.exports = {
             }
         },
         'gatsby-plugin-sharp',
-        `gatsby-plugin-feed-mdx`,
         {
             resolve: 'gatsby-plugin-mdx',
             options: {
