@@ -5,6 +5,8 @@ import {
   faPhone,
   faGlobe,
   faUser,
+  faMapMarker,
+  faCalendar,
 } from "@fortawesome/free-solid-svg-icons"
 import {
   faLinkedinIn,
@@ -16,7 +18,8 @@ import { Container, Row, Col, Figure } from "react-bootstrap"
 import foto from "../../content/assets/img/photo.jpg"
 import "bootstrap/dist/css/bootstrap.min.css"
 import { graphql, useStaticQuery } from "gatsby"
-import { useIntl } from "gatsby-plugin-intl"
+import { useIntl,FormattedMessage } from "gatsby-plugin-intl"
+import moment from "moment"
 
 import "../components/cv/style.css"
 import "../components/cv/print.scss"
@@ -50,6 +53,8 @@ const CV = () => {
               skype
               website
               email
+              location
+              birthday
             }
             picture
             skills {
@@ -120,6 +125,15 @@ const CV = () => {
     group.list.sort((a, b) => b.level - a.level)
   }
 
+  const birthday = moment
+    .unix(author.contact_info.birthday)
+    .format("DD/MM/YYYY")
+  const years = moment().diff(
+    moment.unix(author.contact_info.birthday),
+    "years",
+    false
+  )
+
   return (
     <Container>
       <Row>
@@ -129,37 +143,44 @@ const CV = () => {
         <Col xs="9">
           <SelectLanguage />
           <h1>{author.name}</h1>
-          <FontAwesomeIcon icon={faEnvelope} /> {author.contact_info.email}
-          <br />
-          <FontAwesomeIcon icon={faPhone} /> {author.contact_info.phone}
-          <br />
-          <FontAwesomeIcon icon={faGlobe} />{" "}
-          <a href={author.contact_info.website}>
-            {author.contact_info.website}
-          </a>
-          <br />
-          <FontAwesomeIcon icon={faLinkedinIn} />{" "}
-          <a
-            href={"https://www.linkedin.com/in/" + author.contact_info.linkedin}
-          >
-            {author.contact_info.linkedin}
-          </a>
-          <br />
-          <FontAwesomeIcon icon={faGithub} />{" "}
-          <a href={"https://www.github.com/" + author.contact_info.github}>
-            {author.contact_info.github}
-          </a>
-          <br />
-          <FontAwesomeIcon icon={faSkype} />{" "}
-          <a href={"skype:" + author.contact_info.skype}>
-            {author.contact_info.skype}
-          </a>
+          <div style={{ columnCount: 2 }}>
+            <FontAwesomeIcon icon={faEnvelope} /> {author.contact_info.email}
+            <br />
+            <FontAwesomeIcon icon={faPhone} /> {author.contact_info.phone}
+            <br />
+            <FontAwesomeIcon icon={faMapMarker} />{" "}
+            {author.contact_info.location}
+            <br />
+            <FontAwesomeIcon icon={faCalendar} /> {birthday} ({years} <FormattedMessage id='años'/>)
+            <br />
+            <a href={author.contact_info.website}>
+              <FontAwesomeIcon icon={faGlobe} /> {author.contact_info.website}
+            </a>
+            <br />
+            <a
+              href={
+                "https://www.linkedin.com/in/" + author.contact_info.linkedin
+              }
+            >
+              <FontAwesomeIcon icon={faLinkedinIn} />{" "}
+              {author.contact_info.linkedin}
+            </a>
+            <br />
+            <a href={"https://www.github.com/" + author.contact_info.github}>
+              <FontAwesomeIcon icon={faGithub} /> {author.contact_info.github}
+            </a>
+            <br />
+            <a href={"skype:" + author.contact_info.skype}>
+              <FontAwesomeIcon icon={faSkype} /> {author.contact_info.skype}
+            </a>
+          </div>
         </Col>
       </Row>
       <Row>
         <Col>
           <h2>
-            <FontAwesomeIcon icon={faUser} /> {intl.formatMessage({ id: "career_summary" })}
+            <FontAwesomeIcon icon={faUser} />
+            {intl.formatMessage({ id: "career_summary" })}
           </h2>
           <p>{node.summary}</p>
         </Col>

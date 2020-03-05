@@ -10,7 +10,9 @@ module.exports = {
             website: "https://www.marku.me",
             linkedin: "martinmarcucci",
             github: "rmarku",
-            skype: "martin.marcucci"
+            skype: "martin.marcucci",
+            location: "Córdoba, Argentina",
+            birthday: 530794800
         },
         skills: [
             {
