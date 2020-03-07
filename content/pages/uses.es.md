@@ -1,7 +1,7 @@
 ---
 title: "Uses"
 date: 1583243490
-description: "Descripción personal"
+description: "Conjunto de software y hardware que uso habitualmente."
 ---
 
 Conjunto de software y hardware que uso habitualmente.
@@ -29,3 +29,5 @@ Mi navegador preferido desde hace tiempo es **Firefox**, y siempre me he sentido
 🖥️ [**LG 23EA53**](https://www.lg.com/us/monitors/lg-23EA53V-P-led-monitor) Monitor 23" FullHD
 
 📱 [**Samsung S8**](https://www.samsung.com/ar/smartphones/galaxy-s8/)
+
+🎧 [**Skullcandy Crusher**](https://www.skullcandy.com/shop/headphones/bluetooth-headphones/crusher-wireless) best Bass ever.
