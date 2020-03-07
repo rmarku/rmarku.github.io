@@ -137,13 +137,13 @@ const CV = () => {
   return (
     <Container>
       <Row>
-        <Col xs="3">
+        <Col md="3" xs="4">
           <Figure.Image src={foto} width={200} thumbnail />
         </Col>
-        <Col xs="9">
+        <Col md="9" xs="8markdownmarkdown">
           <SelectLanguage />
           <h1>{author.name}</h1>
-          <div style={{ columnCount: 2 }}>
+          <div className='two-cols'>
             <FontAwesomeIcon icon={faEnvelope} /> {author.contact_info.email}
             <br />
             <FontAwesomeIcon icon={faPhone} /> {author.contact_info.phone}
@@ -186,7 +186,7 @@ const CV = () => {
         </Col>
       </Row>
       <Row>
-        <Col xs="8">
+        <Col md="8">
           <WorkExp exp={node.experiences} />
         </Col>
         <Col>

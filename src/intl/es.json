@@ -1,6 +1,9 @@
 {
   "en": "Inglés",
   "es": "Español",
+  "site-title": "MarkU Blog",
+  "site-subtitle": "Entre transistores y bytes",
+  "site-description": "Blog personal de diferentes proyectos y desarrollos que voy haciendo.",
   "Blog": "Blog",
   "Courses": "Cursos",
   "About": "Sobre mi",

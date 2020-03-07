@@ -140,3 +140,14 @@ h3 {
   break-inside: avoid-column;
   -webkit-column-break-inside: avoid; /* Chrome, Safari */
 }
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+
+  .two-cols {
+    column-count: 1;
+  }
+  h2, h3, h4{
+    text-align: center;
+  }
+}

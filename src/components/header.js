@@ -1,29 +1,23 @@
 import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
+// import { graphql, useStaticQuery } from "gatsby"
 import { useIntl, Link, FormattedMessage } from "gatsby-plugin-intl"
 
 import headerStyles from "./header.module.scss"
 import SelectLang from "./selectLanguage"
 
 const Header = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
   const intl = useIntl()
+  const {  messages } = intl
+  const title = messages["site-title"]
+  const subtitle = messages["site-subtitle"]
 
   return (
     <header className={headerStyles.header}>
     <SelectLang/>
+      <small style={{float: 'right',marginRight:'30px'}}>{subtitle}</small>
       <h1>
         <Link activeClassName={headerStyles.activeNavItem} to="/">
-          {data.site.siteMetadata.title}
+          {title}
         </Link>
       </h1>
       <nav>

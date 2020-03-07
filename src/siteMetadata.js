@@ -1,5 +1,6 @@
 module.exports = {
     title: 'Entre transistores y bytes',
+    description: 'Blog personal de diferentes proyectos y desarrollos que voy haciendo.',
     author: {
         name: 'Ricardo Martín Marcucci',
         picture: 'img/photo.jpg',
@@ -10,6 +11,7 @@ module.exports = {
             website: "https://www.marku.me",
             linkedin: "martinmarcucci",
             github: "rmarku",
+            twitter: "RMMarku",
             skype: "martin.marcucci",
             location: "Córdoba, Argentina",
             birthday: 530794800
