@@ -1,0 +1,97 @@
+import { useContext, useState } from "react";
+import Link from "next/link";
+import DarkModeToggle from "react-dark-mode-toggle";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faGithub,
+  faLinkedinIn,
+  faTwitter,
+} from "@fortawesome/free-brands-svg-icons";
+import { useRouter } from "next/navigation";
+import s from "./Layout.module.scss";
+import LangSelect from "./LangSelect";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { DarkContext } from "../lib/darkContext";
+
+const MenuLinks: React.FC = () => {
+  const router = useRouter();
+
+  const menuItems = [
+    { route: "/", text: "Blog" },
+    { route: "/blog/about", text: "Sobre Mi" },
+    { route: "/cv", text: "CV" },
+    { route: "/blog/uses", text: "Que uso" },
+  ];
+  return (
+    <ul>
+      {menuItems.map((item) => (
+        <li key={item.route}>
+          <Link
+            key={item.text}
+            href={item.route}
+            passHref
+            className={
+              router.asPath === item.route ? s.menu_selected : s.menu_unselected
+            }
+          >
+            {item.text}
+          </Link>
+        </li>
+      ))}
+    </ul>
+  );
+};
+interface LayoutI {
+  children?: React.ReactNode;
+}
+const Layout: React.FC<LayoutI> = ({ children }) => {
+  const { dark, toggleDark } = useContext(DarkContext);
+
+  const [menuShow, setmenuShow] = useState(() => false);
+
+  function toogleMenu() {
+    setmenuShow(!menuShow);
+  }
+
+  return (
+    <div className="layout">
+      <nav className="flex items-center justify-between flex-wrap bg-teal-500 p-6">
+        <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+          <button
+            className="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white"
+            onClick={toogleMenu}
+          >
+            <span className="sr-only">Open main menu</span>
+            <FontAwesomeIcon icon={faBars} />
+          </button>
+          <h1>MarkU</h1>
+          <div className="flex items-center pr-2 md:order-last">
+            <DarkModeToggle onChange={toggleDark} checked={dark} size={50} />
+            <LangSelect />
+          </div>
+          <div className={menuShow ? "menu" : "hidden menu"}>
+            <MenuLinks />
+          </div>
+        </div>
+      </nav>
+
+      <div className="content">{children}</div>
+      <footer>
+        <div>Created by Ricardo Martín Marcucci, © 2019</div>
+        <div>
+          <a href={"https://www.github.com/" + "rmarku"}>
+            <FontAwesomeIcon icon={faGithub} />
+          </a>
+          <a href={"https://www.twitter.com/" + "RMMarku"}>
+            <FontAwesomeIcon icon={faTwitter} />
+          </a>
+          <a href={"https://www.linkedin.com/in/" + "martinmarcucci"}>
+            <FontAwesomeIcon icon={faLinkedinIn} />
+          </a>
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+export default Layout;
