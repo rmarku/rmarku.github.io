@@ -1,23 +1,10 @@
-import { languages } from '../i18n/settings'
-import { MuiProvider } from './muiProvider'
+import '@/styles/globals.scss'
 
-export async function generateStaticParams() {
-  return languages.map((lng) => ({ lng }))
-}
-
-export default function RootLayout({
-  children,
-  params: { lng },
-}: {
-  children: React.ReactNode
-  params: { lng: string }
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang={lng}>
+    <html>
       <head />
-      <body>
-        <MuiProvider>{children}</MuiProvider>
-      </body>
+      <body>{children}</body>
     </html>
   )
 }

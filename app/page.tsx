@@ -1,17 +1,14 @@
-'use client'
-import { useRouter } from 'next/navigation'
-import { useEffect } from 'react'
-import { fallbackLng, languages } from '../i18n/settings'
+import Page from '@/app/[lng]/page'
+import { Redirect } from '@/components'
 
-export default function Home() {
-  const router = useRouter()
-  useEffect(() => {
-    // Redirect to user language
-    const userLangs = navigator.languages
-    let userLang = userLangs.find((l) => languages.includes(l))
-    if (!userLang) userLang = fallbackLng
-    router.push(`/${userLang}`)
-  })
-
-  return <div></div>
+const PageWithLang = () => {
+  return (
+    <>
+      <Redirect />
+      {/* @ts-expect-error Async Server Component */}
+      <Page params={{ lang: 'es' }} />
+    </>
+  )
 }
+
+export default PageWithLang
