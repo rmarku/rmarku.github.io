@@ -4,6 +4,12 @@
   "trailingComma": "all",
   "singleQuote": true,
   "tabWidth": 2,
+  "jsxSingleQuote": true,
   "useTabs": false,
-  "bracketSameLine": true
+  "bracketSameLine": true,
+  "importOrder": ["^@/(.*)$", "^[./]"],
+  "importOrderSeparation": true,
+  "bracketSpacing": true,
+  "importOrderSortSpecifiers": true,
+  "plugins": ["@trivago/prettier-plugin-sort-imports"]
 }

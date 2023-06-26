@@ -18,13 +18,13 @@ Supondré que ya has flasheado el router siguiendo la guía especifica para tu m
 
 entramos al router por telnet para nuestro primer inicio.
 
-```shell-session
+```shellsession
 nc 192.168.1.1 23
 ```
 
 luego, hacemos lo que nos recomienda, cambiar el password del usuario ROOT
 
-```shell-session
+```shellsession
 root@OpenWrt:/$ passwd
 passwd
 Changing password for root
@@ -38,7 +38,7 @@ root@OpenWrt:/$ exit
 
 y luego de salir, podremos entrar y trabajar mas cómodamente por SSH. Aprovechamos para instalar unos cuantos paquetes que nos ayudaran a la hora de configurar el USB para que nuestro rootFS sea el USB
 
-```shell-session
+```shellsession
 martin@jarvis ~/ $ssh root@192.168.1.1
  _______                     ________        __
 |       |.-----.-----.-----.|  |  |  |.----.|  |_
@@ -65,7 +65,7 @@ con esto tenemos los drivers para soporte de dispositivos USB como pendrives y d
 
 continuamos con montar nuestro dispositivo, podemos ver como los detecto el kernel con los siguientes comandos
 
-```shell-session
+```shellsession
 root@OpenWrt:/$ dmesg|grep -e sd.
 ..
 [    8.640000]  sda: sda1 sda2
@@ -97,7 +97,7 @@ root@OpenWrt:/$ blkid /dev/sdb1
 
 A continuación, debemos crear el archivo /etc/config/fstab. Acá hay un ejemplo del que yo utilizo. Nótese que la partición que voy a utilizar de ROOT (/dev/sdb1) tiene colocado el uuid y no hace referencia a SDB1.
 
-```
+```ini
 config 'global'
         option  anon_swap       '0'
         option  anon_mount      '0'

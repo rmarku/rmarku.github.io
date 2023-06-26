@@ -1,0 +1,32 @@
+title: Markus Blog
+resentPosts: Articulos recientes
+minutes: minutos
+posts:
+  description: List of blog articles about tech, electronics, software and other greate stuff
+search: Buscar
+blog: Blog
+about: Sobre mi
+CV: CV
+uses: Que uso
+years: Años
+career_summary: Trayectoria profesional
+
+languages: Languages
+habilites: Habilites
+interests: Interests
+language:
+  es: Spanish
+  en: English
+  native: Native
+  advance: Advanced oral and written
+
+experiences: Experiencia Laboral
+details: Detalles
+technologies: Tecnologías Utilizadas
+education: Educación
+teaching: Enseñanza
+journals: Publicaciones
+period_date: MMM YYYY
+present: presente
+assistant: Jefe de Trabajos Prácticos
+professor: Titular

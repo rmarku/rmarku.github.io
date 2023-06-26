@@ -1,0 +1,450 @@
+---
+author:
+  name: Ricardo Martín Marcucci
+  picture: img/photo.jpg
+  title: Computer Engineer
+  contact_info:
+    phone: +549-351-5164006
+    email: rmarku@gmail.com
+    website: https://www.marku.me
+    linkedin: martinmarcucci
+    github: rmarku
+    twitter: RMMarku
+    skype: martin.marcucci
+    location: Córdoba, Argentina
+    birthday: '1986-10-27'
+  skills:
+    - type: Programing
+      list:
+        - name: C
+          level: 100
+        - name: C++
+          level: 80
+        - name: Typescript/JS
+          level: 90
+        - name: Shell Scripting
+          level: 80
+        - name: Go
+          level: 80
+        - name: Python
+          level: 45
+
+    - type: Technologies/Tools
+      list:
+        - name: React
+          level: 75
+        - name: NextJS
+          level: 80
+        - name: Git
+          level: 100
+        - name: GraphQL
+          level: 65
+        - name: Prisma
+          level: 60
+
+    - type: DevOps
+      list:
+        - name: Linux
+          level: 100
+        - name: Docker
+          level: 100
+        - name: Gitlab CI/CD
+          level: 100
+        - name: Github Actions
+          level: 60
+        - name: Kubernetes
+          level: 80
+        - name: ArgoCD
+          level: 80
+        - name: AWS
+          level: 60
+
+    - type: Data Bases
+      list:
+        - name: Elasticsearch
+          level: 35
+        - name: PostgreSQL
+          level: 60
+        - name: MongoDB
+          level: 25
+
+    - type: Others
+      list:
+        - name: Team Work
+          level: 100
+        - name: Agile
+          level: 90
+        - name: DevOps as philosofy
+          level: 70
+        - name: Testing
+          level: 40
+  languages:
+    - language: es
+      fluency: native
+    - language: en
+      fluency: advance
+  interests:
+    - name: Swiming
+    - name: 3D Printing
+    - name: Cycling
+    - name: Home Automation
+
+summary:
+  es: |-
+    Soy un apasionado de la tecnología y de aprender sobre ella. Trato de estar constantemente actualizado
+    sobre los últimos avances del area.
+
+    Habiendo estudiado Ingeniería en computación, me interesa el desarrollo de hardware y software,
+    desde sistemas embebidos e Internet de las cosas a tecnologías FrontEnd como React y Vue
+    También disfruto programando y usando software que haga la vida mas simple y facil. Considero
+    importante la performance y el buen uso de los recursos de hardware, por eso me gustan los lenguajes de bajo nivel
+    como C y C++.
+    Me encanta enseñar a programar y a diseñar hardware haciendo énfasis en buenas prácticas y patrones.
+
+  en: |-
+    I am passionate about technology and learning about it. I try to
+    be constantly updated with the latest advances the field.
+    I am a responsible and self-motivated person, passionate for everything I do.
+    Having studied Computer Engineering, I am interested in hardware and software development,
+    from microcontrollers and IOT to FrontEnd technologies, like React and Vue.
+
+    I also enjoy building and using software that makes life simpler and easier. I consider
+    performance and good use of hardware resources very important, thats why
+    I like C and C++ programming languages.
+    I love teaching about software and hardware design, good practices and patterns.
+
+experiences:
+  - organization: Wilab
+    position:
+      es: Líder Técnico
+      en: Technical Lead
+    period:
+      start: 2020-03-01
+      end: 2024-01-01
+  - organization: Universidad Católica de Córdoba
+    position:
+      es: Profesor
+      en: Teacher
+    period:
+      start: 2016-02-01
+      end: 2022-02-01
+
+  - organization: ''
+    position:
+      es: Actividad Profesional Independiente
+      en: Freelancer Engineer
+    period:
+      start: 2013-03-01
+      end: 2100-02-01
+    detail:
+      es: |-
+        * Desarrollo de aplicación web para la gestión de consorcio de edificios
+        * Desarrollo de aplicación web para gestión de alquileres inmobiliarios
+      en: |-
+        * Development of a Consortia Management web application with on line payment.
+        * Development of a House Rent Management web application'
+
+    technology:
+      - NodeJS
+      - ReactJS
+      - GraphQL
+      - HTML/JS/CSS
+      - MongoDB
+
+  - organization: enPunto
+    position:
+      es: Co-Funder & Developer
+      en: Co-Funder & Developer
+    period:
+      start: 2016-07-01
+      end: 2017-12-01
+    detail:
+      es: |-
+        Creamos un sistema de control de personal basado en la nube. Desarrollamos el hardware con lector RFID
+        y de huella dactilar y se conecta a la nube mediante WiFi o Ethernet.
+        Como Co-fundador, me dediqué al desarrollo del software embebido en el dispositivo, la lectura de huellas
+        y el guardado y envío de datos a la nube.
+      en: |-
+        We created a Cloud based Fingerprint Time Attendance system. We developed the hardware readers which
+        connected to the cloud to send the employee's check-in and check-out times.
+        As Co-founder I was in charge of the developments of devices firmware and pushing data to the cloud."
+    technology:
+      - NodeJS/ElectronJs
+      - ReactJS
+      - Docker
+      - Embedded Linux
+
+  - organization: AWM Ingeniería
+    position:
+      es: Co-Funder & CTO
+      en: Co-Funder & CTO
+    period:
+      start: 2015-01-01
+      end: 2016-10-01
+    detail:
+      es: |-
+        AWM fue una excelente experiencia. Fundamos una empresa, diseñamos, desarrollamos e implementamos
+        un producto que fue comercializado en las principales bodegas de Mendoza.
+        Me desarrollé como líder Técnico y estuve a cargo del desarrollo del firmware de los equipos.
+      en: |-
+        AWM was an excellent experience. We founded a company where we designed, developed and implemented a product
+        that was marketed in the main wineries in Mendoza. I developed as a technical leader and was in charge of the
+        development of the firmware for the equipment."
+    technology:
+      - STM32 uC
+      - Kicad
+      - Embedded C
+
+  - organization: Instituto Universitario Aeronáutico
+    position:
+      es: Profesor
+      en: Teacher
+    period:
+      start: 2016-06-01
+      end: 2022-03-01
+
+  - organization: Universidad Católica de Córdoba
+    position:
+      es: Coordinador de Ciclo Básico
+      en: First and Second year Advisor
+    period:
+      start: 2018-03-01
+      end: 2020-02-01
+
+  - organization: CONICET
+    position:
+      es: Becario Doctoral
+      en: PhD scholarship
+    period:
+      start: 2016-03-01
+      end: 2018-01-01
+    detail:
+      es: |-
+        Trabajé con hardware reconfigurable y algoritmos genéticos para desarrollar técnicas de tolerancia a falla
+        en dispositivos electrónicos
+      en: I worked with reconfigurable hardware and evolutionary algorithms to make fault tolerant devices.
+    technology:
+      - C
+      - ASM
+      - Genetic Algorithms
+
+  - organization: CINECA
+    position:
+      es: Desarrollador Full Stack
+      en: Full Stack Developer
+    period:
+      start: 2014-06-01
+      end: 2016-01-01
+    detail:
+      es: |-
+        Desarrollo de plataformas médicas para recolección de datos de tratamientos experimentales
+        y medicamentos experimentales
+      en: I worked programming platforms for new medical procedures tests.
+    technology:
+      - PHP
+      - HTML/JS/CSS
+      - AngularJS
+      - SQL
+
+  - organization: Omikron Ingeniería
+    position:
+      es: Desarrollador Full Stack y desarrollo de Sistemas Embebidos
+      en: Full Stack Developer and Embedded Software Developer
+    detail:
+      es: |-
+        Desarrollo de una aplicación web para gestión de estaciones meteorológicas y programación de
+        microcontroladores de estaciones meteorológicas
+      en: I worked developing the Climatium Platform for weather stations and programming embedded microcontrollers
+
+    period:
+      start: 2008-03-01
+      end: 2013-07-01
+    technology:
+      - PHP
+      - HTML/JS/CSS
+      - MySQL
+      - C / C++
+
+teaching:
+  - university: Universidad Católica de Córdoba
+    subjects:
+      - subject: Programación 3
+        position: assistant
+        period:
+          start: 2016-03-01
+          end: 2022-03-01
+        details:
+          es: Los estudiantes aprenden a construir y utilizar Estructuras de Datos en **C++**
+          en: Students learn algorithms and data structures in general. They use **C++** to program and use the data structures
+
+      - subject: Organización y Arquitectura de Computadoras
+        position: assistant
+        period:
+          start: 2020-03-01
+          end: 2022-03-01
+        details:
+          es: |-
+            Los estudiantes aprenden sobre el funcionamiento del microprocesador y técnicas avanzadas para acelerar
+            su funcionamiento, como cache, pipelining, hazards, etc. Se hacen desarrollos sobre la Raspberry Pi
+          en: Students learn advanced techniques to speed up microprocessors like Cache, Pipe-lining, Hazards fixes, etc.
+
+      - subject: Laboratorio de Computación I
+        position: professor
+        period:
+          start: 2016-03-01
+          end: 2022-03-01
+        details:
+          es: |-
+            Los estudiantes aprenden sobre el Hardware de las Computadoras. Luego diseñan y construyen una placa con un
+            microcontrolador en **KiCad** y la programan en **C**
+          en: |-
+            Students learn the hardware parts of the PC. Then they design in
+            **KiCad** the PCB of a Attiny85 board and program it in **C**"
+
+      - subject: Laboratorio de Computación II
+        position: professor
+        period:
+          start: 2016-03-01
+          end: 2022-03-01
+        details:
+          es: |-
+            Los estudiantes aprenden **HTML/CSS/JS** para construir una aplicación web con manejo de canvas para
+            animaciones. Los estudiantes aprenden sobre herramientas para el desarrollo, particularmente **Git** y lo
+            utilizan para todo el desarrollo del proyecto
+          en: |-
+            Students learn **HTML/CSS/JS** to build a WebApp with canvas animation.
+            They learn and use **Git** for the development process and deployment of the WebApp"
+
+      - subject: Arquitectura de Software I
+        position: professor
+        period:
+          start: 2018-03-01
+          end: 2022-03-01
+        details:
+          es: |-
+            Los estudiantes aprenden sobre paralelismo y concurrencia en **C++**.
+            Los estudiantes aprenden y desarrollan una aplicación web con backend **Node.js** utilizando frameworks MVC y OMR
+          en: |-
+            Students Learn about parallelism and concurrency, they make  concurrent software in **C++**.
+            Students learn about Design Patterns and build a web platform with a MVC framework in **Node.js**
+
+      - subject: Seminario II (IOT)
+        position: assistant
+        period:
+          start: 2018-03-01
+          end: 2018-07-01
+        details:
+          es: |-
+            Los estudiantes aprenden las tecnologías que dan forma al IOT. Luego utilizan un ESP8266, **Node.js** y
+            **MongoDB** para desarrollar un sistema IOT
+          en: Students learn about IOT technology and use ESP8266, **Node.js** and MongoDB to build a complete IOT system
+
+      - subject: Diplomatura en Sistemas Embebidos
+        position: professor
+        period:
+          start: 2014-03-01
+          end: 2016-07-01
+        details:
+          es: |-
+            Los alumnos aprenden sobre el flujo de diseño, herramientas y técnicas utilizadas para programar sistemas
+            embebidos en **c**. Se utilizó la plataforma STM32
+          en: Design flow, programming techniques and patterns for embedded software development in **C**
+
+  - university: Instituto Universitario Aeronáutico
+    subjects:
+      - subject: Informática III
+        position: assistant
+        period:
+          start: 2016-03-01
+          end: 2022-03-01
+        details:
+          es: Los estudiantes aprenden a construir y utilizar Estructuras de Datos en **JAVA**
+
+          en: |-
+            Students learn algorithms and data structures in general. They use **Java** to develop and use the
+            data structures
+
+      - subject: Arquitectura del Computador II
+        position: assistant
+        period:
+          start: 2016-03-01
+          end: 2022-03-01
+        details:
+          es: |-
+            Los estudiantes aprenden sobre el funcionamiento del microprocesador y técnicas avanzadas para acelerar
+            su funcionamiento, como cache, pipelining, hazards, etc. Se hace desarrollos sobre la Raspberry Pi"
+
+          en: Students learn advanced techniques to speed up microprocessors like Cache, Pipe-lining, Hazards fixes, etc.
+
+      - subject: Informática II
+        position: professor
+        period:
+          start: 2018-03-01
+          end: 2022-03-01
+        details:
+          es: |-
+            Para Ing. Informática. Los estudiantes aprenden conceptos de punteros, uso de memoria, estructuras de datos
+            simples en **C++**. Realizan un trabajo programando con librerías gráficas 2D y utilizando los conceptos vistos.
+          en: |-
+            For Informatics Engineering. **C++** pointers, memory management, data structures, object modeling
+            and graphic programming."
+
+      - subject: Informática II
+        position: assistant
+        period:
+          start: 2018-03-01
+          end: 2022-03-01
+        details:
+          es: |-
+            Para Ing. en Telecomunicaciones. Los estudiantes aprenden conceptos de punteros, uso de memoria, estructuras,
+            archivos en **C**. Realizan un trabajo programando una Raspberry Pi.
+          en: For Telecommunication Engineering. **C** pointers, memory management, files and embedded programming
+
+educations:
+  - degree: Advanced React and GraphQL
+    university: Wes Bos Course
+    detail:
+      es: 16 horas online dictadas por Wes Bos https://advancedreact.com/
+      en: 16 hours online course by Wes Bos https://advancedreact.com/
+
+  - degree: React for Beginers
+    university: Wes Bos Course
+    detail:
+      es: 5 horas online dictadas por Wes Bos https://reactforbeginners.com/
+      en: 5 hours online course by Wes Bos https://reactforbeginners.com/
+
+  - degree: Learn Node
+    university: Wes Bos Course
+    detail:
+      es: 10 horas online dictadas por Wes Bos https://learnnode.com/
+      en: 10 hours online course by Wes Bos https://learnnode.com/
+
+  - degree: Computer Engineering
+    university: Universidad Católica de Córdoba
+    period: 2013 - 2015
+    detail:
+      es: |-
+        _Tesis:_ Juego Multijugador Online en tiempo real (HTML/JS/CSS, nodejs, Angular.js)
+        Promedio: 8,82
+      en: |-
+        _Thesis:_ Massive Multiplayer Online Educational Game (HTML/JS/CSS, nodejs, Angular.js)
+        Grade Average: 8,82"
+  - degree: Electronic Technician
+    university: Instituto Técnico Salesiano Villada
+    period: 1998 – 2004
+    detail: Third best grade
+
+journals:
+  - authors: Marcucci Martin, Aliciardi Agustina Edmé, Collino Fabricio, De Cunto Guillermo, Bosio, M. Alejandra, Chiodi Gustavo A
+    title: Videojuegos como parte del aprendizaje
+    journal: 44° Jornadas Argentinas de Informática
+    date: 2015-09-01
+    ISSN: 2451-7631
+    website: http://44jaiio.sadio.org.ar/sites/default/files/sts44-53.pdf
+
+  - authors: Chiodi Gustavo A, Bosio, M. Alejandra , Aliciardi Agustina E., Pautasso Pablo y Marcucci Martin
+    title: Plataforma informática aplicada como ayuda al proceso de enseñanza-aprendizaje en el área de matemáticas
+    journal: 43° Jornadas Argentinas de Informática
+    date: 2015-09-01
+    ISSN: 2362-5139
+    website: http://43jaiio.sadio.org.ar/proceedings/STS/781-Chiodi%20et%20al.pdf
