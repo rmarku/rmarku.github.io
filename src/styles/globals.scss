@@ -57,7 +57,8 @@ p {
   }
 }
 
-a {
+a,
+a:visited {
   cursor: pointer;
   transition-property: color;
   @apply duration-500  text-blue-500;
@@ -65,9 +66,6 @@ a {
   &:hover {
     @apply text-blue-800;
     text-decoration: underline;
-  }
-  &:visited {
-    @apply text-indigo-600;
   }
 }
 
@@ -90,13 +88,11 @@ a {
 }
 
 .dark {
-  a {
+  a,
+  a:visited {
     @apply text-blue-300;
     &:hover {
       @apply text-blue-400;
-    }
-    &:visited {
-      @apply text-indigo-200;
     }
   }
 
@@ -104,6 +100,21 @@ a {
     fill: white;
   }
 }
+.markdown {
+  p {
+    @apply my-3;
+  }
+  ul {
+    @apply list-disc;
+  }
+  ol {
+    @apply list-decimal;
+  }
+  img {
+    @apply rounded-lg;
+  }
+}
+
 svg {
   display: inline-block;
   background-color: none;

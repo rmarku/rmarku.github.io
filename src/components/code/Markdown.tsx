@@ -1,3 +1,4 @@
+import { bundleMDX } from 'mdx-bundler'
 import { createServerContext } from 'react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
@@ -11,14 +12,16 @@ type SyntaxProps = { post: Post }
 const Markdown: React.FC<SyntaxProps> = ({ post }) => {
   return (
     <PostContext.Provider value={post}>
-      <ReactMarkdown
-        components={{
-          code: Code,
-        }}
-        remarkPlugins={[remarkGfm]}
-        remarkRehypeOptions={{ allowDangerousHtml: true }}>
-        {post.content}
-      </ReactMarkdown>
+      <div className='markdown'>
+        <ReactMarkdown
+          components={{
+            code: Code,
+          }}
+          remarkPlugins={[remarkGfm]}
+          remarkRehypeOptions={{ allowDangerousHtml: true }}>
+          {post.content}
+        </ReactMarkdown>
+      </div>
     </PostContext.Provider>
   )
 }

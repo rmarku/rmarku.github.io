@@ -21,6 +21,7 @@
     "i18next": "^23.2.3",
     "i18next-resources-to-backend": "^1.1.4",
     "klaw-sync": "^6.0.0",
+    "mdx-bundler": "^9.2.1",
     "moment": "^2.29.4",
     "next": "13.4.7",
     "next-intl": "^2.15.1",
@@ -32,6 +33,7 @@
     "react-syntax-highlighter": "^15.5.0",
     "reading-time-estimator": "^1.8.1",
     "remark-gfm": "^3.0.1",
+    "remark-mdx": "^2.3.0",
     "remark-sync-plantuml": "^0.0.4",
     "sync-fetch": "^0.5.2",
     "typescript": "5.1.3"
