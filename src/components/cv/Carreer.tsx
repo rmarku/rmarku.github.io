@@ -1,9 +1,8 @@
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+import { Summary } from '@/lib/fileUtils'
 import { SupportedLanguages, useTranslation } from '@/lib/i18n'
-
-import { Summary } from './types'
 
 type CareerProps = {
   lng: SupportedLanguages

@@ -1,11 +1,12 @@
 import { faChevronCircleRight, faLightbulb } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+import { Interest } from '@/lib/fileUtils'
 import { SupportedLanguages, useTranslation } from '@/lib/i18n'
 
 type InterestsProps = {
   lng: SupportedLanguages
-  interests: { name: string }[]
+  interests: Interest[]
 }
 
 const Interests: React.FC<InterestsProps> = async ({ lng, interests }) => {

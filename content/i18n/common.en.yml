@@ -1,24 +1,24 @@
 title: Markus Blog
 resentPosts: Recent Posts
 minutes: minutes
-posts:
-  description: List of blog articles about tech, electronics, software and other greate stuff
+description: List of blog articles about tech, electronics, software and other greats stuff
 search: Search
 blog: Blog
 about: About me
-CV: CV
+CV: resume
 uses: Uses
 years: Years
 career_summary: Career Summary
 
-languages: Idiomas
-habilites: Habilidades
-interests: Intereses
+# Resume
+languages: Languages
+habilites: Habilites
+interests: Interests
 language:
-  es: Español
-  en: Ingles
-  native: Nativo
-  advance: Oral y escrito avanzado
+  es: Spanish
+  en: English
+  native: Native
+  advance: Advanced oral and written
 
 experiences: Working Experiences
 details: Details
@@ -30,3 +30,5 @@ period_date: MMM YYYY
 present: present
 assistant: Assistant Professor
 professor: Professor
+toc: Table of content
+share: Share

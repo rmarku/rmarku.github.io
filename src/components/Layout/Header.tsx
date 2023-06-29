@@ -36,7 +36,7 @@ const Header: React.FC<HeaderProps> = async ({ lng }) => {
   const pages: PageLink[] = [
     { route: '/', text: t('blog') },
     { route: '/posts/about', text: t('about') },
-    { route: '/cv', text: t('CV') },
+    { route: '/resume', text: t('CV') },
     { route: '/posts/uses', text: t('uses') },
   ]
 

@@ -1,8 +1,7 @@
 title: Markus Blog
 resentPosts: Articulos recientes
 minutes: minutos
-posts:
-  description: List of blog articles about tech, electronics, software and other greate stuff
+description: List of blog articles about tech, electronics, software and other greate stuff
 search: Buscar
 blog: Blog
 about: Sobre mi
@@ -11,14 +10,15 @@ uses: Que uso
 years: Años
 career_summary: Trayectoria profesional
 
-languages: Languages
-habilites: Habilites
-interests: Interests
+# Resume
+languages: Idiomas
+habilites: Habilidades
+interests: Intereses
 language:
-  es: Spanish
-  en: English
-  native: Native
-  advance: Advanced oral and written
+  es: Español
+  en: Ingles
+  native: Nativo
+  advance: Oral y escrito avanzado
 
 experiences: Experiencia Laboral
 details: Detalles
@@ -30,3 +30,5 @@ period_date: MMM YYYY
 present: presente
 assistant: Jefe de Trabajos Prácticos
 professor: Titular
+toc: Contenidos
+share: Compartir

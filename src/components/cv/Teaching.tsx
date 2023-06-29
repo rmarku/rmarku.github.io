@@ -3,15 +3,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import moment from 'moment'
 import 'moment/locale/es'
 
+import { Teaching } from '@/lib/fileUtils'
 import { SupportedLanguages, useTranslation } from '@/lib/i18n'
 
 import Details from './Details'
-import { Teaching } from './types'
 
 type TeachingProps = {
   lng: SupportedLanguages
   teaching: Teaching[]
 }
+
 const TeachingComp: React.FC<TeachingProps> = async ({ lng, teaching }) => {
   const { t } = useTranslation(lng, 'common')
   moment.locale(lng)

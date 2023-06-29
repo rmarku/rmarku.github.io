@@ -10,9 +10,14 @@ const Redirect: React.FC = () => {
   useEffect(() => {
     // Redirect to user language
     const userLangs = navigator.languages as SupportedLanguages[]
-    let userLang = userLangs.find((l) => languages.includes(l))
-    if (!userLang) userLang = fallbackLng
-    router.replace(`/${userLang}`)
+    for (const l of userLangs) {
+      for (const pl of languages) {
+        if (l.includes(pl)) {
+          router.replace(`/${pl}`)
+        }
+      }
+    }
+    router.replace(`/${fallbackLng}`)
   })
 
   return <></>

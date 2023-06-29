@@ -34,7 +34,7 @@ Vamos a ver un ejemplo en C++:
 Supongamos que tenemos un programa hecho con la librería SFML y decidimos hace run
 objeto Pelota. El único objetivo del objeto pelota es rebotar por la pantalla, por lo que podríamos tener algo así:
 
-```cpp file=<rootDir>/code/ball_sfml.cpp
+```cpp file="<rootDir>/code/ball_sfml.cpp"
 
 ```
 
@@ -49,7 +49,7 @@ Ahora, la otra situación, es nuestro jefe que nos informa que se cambiará la l
 
 Esto desencadenará que tengamos que modificar tanto la clase Jugador como nuestra clase Pelota, quedando esta ultima clase algo así...
 
-```cpp file=<rootDir>/code/ball_raylib.cpp
+```cpp file="<rootDir>/code/ball_raylib.cpp"
 
 ```
 
@@ -61,18 +61,18 @@ Echo esto, logramos que al tener que cambiar como dibujar, solo modificamos la c
 
 Aplicando esto, nos podrían quedar los archivos de la siguiente manera:
 
-```cpp file=<rootDir>/code/ball.cpp
+```cpp file="<rootDir>/code/ball.cpp"
 
 ```
 
 Quedándonos solo una clase dedicada al funcionamiento de la pelota y delegando lo de dibujar a la clase RenderManager
 
-```cpp file=<rootDir>/code/render_manager_sfml.cpp
+```cpp file="<rootDir>/code/render_manager_sfml.cpp"
 
 ```
 
 El proyecto completo se puede ver en https://github.com/UCC-ArquitecturaSoftwareI/principios-solid
 
-```js url=https://raw.githubusercontent.com/remarkjs/react-markdown/main/index.js
+```js url="https://raw.githubusercontent.com/remarkjs/react-markdown/main/index.js"
 
 ```

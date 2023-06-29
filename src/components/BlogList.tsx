@@ -17,7 +17,7 @@ const BlogList: React.FC<{ lng: SupportedLanguages; posts: Post[] }> = ({ lng, p
 
             <div className='w-3/4 '>
               <h3>
-                <Link href={lng + '/posts/' + p.slug}>{p.title}</Link>
+                <Link href={'/' + lng + '/posts/' + p.slug}>{p.title}</Link>
               </h3>
 
               <div className='container flex justify-between'>

@@ -1,3 +1,4 @@
+import { Metadata } from '@/lib/fileUtils'
 import { SupportedLanguages } from '@/lib/i18n'
 
 import Career from './Carreer'
@@ -12,21 +13,21 @@ import WorkExp from './Workexp'
 
 type HeaderProps = {
   lng: SupportedLanguages
-  info: any
+  info: Metadata
 }
 const CV: React.FC<HeaderProps> = ({ lng, info }) => {
   return (
     <div className='w-3/4 m-auto'>
-      <Header lng={lng} author={info.author} />
+      <Header lng={lng} basics={info.basics} />
       <Career lng={lng} summary={info.summary} />
       <div className='flex justify-evenly'>
         <div className='w-2/3 p-10'>
           <WorkExp lng={lng} experience={info.experiences} />
         </div>
         <div className='w-1/3 p-10'>
-          <Languages lng={lng} language={info.author.languages} />
-          <Skills lng={lng} skills={info.author.skills} />
-          <Interests lng={lng} interests={info.author.interests} />
+          <Languages lng={lng} language={info.basics.languages} />
+          <Skills lng={lng} skills={info.basics.skills} />
+          <Interests lng={lng} interests={info.basics.interests} />
         </div>
       </div>
       <Education lng={lng} educations={info.educations} />

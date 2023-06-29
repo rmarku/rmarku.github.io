@@ -1,18 +1,42 @@
 ---
-author:
-  name: Ricardo Martín Marcucci
-  picture: img/photo.jpg
-  title: Computer Engineer
-  contact_info:
-    phone: +549-351-5164006
-    email: rmarku@gmail.com
-    website: https://www.marku.me
-    linkedin: martinmarcucci
-    github: rmarku
-    twitter: RMMarku
-    skype: martin.marcucci
-    location: Córdoba, Argentina
-    birthday: '1986-10-27'
+basics:
+  familyName: Marcucci
+  givenName: Ricardo
+  additionalName: Martín
+  alternateName: Marku
+  label: Computer Engineer
+  jobTitles:
+    - Computer Engineer
+    - Senior Software Engineer
+    - DevOps Engineer
+    - Web Developer
+    - Golang Developer
+  image: img/photo.jpg
+  gender: Male
+  birthday:
+    date: '1986-10-27'
+    location:
+      city: Córdoba
+      countryCode: AR
+  location:
+    city: Tucuman
+    countryCode: AR
+  phone: +549-351-5164006
+  email: rmarku@gmail.com
+  website: https://www.marku.me
+  height: 180
+  weight: 80
+  profiles:
+    - username: martinmarcucci
+      url: https://www.linkedin.com/in/martinmarcucci
+      network: linkedin
+    - username: rmarku
+      url: https://github.com/rmarku
+      network: github
+    - username: RMMarku
+      url: https://twitter.com/RMMarku
+      network: twitter
+
   skills:
     - type: Programing
       list:
@@ -79,9 +103,15 @@ author:
         - name: Testing
           level: 40
   languages:
-    - language: es
+    - name:
+        es: Español
+        en: Spanish
+      code: es
       fluency: native
-    - language: en
+    - name:
+        es: Ingles
+        en: English
+      code: en
       fluency: advance
   interests:
     - name: Swiming
@@ -402,25 +432,27 @@ teaching:
 
 educations:
   - degree: Advanced React and GraphQL
-    university: Wes Bos Course
+    name: Wes Bos Course
     detail:
       es: 16 horas online dictadas por Wes Bos https://advancedreact.com/
       en: 16 hours online course by Wes Bos https://advancedreact.com/
 
   - degree: React for Beginers
-    university: Wes Bos Course
+    name: Wes Bos Course
     detail:
       es: 5 horas online dictadas por Wes Bos https://reactforbeginners.com/
       en: 5 hours online course by Wes Bos https://reactforbeginners.com/
 
   - degree: Learn Node
-    university: Wes Bos Course
+    name: Wes Bos Course
     detail:
       es: 10 horas online dictadas por Wes Bos https://learnnode.com/
       en: 10 hours online course by Wes Bos https://learnnode.com/
 
   - degree: Computer Engineering
-    university: Universidad Católica de Córdoba
+    type: CollegeOrUniversity
+    name: Universidad Católica de Córdoba
+    url: https://www.ucc.edu.ar
     period: 2013 - 2015
     detail:
       es: |-
@@ -430,7 +462,9 @@ educations:
         _Thesis:_ Massive Multiplayer Online Educational Game (HTML/JS/CSS, nodejs, Angular.js)
         Grade Average: 8,82"
   - degree: Electronic Technician
-    university: Instituto Técnico Salesiano Villada
+    type: HighSchool
+    url: https://www.itsv.edu.ar
+    name: Instituto Técnico Salesiano Villada
     period: 1998 – 2004
     detail: Third best grade
 

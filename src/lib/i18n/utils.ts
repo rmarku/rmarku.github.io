@@ -3,7 +3,7 @@ import { createInstance } from 'i18next'
 import resourcesToBackend from 'i18next-resources-to-backend'
 import YAML from 'yaml'
 
-import { ContentDirectory } from '../posts'
+import { ContentDirectory } from '../fileUtils'
 import { SupportedLanguages, defaultNS, fallbackLng, fallbackNS, languages } from './settings'
 
 function getOptions(lng: SupportedLanguages = fallbackLng, ns: string = defaultNS) {

@@ -1,14 +1,19 @@
-import { readFileSync, readdirSync } from 'fs'
-import matter from 'gray-matter'
+import remarkToc from '@stefanprobst/remark-extract-toc'
+import remarkTocExport from '@stefanprobst/remark-extract-toc/mdx'
+import { readFileSync } from 'fs'
+import { bundleMDX } from 'mdx-bundler'
 import { DateTimeFormatOptions } from 'next-intl'
 import path from 'path'
 import { readingTime } from 'reading-time-estimator'
+import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import rehypeMdxCodeProps from 'rehype-mdx-code-props'
+import rehypeSlug from 'rehype-slug'
+import remarkGfm from 'remark-gfm'
 import YAML from 'yaml'
 
 import { SupportedLanguages } from '@/lib/i18n'
 
-export const ContentDirectory = path.join(process.cwd(), 'content')
-export const PostDirectory = path.join(ContentDirectory, 'posts')
+import { ContentDirectory, PostDirectory, getDirNames } from './fileUtils'
 
 export function getDate(date: string | number, locale: string | undefined): string {
   const options: DateTimeFormatOptions = {
@@ -16,7 +21,7 @@ export function getDate(date: string | number, locale: string | undefined): stri
     day: 'numeric',
     year: 'numeric',
   }
-  return new Date(date).toLocaleDateString(locale, options)
+  return new Date(date).toLocaleDateString(locale || 'es', options)
 }
 
 export type FrontMatter = {
@@ -35,28 +40,6 @@ export type Post = {
   content: string
   readTime: number
 } & FrontMatter
-
-function listFilesInDirectory(directory: string): string[] {
-  const entries = readdirSync(directory, { withFileTypes: true })
-  const files = entries.flatMap((entry) => {
-    const entryPath = path.join(directory, entry.name)
-
-    if (entry.isDirectory()) {
-      return listFilesInDirectory(entryPath)
-    } else {
-      return entryPath
-    }
-  })
-  return files
-}
-
-function getDirNames(): string[] {
-  return listFilesInDirectory(PostDirectory)
-    .filter((f) => f.includes('es.mdx'))
-    .map((d) => {
-      return d.replace(PostDirectory + '/', '').replace('/es.mdx', '')
-    })
-}
 
 export const getSortedPosts = async (
   locale: SupportedLanguages | undefined,
@@ -79,22 +62,15 @@ export const getSortedPosts = async (
   })
 }
 
-//Get Slugs
-export const getAllPostSlugs = (): string[][] => {
-  const dirNames = getDirNames()
-  const slugs: string[][] = dirNames.map((dir) => dir.split('/'))
-
-  return slugs
-}
-
 //Get Post based on Slug
 export const getPostdata = async (
   slug: string,
   locale: SupportedLanguages | undefined,
   defaultLocale: SupportedLanguages,
 ): Promise<Post> => {
-  const defaultFullPath = path.join(PostDirectory, slug, defaultLocale + '.mdx')
-  const fullPath = path.join(PostDirectory, slug, locale + '.mdx')
+  const filesPath = path.join(PostDirectory, slug)
+  const defaultFullPath = path.join(filesPath, defaultLocale + '.mdx')
+  const fullPath = path.join(filesPath, locale + '.mdx')
   let post_lang = locale as SupportedLanguages
   //Extracts contents of the MDX file
   let fileContents
@@ -104,11 +80,26 @@ export const getPostdata = async (
     fileContents = readFileSync(defaultFullPath, 'utf8')
     post_lang = defaultLocale
   }
-  const postMatter = matter(fileContents)
-  const data = postMatter.data as FrontMatter
+  const { code, frontmatter } = await bundleMDX({
+    source: fileContents,
+    cwd: filesPath,
+    mdxOptions(options) {
+      options.remarkPlugins = [...(options.remarkPlugins ?? []), remarkGfm, remarkToc, remarkTocExport]
+      options.rehypePlugins = [
+        ...(options.rehypePlugins ?? []),
+        rehypeMdxCodeProps,
+        rehypeSlug,
+        [rehypeAutolinkHeadings, { behavior: 'append' }],
+      ]
+
+      return options
+    },
+  })
+
+  const data = frontmatter as FrontMatter
 
   const formattedDate = getDate(data.date, locale)
-  const content = postMatter.content
+  const content = code
   const lang: SupportedLanguages = locale || defaultLocale
 
   verifyFrontmatter(data, slug + '/' + lang + '.mdx')
@@ -119,7 +110,7 @@ export const getPostdata = async (
     slug,
     post_lang,
     content,
-    readTime: readingTime(content, 200, lang).minutes,
+    readTime: readingTime(fileContents, 175, lang).minutes,
   }
   return post
 }

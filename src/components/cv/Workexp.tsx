@@ -2,15 +2,16 @@ import { faSuitcase } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import moment from 'moment'
 
+import { Experience } from '@/lib/fileUtils'
 import { SupportedLanguages, useTranslation } from '@/lib/i18n'
 
 import Details from './Details'
-import { Experience } from './types'
 
 type CareerProps = {
   lng: SupportedLanguages
   experience: Experience[]
 }
+
 const WorkExp: React.FC<CareerProps> = async ({ lng, experience }) => {
   const { t } = useTranslation(lng, 'common')
 

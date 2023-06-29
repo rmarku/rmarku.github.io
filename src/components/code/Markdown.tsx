@@ -1,26 +1,20 @@
-import { bundleMDX } from 'mdx-bundler'
-import { createServerContext } from 'react'
-import ReactMarkdown from 'react-markdown'
-import remarkGfm from 'remark-gfm'
+import { MDXContentProps } from 'mdx-bundler/client'
+import { FunctionComponent, createServerContext } from 'react'
 
 import { Code } from '@/components/code'
 import { Post } from '@/lib/posts'
 
+import { components } from './MDXComonents'
+
 export const PostContext = createServerContext<Post | null>('post', null)
 
-type SyntaxProps = { post: Post }
-const Markdown: React.FC<SyntaxProps> = ({ post }) => {
+type SyntaxProps = { post: Post; Comp: FunctionComponent<MDXContentProps> }
+const Markdown: React.FC<SyntaxProps> = ({ post, Comp }) => {
   return (
     <PostContext.Provider value={post}>
       <div className='markdown'>
-        <ReactMarkdown
-          components={{
-            code: Code,
-          }}
-          remarkPlugins={[remarkGfm]}
-          remarkRehypeOptions={{ allowDangerousHtml: true }}>
-          {post.content}
-        </ReactMarkdown>
+        {/* @ts-ingore */}
+        <Comp components={{ pre: Code, ...components }} />
       </div>
     </PostContext.Provider>
   )

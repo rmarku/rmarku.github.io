@@ -3,14 +3,14 @@ import { faGlobe, faGraduationCap } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 
+import { Journal } from '@/lib/fileUtils'
 import { SupportedLanguages, useTranslation } from '@/lib/i18n'
-import { JournalT } from './types'
 
-type JournalProps = {
+type JournalsProps = {
   lng: SupportedLanguages
-  journals: JournalT[]
+  journals: Journal[]
 }
-const Journal: React.FC<JournalProps> = async ({ lng, journals }) => {
+const Journals: React.FC<JournalsProps> = async ({ lng, journals }) => {
   const { t } = useTranslation(lng, 'common')
 
   return (
@@ -38,4 +38,4 @@ const Journal: React.FC<JournalProps> = async ({ lng, journals }) => {
   )
 }
 
-export default Journal
+export default Journals

@@ -1,32 +1,36 @@
 import fs from 'fs'
 import Link from 'next/link'
 import path from 'path'
-import { useContext } from 'react'
-import { CodeProps } from 'react-markdown/lib/ast-to-react'
+import { ReactNode, ReactPropTypes, useContext } from 'react'
 import { ReactElement } from 'react-markdown/lib/react-markdown'
 
 import syncfetch from '@/lib/fetch'
-import { Post, PostDirectory } from '@/lib/posts'
+import { PostDirectory } from '@/lib/fileUtils'
+import { Post } from '@/lib/posts'
 
 import { PostContext } from './Markdown'
 import PlantUML from './PlantUML'
 import Syntax from './Syntax'
 
-const Code: React.FC<CodeProps> = ({ node, inline, className, children, ...props }) => {
-  const match = /language-(\w+)/.exec(className || '')
-  let content = String(children).replace(/\n$/, '')
-  let component: ReactElement
+type CodeChild = { children: ReactNode & { type: string; props: ReactPropTypes } }
+
+const Code = (props: JSX.IntrinsicElements['pre']) => {
+  const { children } = props as CodeChild
+  const post = useContext(PostContext) as Post
+  if (children.type !== 'code') return <pre>{children}</pre>
+
+  const match = /language-(\w+)/.exec(children.props.className || '')
+  let content = String(children.props.children).replace(/\n$/, '')
+
+  let component: ReactElement = <></>
   let title: string | ReactElement = ''
 
-  const post = useContext(PostContext) as Post
-  // view if there is some metadata
-  if (node.data?.meta) {
-    const extra = node.data.meta as string
-    const directives = extra.split(';')
+  for (const key in props) {
+    if (Object.prototype.hasOwnProperty.call(props, key)) {
+      //@ts-ignore
+      const value = props[key]
 
-    for (const dir of directives) {
-      const [type, value] = dir.split('=')
-      switch (type) {
+      switch (key) {
         case 'title':
           title = value
           break
@@ -48,7 +52,7 @@ const Code: React.FC<CodeProps> = ({ node, inline, className, children, ...props
     }
   }
 
-  if (!inline && match) {
+  if (match)
     switch (match[1]) {
       case 'plantuml':
         component = <PlantUML code={content} />
@@ -60,13 +64,7 @@ const Code: React.FC<CodeProps> = ({ node, inline, className, children, ...props
           </Syntax>
         )
     }
-  } else {
-    component = (
-      <code {...props} className={className}>
-        {children}
-      </code>
-    )
-  }
+
   return <div className='my-5 xl:mx-36 lg:mx-20 md:mx-5 mx-0 md:text-base text-xs'>{component}</div>
 }
 export default Code

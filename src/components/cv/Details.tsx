@@ -1,8 +1,7 @@
 import ReactMarkdown from 'react-markdown'
 
+import { Translatable } from '@/lib/fileUtils'
 import { SupportedLanguages, useTranslation } from '@/lib/i18n'
-
-import { Translatable } from './types'
 
 type DetailsProps = {
   lng: SupportedLanguages

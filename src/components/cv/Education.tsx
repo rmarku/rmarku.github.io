@@ -4,7 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { SupportedLanguages, useTranslation } from '@/lib/i18n'
 
 import Details from './Details'
-import { Education } from './types'
+import {Education} from '@/lib/fileUtils'
+
 
 type EducationProps = {
   lng: SupportedLanguages
@@ -22,7 +23,7 @@ const Education: React.FC<EducationProps> = async ({ lng, educations }) => {
       <ul>
         {educations.map((degree) => (
           <li key={degree.degree} className='mt-6'>
-            <div className='float-right font-bold'>{degree.university}</div>
+            <div className='float-right font-bold'>{degree.name}</div>
             <h3 className='font-bold'>{degree.degree}</h3>
             <span className='period ml-3)'>{degree.period}</span>
             <Details lng={lng} detail={degree.detail} />

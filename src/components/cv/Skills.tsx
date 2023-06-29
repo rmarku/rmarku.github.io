@@ -1,11 +1,12 @@
 import { faWrench } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+import { Skill } from '@/lib/fileUtils'
 import { SupportedLanguages, useTranslation } from '@/lib/i18n'
 
 type SkillsProps = {
   lng: SupportedLanguages
-  skills: { type: string; list: { name: string; level: number }[] }[]
+  skills: Skill[]
 }
 const Skills: React.FC<SkillsProps> = async ({ lng, skills }) => {
   const { t } = useTranslation(lng, 'common')

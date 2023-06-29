@@ -1,11 +1,12 @@
 import { faChevronCircleRight, faLanguage } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+import { Language } from '@/lib/fileUtils'
 import { SupportedLanguages, useTranslation } from '@/lib/i18n'
 
 type CareerProps = {
   lng: SupportedLanguages
-  language: { language: string; fluency: string }[]
+  language: Language[]
 }
 const Languages: React.FC<CareerProps> = async ({ lng, language }) => {
   const { t } = useTranslation(lng, 'common')
@@ -18,7 +19,7 @@ const Languages: React.FC<CareerProps> = async ({ lng, language }) => {
         {language.map((l, i) => (
           <li key={i}>
             <span className='cvbadged float-right'>{t(`language.${l.fluency}`)}</span>
-            <FontAwesomeIcon icon={faChevronCircleRight} /> {t(`language.${l.language}`)}
+            <FontAwesomeIcon icon={faChevronCircleRight} /> {l.name[lng]}
           </li>
         ))}
       </ul>

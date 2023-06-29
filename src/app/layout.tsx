@@ -3,6 +3,7 @@ import { Metadata } from 'next'
 
 /* eslint-disable import/first */
 import '@/styles/globals.scss'
+
 /* eslint-disable import/first */
 config.autoAddCss = false
 

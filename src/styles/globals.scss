@@ -100,6 +100,19 @@ a:visited {
     fill: white;
   }
 }
+.toc {
+  ul {
+    @apply list-outside ml-5 list-disc;
+  }
+}
+
+.icon-link {
+  @apply align-super text-xs no-underline;
+  &:after {
+    content: ' 🔗';
+  }
+}
+
 .markdown {
   p {
     @apply my-3;
