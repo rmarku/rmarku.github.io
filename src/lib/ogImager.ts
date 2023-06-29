@@ -6,32 +6,38 @@ import sharp from 'sharp'
 import { getAllPostSlugs } from './fileUtils'
 import { languages } from './i18n'
 
-async function capture(url: string, file: string) {
-  try {
-    const browser = await playwright.chromium.launch({
-      headless: true,
-    })
-    const page = await browser.newPage({
-      viewport: {
-        width: 1200,
-        height: 630,
-      },
-    })
-    await page.goto(url, {
-      timeout: 15 * 1000,
-    })
-    const data = await page.screenshot({
-      omitBackground: true,
-      type: 'png',
-    })
-    sharp(data).toFile(file)
-    await browser.close()
-  } catch (e) {
-    console.log(e)
-  }
+type nav = {
+  page: playwright.Page
+  browser: playwright.Browser
 }
+
+async function init(): Promise<nav> {
+  const browser = await playwright.chromium.launch({
+    headless: true,
+  })
+  const page = await browser.newPage({
+    viewport: {
+      width: 1200,
+      height: 630,
+    },
+  })
+  return { page, browser }
+}
+
+async function capture(url: string, file: string, n: nav) {
+  await n.page.goto(url, {
+    timeout: 30 * 1000,
+  })
+  const data = await n.page.screenshot({
+    omitBackground: true,
+    type: 'png',
+  })
+  sharp(data).toFile(file)
+}
+
 async function loopAll() {
   const post = getAllPostSlugs()
+  const pl = await init()
   for (const l of languages) {
     for (const p of post) {
       const slug = p.join('/')
@@ -40,9 +46,11 @@ async function loopAll() {
       const filename = `${dir}/${l}.png`
 
       console.log(`🖼️ Creating ${filename} from http://localhost:3000/og/${l}/${slug}`)
-      await capture(`http://localhost:3000/og/${l}/${slug}`, filename)
+      await capture(`http://localhost:3000/og/${l}/${slug}`, filename, pl)
     }
   }
+
+  await pl.browser.close()
 }
 
 try {
