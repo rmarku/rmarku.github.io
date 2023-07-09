@@ -1,3 +1,5 @@
+import { faBookOpenReader, faCalendar, faUser } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Toc, TocEntry } from '@stefanprobst/remark-extract-toc'
 import Slugger from 'github-slugger'
 import Link from 'next/link'
@@ -10,14 +12,23 @@ import ShareButtons from './ShareButtons'
 export const SideBar: React.FC<{ post: Post; toc: Toc }> = ({ post, toc }) => {
   const { t } = useTranslation('es')
   return (
-    <div className='w-1/4 border-l-2 px-5'>
+    <>
+      <h3>{t('share')}</h3>
+      <div>
+        <FontAwesomeIcon icon={faUser} /> Martin Marcucci
+        <br />
+        <FontAwesomeIcon icon={faCalendar} /> {post.date}
+        <br />
+        <FontAwesomeIcon icon={faBookOpenReader} /> {post.readTime} min
+      </div>
       <h3>{t('share')}</h3>
       <ShareButtons url='https://pepe.go' />
       <h3>{t('toc')}</h3>
       <TOC entries={toc} />
-    </div>
+    </>
   )
 }
+
 type TOCProps = {
   entries: TocEntry[]
 }

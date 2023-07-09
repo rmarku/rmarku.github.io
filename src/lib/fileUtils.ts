@@ -30,6 +30,27 @@ export function getDirNames(): string[] {
     })
 }
 
+
+export const getPostContent = (
+  slug: string,
+  locale: SupportedLanguages | undefined,
+  defaultLocale: SupportedLanguages,
+): { fileContents: string; post_lang: SupportedLanguages } => {
+  const filesPath = path.join(PostDirectory, slug)
+  const defaultFullPath = path.join(filesPath, defaultLocale + '.mdx')
+  const fullPath = path.join(filesPath, locale + '.mdx')
+  let post_lang = locale as SupportedLanguages
+  //Extracts contents of the MDX file
+  let fileContents
+  try {
+    fileContents = readFileSync(fullPath, 'utf8')
+  } catch (e) {
+    fileContents = readFileSync(defaultFullPath, 'utf8')
+    post_lang = defaultLocale
+  }
+  return { fileContents, post_lang }
+}
+
 //Get Slugs
 export const getAllPostSlugs = (): string[][] => {
   const dirNames = getDirNames()

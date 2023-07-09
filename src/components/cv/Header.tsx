@@ -1,3 +1,4 @@
+import { IconProp } from '@fortawesome/fontawesome-svg-core'
 import { faGithub, faLinkedinIn, faTwitter } from '@fortawesome/free-brands-svg-icons'
 import { faCake, faEnvelope, faGlobe, faMapMarker, faPhone } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -12,14 +13,21 @@ type CVHeaderProps = {
   basics: Basics
 }
 const CVHeader: React.FC<CVHeaderProps> = async ({ lng, basics }) => {
+  moment.locale(lng)
   const { t } = useTranslation(lng, 'common')
-  const birthday = moment(basics.birthday.date).format('DD/MM/YYYY')
+  const birthday = moment(basics.birthday.date).calendar()
   const years = moment().diff(moment(basics.birthday.date), 'years', false)
 
   return (
     <header className='flex justify-center'>
       <div className='mr-6'>
-        <Image src='/images/photo.avif' alt='Martin Photo' width={200} height={200} className='object-cover' />
+        <Image
+          src='/images/photo.avif'
+          alt='Martin Photo'
+          width={200}
+          height={200}
+          className='object-cover rounded-2xl shadow-md'
+        />
       </div>
       <div className='w-full md:w-2/4 sm:w-8/12'>
         <h1 className='mb-10 text-5xl text-center'>
@@ -47,7 +55,7 @@ const CVHeader: React.FC<CVHeaderProps> = async ({ lng, basics }) => {
               </a>
             </li>
             {basics.profiles.map((p) => {
-              let icon
+              let icon: IconProp = 'album'
               switch (p.network) {
                 case 'linkedin':
                   icon = faLinkedinIn
@@ -62,7 +70,7 @@ const CVHeader: React.FC<CVHeaderProps> = async ({ lng, basics }) => {
               return (
                 <li key={p.url}>
                   <a href={p.url}>
-                    <FontAwesomeIcon icon={faLinkedinIn} /> {p.username}
+                    <FontAwesomeIcon icon={icon} /> {p.username}
                   </a>
                 </li>
               )

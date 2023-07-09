@@ -13,7 +13,7 @@ import YAML from 'yaml'
 
 import { SupportedLanguages } from '@/lib/i18n'
 
-import { ContentDirectory, PostDirectory, getDirNames } from './fileUtils'
+import { ContentDirectory, PostDirectory, getDirNames, getPostContent } from './fileUtils'
 
 export function getDate(date: string | number, locale: string | undefined): string {
   const options: DateTimeFormatOptions = {
@@ -26,10 +26,13 @@ export function getDate(date: string | number, locale: string | undefined): stri
 
 export type FrontMatter = {
   title: string
-  date: number | string
-  hide: boolean
+  date: string
+  updated: string
+  category: string
   description: string
   thumbnail: string
+  type: 'page' | 'blog'
+  keywords: string[]
   tags: string[]
 }
 
@@ -62,24 +65,16 @@ export const getSortedPosts = async (
   })
 }
 
+
 //Get Post based on Slug
 export const getPostdata = async (
   slug: string,
   locale: SupportedLanguages | undefined,
   defaultLocale: SupportedLanguages,
 ): Promise<Post> => {
+  const { fileContents, post_lang } = getPostContent(slug, locale, defaultLocale)
   const filesPath = path.join(PostDirectory, slug)
-  const defaultFullPath = path.join(filesPath, defaultLocale + '.mdx')
-  const fullPath = path.join(filesPath, locale + '.mdx')
-  let post_lang = locale as SupportedLanguages
-  //Extracts contents of the MDX file
-  let fileContents
-  try {
-    fileContents = readFileSync(fullPath, 'utf8')
-  } catch (e) {
-    fileContents = readFileSync(defaultFullPath, 'utf8')
-    post_lang = defaultLocale
-  }
+
   const { code, frontmatter } = await bundleMDX({
     source: fileContents,
     cwd: filesPath,
@@ -126,29 +121,25 @@ export const getYamlData = async (file: string, lang: string) => {
 function verifyFrontmatter(data: FrontMatter, file: string): boolean {
   let err = false
   const missing: string[] = []
-  if (typeof data.date === 'undefined' || !data.date) {
-    missing.push('date')
-    err = true
-  }
-  if (typeof data.description === 'undefined' || data.description == '') {
-    missing.push('description')
-    err = true
-  }
-  // if (typeof data.hide === 'undefined') {
-  //   missing.push('hide')
-  //   err = true
-  // }
-  if (typeof data.thumbnail === 'undefined' || data.thumbnail == '') {
-    missing.push('thumbnail')
-    err = true
-  }
-  if (typeof data.title === 'undefined' || data.title == '') {
-    missing.push('title')
-    err = true
-  }
-  if (typeof data.tags === 'undefined' || data.tags.length == 0) {
-    missing.push('tags')
-    err = true
+  type FrontMatterKeys = keyof typeof data
+
+  const fields = [
+    'title',
+    'date',
+    'updated',
+    'category',
+    'description',
+    'thumbnail',
+    'type',
+    'keywords',
+    'tags',
+  ] as FrontMatterKeys[]
+
+  for (const f of fields) {
+    if (!data.hasOwnProperty(f) || data[f].length == 0) {
+      missing.push(f)
+      err = true
+    }
   }
 
   if (err) console.log(`⚠️  file "${file}" is missing ${missing.join(', ')}`)

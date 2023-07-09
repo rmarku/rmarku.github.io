@@ -21,10 +21,11 @@ const TeachingComp: React.FC<TeachingProps> = async ({ lng, teaching }) => {
     for (const e of university.subjects) {
       const startDate = moment(e.period.start)
       const start = startDate.format(t('period_date'))
-      let end = moment(e.period.end).format(t('period_date'))
-      let duration = moment.duration(startDate.diff(end))
+      const endDate = moment(e.period.end)
+      let end = endDate.format(t('period_date'))
+      let duration = moment.duration(startDate.diff(endDate))
 
-      if (moment(e.period.end).isAfter(moment())) {
+      if (endDate.isAfter(moment())) {
         end = t('present')
         duration = moment.duration(startDate.diff(moment()))
       }

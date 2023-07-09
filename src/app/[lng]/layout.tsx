@@ -17,8 +17,8 @@ const Layout: React.FC<LayoutProps> = async ({ children, params: { lng } }) => {
       <head>
         <link rel='icon' href='/favicon.ico' />
         {/* eslint-disable-next-line @next/next/no-before-interactive-script-outside-document */}
-        <Script id='theme' strategy='beforeInteractive'>{`
-				(()=>{
+        <Script id='theme' strategy='beforeInteractive'>
+          {`(()=>{
 					// Initial theme resolve before React render.
           const b = document.body
 
@@ -33,8 +33,17 @@ const Layout: React.FC<LayoutProps> = async ({ children, params: { lng } }) => {
 
 					b.classList[is_dark ? 'add' : 'remove']('dark')
           window.localStorage.setItem('dark', is_dark)
-				})();
-			`}</Script>
+				})();`}
+      </Script>
+        <Script id='umami' strategy='beforeInteractive'>
+          {`(function() {
+            var el = document.createElement("script");
+            el.setAttribute("src", "https://unami.casa.marku.me/script.js");
+            el.setAttribute("data-website-id", "e3c04518-7bec-4d9c-9919-ff5a2cd4adb6");
+            el.setAttribute("data-domains", "marku.me");
+            document.body.appendChild(el);
+          })();`}
+        </Script>
       </head>
       <body className='dark'>
         <div className='flex flex-col min-h-screen'>

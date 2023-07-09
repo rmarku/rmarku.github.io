@@ -1,8 +1,15 @@
-import { faArrowUpRightFromSquare, faParagraph } from '@fortawesome/free-solid-svg-icons'
+import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import type { MDXComponents } from 'mdx/types'
 import Image from 'next/image'
 import Link from 'next/link'
+import path from 'path'
+import { useContext } from 'react'
+
+import { PostDirectory } from '@/lib/fileUtils'
+import { Post } from '@/lib/posts'
+
+import { PostContext } from './Markdown'
 
 function sanitizeTitleForId(title: string): string {
   return title
@@ -13,7 +20,7 @@ function sanitizeTitleForId(title: string): string {
 
 function Paragraph(props: JSX.IntrinsicElements['p']) {
   //@ts-ignore
-  if (typeof props.children !== 'string' && props.children.type === 'img') {
+  if (typeof props.children !== 'string' && typeof props.children.type === 'function') {
     return <>{props.children}</>
   }
 

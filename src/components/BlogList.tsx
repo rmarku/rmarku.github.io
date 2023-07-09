@@ -12,7 +12,7 @@ const BlogList: React.FC<{ lng: SupportedLanguages; posts: Post[] }> = ({ lng, p
         return (
           <article key={p.slug} className='container flex mt-2 border rounded-lg shadow-md p-4 max-w-5xl mx-auto'>
             <div className='h-36 w-1/4 min-w-max relative mr-5'>
-              <Image src={'/images/posts/' + p.thumbnail} alt='thumbnail' fill className='object-cover rounded-lg' />
+              <Image src={`/images/posts/${p.thumbnail}`} alt='thumbnail' fill className='object-cover rounded-lg' />
             </div>
 
             <div className='w-3/4 '>

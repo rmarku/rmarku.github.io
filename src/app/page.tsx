@@ -6,8 +6,7 @@ const PageWithLang = () => {
     <html>
       <Redirect />
       <body>
-        {/* @ts-expect-error Async Server Component */}
-        <Page params={{ lang: 'es' }} />
+        <Page params={{ lng: 'es' }} />
       </body>
     </html>
   )

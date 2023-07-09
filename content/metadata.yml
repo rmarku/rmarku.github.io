@@ -14,7 +14,7 @@ basics:
   image: img/photo.jpg
   gender: Male
   birthday:
-    date: '1986-10-27'
+    date: 1986-10-27
     location:
       city: Córdoba
       countryCode: AR
@@ -150,7 +150,7 @@ experiences:
       en: Technical Lead
     period:
       start: 2020-03-01
-      end: 2024-01-01
+      end: 2024-02-01
   - organization: Universidad Católica de Córdoba
     position:
       es: Profesor

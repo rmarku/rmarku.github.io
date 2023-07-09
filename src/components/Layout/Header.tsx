@@ -47,7 +47,7 @@ const Header: React.FC<HeaderProps> = async ({ lng }) => {
           <DesktopNavigation pages={pages} lng={lng} />
           <MobileMenu pages={pages} lng={lng} />
         </div>
-        <h1 className='bold'>Marku Blog </h1>
+        <span className='bold text-4xl my-0 py-0'>Marku Blog </span>
         <div className='flex items-center'>
           <SearchBar posts={unique_posts} serarchText={t('search')} />
           <LangSelect locale={lng} />

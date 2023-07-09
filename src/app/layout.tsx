@@ -23,6 +23,9 @@ export const metadata: Metadata = {
       'es-ES': '/es',
       'es-AR': '/es',
     },
+    types: {
+      'application/rss+xml': 'https://www.marku.me/feed-es.xml',
+    },
   },
   robots: {
     index: true,

@@ -19,12 +19,15 @@ const WorkExp: React.FC<CareerProps> = async ({ lng, experience }) => {
   for (const e of experience) {
     const startDate = moment(e.period.start)
     const start = startDate.format(t('period_date'))
-    let end = moment(e.period.end).format(t('period_date'))
-    let duration = moment.duration(startDate.diff(end))
+    const endDate = moment(e.period.end)
+    let end = endDate.format(t('period_date'))
+    let duration = moment.duration(startDate.diff(endDate))
 
-    if (moment(e.period.end).isAfter(moment())) {
+    if (endDate.isAfter()) {
       end = t('present')
-      duration = moment.duration(startDate.diff(moment()))
+
+      const diff = startDate.diff(moment())
+      duration = moment.duration(diff)
     }
     e.period.duration = duration
     e.period.text = `${start} - ${end} (${duration.humanize()})`

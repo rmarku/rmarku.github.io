@@ -45,7 +45,7 @@ export default async function Page({ params: { slug, lng } }: { params: { slug: 
           </div>
           <div className='mx-10 text-4xl font-semibold bg-[rgb(0,0,0,0.3)] rounded-2xl p-3 mt-48 '>
             <p className='mx-10 truncate leading-normal text-white  drop-shadow-[3px_3px_2px_rgba(0,0,0,0.6)]'>
-              <b>Article: </b>
+              <b>{t('article')}: </b>
               {post.title}
             </p>
           </div>

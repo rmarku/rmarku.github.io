@@ -113,20 +113,28 @@ a:visited {
   }
 }
 
-.markdown {
-  p {
-    @apply my-3;
-  }
-  ul {
-    @apply list-disc;
-  }
-  ol {
-    @apply list-decimal;
-  }
-  img {
-    @apply rounded-lg;
+.blogPost{
+  @apply m-auto prose md:prose-lg lg:prose-xl prose-stone ;
+
+  .dark & {
+    @apply prose-invert;
   }
 }
+
+// .markdown {
+//   p {
+//     @apply my-3;
+//   }
+//   ul {
+//     @apply list-disc;
+//   }
+//   ol {
+//     @apply list-decimal;
+//   }
+//   img {
+//     @apply rounded-lg;
+//   }
+// }
 
 svg {
   display: inline-block;

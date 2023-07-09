@@ -3,6 +3,7 @@ import { WebPage, WithContext } from 'schema-dts'
 
 import { BlogList } from '@/components'
 import { SupportedLanguages, initI18next, languages, useTranslation } from '@/lib/i18n'
+import { locales } from '@/lib/i18n/settings'
 import { person } from '@/lib/jsonld'
 import { getSortedPosts } from '@/lib/posts'
 
@@ -13,11 +14,11 @@ export async function generateStaticParams() {
 export default async function Page({ params: { lng } }: { params: { lng: SupportedLanguages } }) {
   const { t } = useTranslation(lng)
   const allPosts = await getSortedPosts(lng, 'es')
-  const posts = allPosts.filter((p) => !p.hide)
+  const posts = allPosts.filter((p) => p.type == 'blog')
 
   return (
     <>
-      <h2 className='text-center'>{t('resentPosts')}</h2>
+      <h1 className='text-center'>{t('resentPosts')}</h1>
       <BlogList lng={lng} posts={posts} />
       <JSON_LD lng={lng} />
     </>
@@ -28,12 +29,27 @@ type Props = {
   params: { lng: SupportedLanguages }
 }
 
-export async function generateMetadata({ params }: Props, parent: ResolvingMetadata): Promise<Metadata> {
-  const { t } = initI18next(params.lng, 'common')
+export async function generateMetadata({ params: { lng } }: Props, parent: ResolvingMetadata): Promise<Metadata> {
+  const { t } = initI18next(lng, 'common')
 
   return {
     title: 'Blog',
     description: t('description'),
+    openGraph: {
+      title: t('title'),
+      description: t('description'),
+      url: 'https://www.marku.me',
+      siteName: t('title'),
+      images: [
+        {
+          url: `https://www.marku.me/images/og/page.${lng}.png`,
+          width: 1200,
+          height: 630,
+        },
+      ],
+      locale: locales[lng],
+      type: 'website',
+    },
   }
 }
 

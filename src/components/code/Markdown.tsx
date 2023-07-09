@@ -13,7 +13,6 @@ const Markdown: React.FC<SyntaxProps> = ({ post, Comp }) => {
   return (
     <PostContext.Provider value={post}>
       <div className='markdown'>
-        {/* @ts-ingore */}
         <Comp components={{ pre: Code, ...components }} />
       </div>
     </PostContext.Provider>
