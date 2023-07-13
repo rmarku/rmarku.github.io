@@ -1,7 +1,7 @@
 import Image from 'next/image'
 
 import { getAllPostSlugs } from '@/lib/fileUtils'
-import { SupportedLanguages, fallbackLng, languages, useTranslation } from '@/lib/i18n'
+import { SupportedLanguages, fallbackLng, initI18next, languages, useTranslation } from '@/lib/i18n'
 import { getPostdata } from '@/lib/posts'
 
 interface page {
@@ -22,7 +22,7 @@ export function generateStaticParams(): page[] {
 }
 
 export default async function Page({ params: { slug, lng } }: { params: { slug: string[]; lng: SupportedLanguages } }) {
-  const { t } = useTranslation(lng)
+  const { t } = initI18next(lng, 'common')
   const post = await getPostdata(slug.join('/'), lng, fallbackLng)
 
   return (

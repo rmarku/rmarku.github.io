@@ -2,14 +2,14 @@ import { faWrench } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { Skill } from '@/lib/fileUtils'
-import { SupportedLanguages, useTranslation } from '@/lib/i18n'
+import { SupportedLanguages, initI18next, useTranslation } from '@/lib/i18n'
 
 type SkillsProps = {
   lng: SupportedLanguages
   skills: Skill[]
 }
 const Skills: React.FC<SkillsProps> = async ({ lng, skills }) => {
-  const { t } = useTranslation(lng, 'common')
+  const { t } = initI18next(lng, 'common')
   function skillLvl(l: number): string {
     if (l == 100) return 'Exp'
     if (l > 50) return 'Spec'

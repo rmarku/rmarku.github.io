@@ -30,25 +30,28 @@ function Paragraph(props: JSX.IntrinsicElements['p']) {
 function PostImage(props: JSX.IntrinsicElements['img']) {
   const alt = props.alt || ''
   const src = props.src || ''
-  return (
-    <figure>
-      <Image alt={alt} src={src} className='mx-auto rounded-lg object-cover w-auto h-auto' width='0' height='0' />
-      <figcaption className='text-center mersocarlin-text-gray'>{alt}</figcaption>
-    </figure>
-  )
+  const post = useContext(PostContext)
+
+  if (post?.type != 'page')
+    return (
+      <figure>
+        <Image alt={alt} src={src} className='mx-auto rounded-lg object-cover w-auto h-auto' width='0' height='0' />
+        <figcaption className='text-center mersocarlin-text-gray'>{alt}</figcaption>
+      </figure>
+    )
+  else return <img alt={alt} src={src} style={{ display: 'inline-block' }} />
 }
 
 function Anchor(props: JSX.IntrinsicElements['a']) {
   const { href, children } = props
-
-  if (!href) return <a {...props} />
+  const post = useContext(PostContext)
+  if (!href || post?.type == 'page') return <a {...props} />
 
   if (href.startsWith('http')) {
     return (
       <Link href={href} target='_blank' rel='noopener noreferrer'>
         {children}
         <sup>
-          {' '}
           <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
         </sup>
       </Link>

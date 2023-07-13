@@ -5,7 +5,7 @@ import path from 'path'
 import { gfmHeadingId } from "marked-gfm-heading-id";
 import { marked } from 'marked'
 import { mangle } from "marked-mangle";
-import { SupportedLanguages, fallbackLng, languages, useTranslation } from './i18n'
+import { SupportedLanguages, fallbackLng, initI18next, languages, useTranslation } from './i18n'
 import { getDirNames,getPostContent } from './fileUtils'
 import matter from 'gray-matter'
 
@@ -30,7 +30,7 @@ marked.use(mangle());
 const renderPost = (md: string) => marked.parse(md)
 
 const GenerateRSS = async (lng:SupportedLanguages) => {
-	const {t} = useTranslation(lng,"common" )
+	const {t} = initI18next(lng, 'common')
   const feed = new RSS({
     title: 'Marku Blog',
     site_url: 'https://www.marku.me',

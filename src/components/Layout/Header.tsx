@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { DarkToggle, DesktopNavigation, LangSelect, MobileMenu } from '@/components/Layout'
-import { SupportedLanguages, fallbackLng, languages, useTranslation } from '@/lib/i18n'
+import { SupportedLanguages, fallbackLng, initI18next, languages, useTranslation } from '@/lib/i18n'
 import { getSortedPosts } from '@/lib/posts'
 
 import SearchBar from './SearchBar'
@@ -15,7 +15,7 @@ type HeaderProps = {
   lng: SupportedLanguages
 }
 const Header: React.FC<HeaderProps> = async ({ lng }) => {
-  const { t } = useTranslation(lng, 'common')
+  const { t } = initI18next(lng, 'common')
   const posts = []
   for (const l of languages) {
     posts.push(...(await getSortedPosts(l, fallbackLng)))

@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import moment from 'moment'
 
 import { Experience } from '@/lib/fileUtils'
-import { SupportedLanguages, useTranslation } from '@/lib/i18n'
+import { SupportedLanguages, initI18next, useTranslation } from '@/lib/i18n'
 
 import Details from './Details'
 
@@ -13,7 +13,7 @@ type CareerProps = {
 }
 
 const WorkExp: React.FC<CareerProps> = async ({ lng, experience }) => {
-  const { t } = useTranslation(lng, 'common')
+  const { t } = initI18next(lng, 'common')
 
   // Sort work
   for (const e of experience) {

@@ -2,14 +2,14 @@ import { faChevronCircleRight, faLanguage } from '@fortawesome/free-solid-svg-ic
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { Language } from '@/lib/fileUtils'
-import { SupportedLanguages, useTranslation } from '@/lib/i18n'
+import { SupportedLanguages, initI18next, useTranslation } from '@/lib/i18n'
 
 type CareerProps = {
   lng: SupportedLanguages
   language: Language[]
 }
 const Languages: React.FC<CareerProps> = async ({ lng, language }) => {
-  const { t } = useTranslation(lng, 'common')
+  const { t } = initI18next(lng, 'common')
   return (
     <div>
       <h2>

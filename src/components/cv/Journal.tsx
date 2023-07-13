@@ -4,14 +4,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 
 import { Journal } from '@/lib/fileUtils'
-import { SupportedLanguages, useTranslation } from '@/lib/i18n'
+import { SupportedLanguages, initI18next, useTranslation } from '@/lib/i18n'
 
 type JournalsProps = {
   lng: SupportedLanguages
   journals: Journal[]
 }
 const Journals: React.FC<JournalsProps> = async ({ lng, journals }) => {
-  const { t } = useTranslation(lng, 'common')
+  const { t } = initI18next(lng, 'common')
 
   return (
     <div className='px-10'>

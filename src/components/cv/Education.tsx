@@ -1,7 +1,7 @@
 import { faGraduationCap } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import { SupportedLanguages, useTranslation } from '@/lib/i18n'
+import { SupportedLanguages, initI18next, useTranslation } from '@/lib/i18n'
 
 import Details from './Details'
 import {Education} from '@/lib/fileUtils'
@@ -12,7 +12,7 @@ type EducationProps = {
   educations: Education[]
 }
 const Education: React.FC<EducationProps> = async ({ lng, educations }) => {
-  const { t } = useTranslation(lng, 'common')
+  const { t } = initI18next(lng, 'common')
 
   return (
     <div className='px-10'>

@@ -6,7 +6,7 @@ import moment from 'moment'
 import Image from 'next/image'
 
 import { Basics } from '@/lib/fileUtils'
-import { SupportedLanguages, useTranslation } from '@/lib/i18n'
+import { SupportedLanguages, initI18next, useTranslation } from '@/lib/i18n'
 
 type CVHeaderProps = {
   lng: SupportedLanguages
@@ -14,7 +14,7 @@ type CVHeaderProps = {
 }
 const CVHeader: React.FC<CVHeaderProps> = async ({ lng, basics }) => {
   moment.locale(lng)
-  const { t } = useTranslation(lng, 'common')
+  const { t } = initI18next(lng, 'common')
   const birthday = moment(basics.birthday.date).calendar()
   const years = moment().diff(moment(basics.birthday.date), 'years', false)
 

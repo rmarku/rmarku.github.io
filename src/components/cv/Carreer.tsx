@@ -2,14 +2,14 @@ import { faUser } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { Summary } from '@/lib/fileUtils'
-import { SupportedLanguages, useTranslation } from '@/lib/i18n'
+import { SupportedLanguages, initI18next, useTranslation } from '@/lib/i18n'
 
 type CareerProps = {
   lng: SupportedLanguages
   summary: Summary
 }
 const Career: React.FC<CareerProps> = async ({ lng, summary }) => {
-  const { t } = useTranslation(lng, 'common')
+  const { t } = initI18next(lng, 'common')
   const text = summary[lng]
 
   return (

@@ -4,7 +4,7 @@ import moment from 'moment'
 import 'moment/locale/es'
 
 import { Teaching } from '@/lib/fileUtils'
-import { SupportedLanguages, useTranslation } from '@/lib/i18n'
+import { SupportedLanguages, initI18next, useTranslation } from '@/lib/i18n'
 
 import Details from './Details'
 
@@ -14,7 +14,7 @@ type TeachingProps = {
 }
 
 const TeachingComp: React.FC<TeachingProps> = async ({ lng, teaching }) => {
-  const { t } = useTranslation(lng, 'common')
+  const { t } = initI18next(lng, 'common')
   moment.locale(lng)
 
   for (const university of teaching) {

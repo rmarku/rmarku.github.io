@@ -12,7 +12,7 @@ export async function generateStaticParams() {
 }
 
 export default async function Page({ params: { lng } }: { params: { lng: SupportedLanguages } }) {
-  const { t } = useTranslation(lng)
+  const { t } = initI18next(lng, 'common')
   const allPosts = await getSortedPosts(lng, 'es')
   const posts = allPosts.filter((p) => p.type == 'blog')
 
