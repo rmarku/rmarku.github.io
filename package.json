@@ -56,6 +56,9 @@
     "typescript": "5.1.6"
   },
   "devDependencies": {
+    "@catppuccin/highlightjs": "^0.1.2",
+    "@catppuccin/palette": "^0.2.0",
+    "@catppuccin/tailwindcss": "^0.1.6",
     "@kurone-kito/jsonresume-types": "^0.3.7",
     "@tailwindcss/typography": "^0.5.9",
     "@trivago/prettier-plugin-sort-imports": "^4.1.1",
@@ -76,6 +79,7 @@
     "next-static-og-images": "^0.2.0",
     "postcss": "^8.4.25",
     "prettier": "^3.0.0",
+    "prettier-plugin-tailwindcss": "^0.4.0",
     "sass": "^1.63.6",
     "tailwindcss": "^3.3.2",
     "yaml": "^2.3.1"

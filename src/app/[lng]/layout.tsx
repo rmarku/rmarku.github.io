@@ -34,7 +34,7 @@ const Layout: React.FC<LayoutProps> = async ({ children, params: { lng } }) => {
 					b.classList[is_dark ? 'add' : 'remove']('dark')
           window.localStorage.setItem('dark', is_dark)
 				})();`}
-      </Script>
+        </Script>
         <Script id='umami' strategy='beforeInteractive'>
           {`(function() {
             var el = document.createElement("script");

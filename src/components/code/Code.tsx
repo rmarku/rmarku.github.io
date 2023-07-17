@@ -65,7 +65,7 @@ const Code = (props: JSX.IntrinsicElements['pre']) => {
         )
     }
 
-  return <div className='my-5 xl:mx-36 lg:mx-20 md:mx-5 mx-0 md:text-base text-xs'>{component}</div>
+  return <div className='my-5 text-base'>{component}</div>
 }
 export default Code
 

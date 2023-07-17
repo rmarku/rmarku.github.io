@@ -62,7 +62,7 @@ const WorkExp: React.FC<CareerProps> = async ({ lng, experience }) => {
       <ul className='relative border-l border-gray-200 dark:border-gray-500'>
         {experience.map((exp) => (
           <li key={exp.organization + exp.period} className='mb-10 ml-4'>
-            <div className='absolute w-6 h-6 bg-gray-200 rounded-full -left-3 border-2 border-white dark:border-white dark:bg-gray-900'></div>
+            <div className='timeLineCircle'></div>
             <div className='float-right font-bold ml-7'>{exp.organization}</div>
             <h3>{exp.position[lng]}</h3>
             <span className='period'>{exp.period.text}</span>

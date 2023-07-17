@@ -50,7 +50,7 @@ async function loopAll() {
     }
   }
 
-  await pl.browser.close()
+  pl.browser.close()
 }
 
 try {
@@ -61,11 +61,13 @@ try {
     if (txt.includes('started server')) {
       loopAll()
         .then(() => {
-          child.kill()
+          console.log('⚠️ Trying to kill child')
+          const out = child.kill()
+          console.log('⚠️ Child killed with ', out)
         })
         .catch((e) => {
           // Add error handling for loopAll()
-          console.error('Error executing loopAll:', e)
+          console.error('🚨 Error executing loopAll:', e)
           child.kill()
         })
     }

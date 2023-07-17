@@ -2,8 +2,16 @@
 
 import { ReactElement, useState } from 'react'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism'
+import { LightAsync as SyntaxHighlighter } from 'react-syntax-highlighter'
+import cpp from 'react-syntax-highlighter/dist/cjs/languages/hljs/cpp'
+import javascript from 'react-syntax-highlighter/dist/cjs/languages/hljs/javascript'
+import shell from 'react-syntax-highlighter/dist/cjs/languages/hljs/shell'
+
+import { frappe, latte } from './HLStyles'
+
+SyntaxHighlighter.registerLanguage('cpp', cpp)
+SyntaxHighlighter.registerLanguage('javascript', javascript)
+SyntaxHighlighter.registerLanguage('shell', shell)
 
 type SyntaxProps = {
   children: string
@@ -14,19 +22,20 @@ type SyntaxProps = {
 const Syntax: React.FC<SyntaxProps> = ({ children, language, title, ...props }) => {
   return (
     // @ts-ignore
-    <div className='border rounded-lg shadow-md'>
+    <div className='border rounded-lg shadow-md' style={frappe.hljs}>
       <div className='container flex justify-between'>
         <div className='flex pt-2 pl-5'>{title}</div>
         <div className='flex'>
           <Copy text={children} />
         </div>
       </div>
-      <SyntaxHighlighter {...props} style={atomDark} language={language} showLineNumbers>
+      <SyntaxHighlighter {...props} style={frappe} language={language} showLineNumbers>
         {children}
       </SyntaxHighlighter>
     </div>
   )
 }
+
 const Copy: React.FC<{ text: string }> = ({ text }) => {
   const [isCopied, setIsCopied] = useState(false)
   const setCopied = () => {

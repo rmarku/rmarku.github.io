@@ -39,8 +39,8 @@ const Skills: React.FC<SkillsProps> = async ({ lng, skills }) => {
             <div key={skill.name} className='pl-3'>
               {skill.name}
               <span className='cvbadged float-right'>{skillLvl(skill.level)}</span>
-              <div className='w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700 my-0.5'>
-                <div className='bg-blue-600 h-2.5 rounded-full' style={{ width: skill.level + '%' }}></div>
+              <div className='progressBar'>
+                <div style={{ width: skill.level + '%' }}></div>
               </div>
             </div>
           ))}
