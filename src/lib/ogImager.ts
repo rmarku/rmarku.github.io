@@ -65,6 +65,7 @@ try {
           console.log('⚠️ Trying to kill child')
           child.kill(9)
           console.log('👌 Child killed')
+          process.exit()
         })
         .catch((e) => {
           // Add error handling for loopAll()
@@ -88,5 +89,3 @@ try {
 } catch (e) {
   console.log(e)
 }
-
-setTimeout(() => process.exit(), 1000 * 60)
