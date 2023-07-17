@@ -39,7 +39,12 @@ function PostImage(props: JSX.IntrinsicElements['img']) {
         <figcaption className='text-center mersocarlin-text-gray'>{alt}</figcaption>
       </figure>
     )
-  else return <img alt={alt} src={src} style={{ display: 'inline-block' }} />
+  else
+    return (
+      <picture>
+        <img alt={alt} src={src} style={{ display: 'inline-block' }} />
+      </picture>
+    )
 }
 
 function Anchor(props: JSX.IntrinsicElements['a']) {

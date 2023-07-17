@@ -53,6 +53,7 @@ async function loopAll() {
   pl.browser.close()
 }
 
+// Run server and loop screen captures
 try {
   const child = spawn('pnpm', ['dev'])
 
@@ -62,13 +63,12 @@ try {
       loopAll()
         .then(() => {
           console.log('⚠️ Trying to kill child')
-          let out = child.kill()
-          console.log('⚠️ Child killed with ', out)
+          child.kill(9)
+          console.log('👌 Child killed')
         })
         .catch((e) => {
           // Add error handling for loopAll()
           console.error('🚨 Error executing loopAll:', e)
-          child.kill()
         })
     }
   })
@@ -82,9 +82,11 @@ try {
   })
 
   // Handling close event
-  child.on('close', (code) => {
-    console.log(`🚀 Child process exited with code ${code}`)
+  child.on('close', (code, signal) => {
+    console.log(`🚀 Child process exited with code ${code}, ${signal}`)
   })
 } catch (e) {
   console.log(e)
 }
+
+setTimeout(() => process.exit(), 1000 * 60)

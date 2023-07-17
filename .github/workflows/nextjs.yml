@@ -62,7 +62,13 @@ jobs:
       - name: Install playwright
         run: pnpx playwright install
       - name: Build with Next.js
-        run: pnpm build
+        run: pnpm next build
+      - name: Generate SiteMap
+        run: pnpm next-sitemap
+      - name: Generate og Images
+        run: pnpm ts-node src/lib/ogImager.ts
+      - name: Generate rss feeds
+        run: pnpm ts-node src/lib/rssGenerator.ts
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
