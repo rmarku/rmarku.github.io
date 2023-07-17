@@ -62,7 +62,7 @@ try {
       loopAll()
         .then(() => {
           console.log('⚠️ Trying to kill child')
-          const out = child.kill()
+          let out = child.kill()
           console.log('⚠️ Child killed with ', out)
         })
         .catch((e) => {
