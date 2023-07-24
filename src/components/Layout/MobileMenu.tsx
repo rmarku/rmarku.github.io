@@ -34,7 +34,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ pages, lng }) => {
           <ul className='space-y-4'>
             {pages.map((page) => (
               <li key={page.text}>
-                <Link href={`/${lng}${page.route}`} className='block text-white' onClick={toggleNavMenu}>
+                <Link href={`/${lng}${page.route}/`} className='block text-white' onClick={toggleNavMenu}>
                   {page.text}
                 </Link>
               </li>

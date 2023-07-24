@@ -15,7 +15,7 @@ const DesktopNavigation: React.FC<DesktopNavigationProps> = ({ pages, lng }) => 
       <ul className='flex space-x-4'>
         {pages.map((page) => (
           <li key={page.text}>
-            <Link href={`/${lng}${page.route}`} className='hover:text-blue-300 mx-2 font-bold'>
+            <Link href={`/${lng}${page.route}/`} className='hover:text-blue-300 mx-2 font-bold'>
               {page.text}
             </Link>
           </li>
