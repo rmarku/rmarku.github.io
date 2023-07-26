@@ -7,6 +7,7 @@ import Header from './Header'
 import Interests from './Interests'
 import Journal from './Journal'
 import Languages from './Languages'
+import PrintBTN from './PrintBtn'
 import Skills from './Skills'
 import TeachingCompn from './Teaching'
 import WorkExp from './Workexp'
@@ -18,6 +19,7 @@ type HeaderProps = {
 const CV: React.FC<HeaderProps> = ({ lng, info }) => {
   return (
     <div className='cv'>
+      <PrintBTN />
       <Header lng={lng} basics={info.basics} />
       <Career lng={lng} summary={info.summary} />
       <div className='flex justify-evenly'>
