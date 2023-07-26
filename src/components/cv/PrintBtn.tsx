@@ -10,7 +10,7 @@ const PrintBTN: React.FC = () => {
   }
   return (
     <span onClick={print} className='print:hidden float-right'>
-      <FontAwesomeIcon icon={faPrint} className='text-3xl cursor-pointer hover:bg-blue-100 hover:animate-pulse' />
+      <FontAwesomeIcon icon={faPrint} className='text-3xl cursor-pointer hover:animate-pulse' />
     </span>
   )
 }
