@@ -13,7 +13,7 @@ const Career: React.FC<CareerProps> = async ({ lng, summary }) => {
   const text = summary[lng]
 
   return (
-    <div className='px-10'>
+    <div className='px-10 print:p-0'>
       <h2>
         <FontAwesomeIcon icon={faUser} /> {t('career_summary')}
       </h2>

@@ -1,6 +1,7 @@
 import { faSuitcase } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import moment from 'moment'
+import Link from 'next/link'
 
 import { Experience } from '@/lib/fileUtils'
 import { SupportedLanguages, initI18next, useTranslation } from '@/lib/i18n'
@@ -52,6 +53,12 @@ const WorkExp: React.FC<CareerProps> = async ({ lng, experience }) => {
       )
     else return <></>
   }
+  const Organization: React.FC<{ org: string; url: string | undefined }> = ({ org, url }) => {
+    if (url) {
+      return <Link href={url}>{org}</Link>
+    }
+    return <>{org}</>
+  }
 
   return (
     <div>
@@ -63,7 +70,9 @@ const WorkExp: React.FC<CareerProps> = async ({ lng, experience }) => {
         {experience.map((exp) => (
           <li key={exp.organization + exp.period} className='mb-10 ml-4'>
             <div className='timeLineCircle'></div>
-            <div className='float-right font-bold ml-7'>{exp.organization}</div>
+            <div className='float-right font-bold ml-7'>
+              <Organization org={exp.organization} url={exp.url} />
+            </div>
             <h3>{exp.position[lng]}</h3>
             <span className='period'>{exp.period.text}</span>
             <Details lng={lng} detail={exp.detail} />

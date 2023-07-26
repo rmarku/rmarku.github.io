@@ -48,7 +48,7 @@ const Layout: React.FC<LayoutProps> = async ({ children, params: { lng } }) => {
       <body className='dark'>
         <div className='flex flex-col min-h-screen'>
           <Header lng={lng} />
-          <main className='flex-grow container mx-auto py-8 px-4'>{children}</main>
+          <main>{children}</main>
           <Footer />
         </div>
       </body>

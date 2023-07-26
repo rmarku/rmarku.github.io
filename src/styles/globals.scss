@@ -3,6 +3,12 @@
 @tailwind utilities;
 @import 'node_modules/@fortawesome/fontawesome-svg-core/styles';
 //@import 'HLStyles.scss';
+@page {
+  size: A4;
+  @center {
+    content: counter(page) ' of ' counter(pages);
+  }
+}
 
 @layer base {
   body,
@@ -22,6 +28,8 @@
     &.dark {
       @apply macchiato;
     }
+
+    @apply print:bg-white print:font-black print:font-normal;
   }
 
   a,
@@ -32,6 +40,10 @@
       @apply text-blue-700;
     }
   }
+}
+main {
+  @apply flex-grow container mx-auto py-8 px-4;
+  @apply print:mx-1 print:px-0 print:max-w-none;
 }
 h1 {
   @apply myHeaders text-3xl font-bold mb-3;
@@ -85,14 +97,6 @@ svg {
   }
 }
 
-.cvbadged {
-  @apply align-middle text-sm rounded-full bg-gray-300 px-3 pb-0.5 mx-1;
-
-  .dark & {
-    @apply bg-gray-700;
-  }
-}
-
 .toc {
   ul {
     @apply list-outside ml-5 list-disc;
@@ -116,6 +120,29 @@ svg {
 
 // CV
 
+.cv {
+  @apply w-3/4 m-auto;
+  &,
+  .dark & {
+    @apply print:w-full print:text-black;
+    & .progressBar {
+      @apply print:bg-gray-300;
+    }
+    & .cvbadged {
+      @apply print:bg-gray-300 print:text-xs;
+    }
+  }
+  a,
+  a:visited {
+    @apply print:text-black;
+  }
+}
+.cv-side {
+  > div {
+    @apply print:border-gray-300 print:border-l print:pl-2;
+  }
+}
+
 .progressBar {
   @apply w-full bg-gray-400 rounded-full h-2.5 my-0.5;
   div {
@@ -130,5 +157,13 @@ svg {
   @apply absolute w-6 h-6 bg-gray-400 rounded-full -left-3 border-2 border-gray-700;
   .dark & {
     @apply bg-gray-700 border-gray-300;
+  }
+}
+
+.cvbadged {
+  @apply align-middle text-sm rounded-full bg-gray-300 px-3 pb-0.5 mx-1;
+
+  .dark & {
+    @apply bg-gray-700;
   }
 }

@@ -30,7 +30,6 @@ export function getDirNames(): string[] {
     })
 }
 
-
 export const getPostContent = (
   slug: string,
   locale: SupportedLanguages | undefined,
@@ -137,6 +136,7 @@ export interface Interest {
 export interface Summary extends Translatable {}
 
 export interface Experience {
+  url: string
   organization: string
   position: Translatable
   period: Period

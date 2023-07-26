@@ -144,19 +144,43 @@ summary:
 
 experiences:
   - organization: Wilab
+    url: https://www.wilab.io
     position:
       es: Líder Técnico
       en: Technical Lead
     period:
       start: 2020-03-01
       end: 2024-02-01
+    detail:
+      es: |-
+        En esta startup, asumí varias funciones que abarcaron múltiples áreas. Principalmente, me desempeñé en el desarrollo backend en Go, implementado sobre una arquitectura de microservicios. Inicié y supervisé la configuración de toda la infraestructura en Kubernetes. Este desafío me llevó a asumir el papel de SRE (DevOps) durante casi un año, durante el cual desplegué clusters RKE2 y k3s, desarrollé helm charts y desplegué una pila completa de monitoreo, almacenamiento, CSI, etc. Como líder técnico, estuve a cargo del diseño y la arquitectura del proyecto, donde diseñamos un sistema de servicios distribuidos en Go, comunicados mediante NATS, y utilizando base de datos Postgre y Elastic. Todo monitoreado con OpenTelemetry.
+      en: |-
+        In this startup, I had several roles that spanned multiple areas. Mainly, I was involved in backend development in Go, implemented on a microservices architecture. I initiated and oversaw the configuration of the entire infrastructure on Kubernetes. This challenge led me to take on the role of SRE (DevOps) for almost a year, during which I deployed RKE2 and k3s clusters, developed helm charts and deployed a full stack of monitoring, storage, CSI, etc. As technical lead, I was responsible for the design and architecture of the project, where we designed a system of distributed services in Go, communicating via NATS, and using Postgre and Elastic database. All monitored with OpenTelemetry.
+    technology:
+      - Go
+      - Kubernetes
+      - Grafana Stack
+      - Postgres
+      - NATS
+      - RK3/k3s
+      - Reactjs
+      - Nestjs
+
   - organization: Universidad Católica de Córdoba
+    url: https://www.ucc.edu.ar
     position:
       es: Profesor
       en: Teacher
     period:
       start: 2016-02-01
       end: 2022-02-01
+    detail:
+      es: Me desempeñe como docente de varias materias de Programación y Electrónica. Siempre tratando de enseñar a los alumnos lo mas nuevo e innovador en estas áreas.
+      en: I have taught several subjects in programming and electronics. Always trying to teach students the latest and most innovative in these areas.
+    technology:
+      - java
+      - C
+      - AARCH64 asm
 
   - organization: ''
     position:
@@ -225,14 +249,22 @@ experiences:
       - Embedded C
 
   - organization: Instituto Universitario Aeronáutico
+    url: https://www.iua.edu.ar
     position:
       es: Profesor
       en: Teacher
     period:
       start: 2016-06-01
       end: 2022-03-01
-
+    detail:
+      es: Me desempeñe como docente de varias materias de Programación y Electrónica. Siempre tratando de enseñar a los alumnos lo mas nuevo e innovador en estas áreas
+      en: I have taught several subjects in programming and electronics. Always trying to teach students the latest and most innovative in these areas.
+    technology:
+      - java
+      - C
+      - AARCH64 asm
   - organization: Universidad Católica de Córdoba
+    url: https://www.ucc.edu.ar
     position:
       es: Coordinador de Ciclo Básico
       en: First and Second year Advisor
@@ -258,6 +290,7 @@ experiences:
       - Genetic Algorithms
 
   - organization: CINECA
+    url: https://www.cineca.it/
     position:
       es: Desarrollador Full Stack
       en: Full Stack Developer
@@ -275,7 +308,8 @@ experiences:
       - AngularJS
       - SQL
 
-  - organization: Omikron Ingeniería
+  - organization: Omixom
+    url: https://www.omixom.com
     position:
       es: Desarrollador Full Stack y desarrollo de Sistemas Embebidos
       en: Full Stack Developer and Embedded Software Developer
@@ -436,7 +470,7 @@ educations:
       es: 16 horas online dictadas por Wes Bos https://advancedreact.com/
       en: 16 hours online course by Wes Bos https://advancedreact.com/
 
-  - degree: React for Beginers
+  - degree: React for Beginners
     name: Wes Bos Course
     detail:
       es: 5 horas online dictadas por Wes Bos https://reactforbeginners.com/
@@ -448,6 +482,14 @@ educations:
       es: 10 horas online dictadas por Wes Bos https://learnnode.com/
       en: 10 hours online course by Wes Bos https://learnnode.com/
 
+  - degree: Center for International Education - English
+    type: CollegeOrUniversity
+    name: Maryville College
+    url: https://www.maryvillecollege.edu/
+    period: 2005 - 3 month
+    detail:
+      es: Ingles avanzado para extranjeros
+      en: Advance english course for international students
   - degree: Computer Engineering
     type: CollegeOrUniversity
     name: Universidad Católica de Córdoba

@@ -41,7 +41,7 @@ const Header: React.FC<HeaderProps> = async ({ lng }) => {
   ]
 
   return (
-    <header className='header text-white'>
+    <header className='header text-white print:hidden'>
       <div className='container mx-auto flex justify-between items-center px-4'>
         <div className='flex items-center'>
           <DesktopNavigation pages={pages} lng={lng} />

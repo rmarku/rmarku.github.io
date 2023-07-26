@@ -17,14 +17,14 @@ type HeaderProps = {
 }
 const CV: React.FC<HeaderProps> = ({ lng, info }) => {
   return (
-    <div className='w-3/4 m-auto'>
+    <div className='cv'>
       <Header lng={lng} basics={info.basics} />
       <Career lng={lng} summary={info.summary} />
       <div className='flex justify-evenly'>
-        <div className='w-2/3 p-10'>
+        <div className='w-2/3 p-10 print:p-2'>
           <WorkExp lng={lng} experience={info.experiences} />
         </div>
-        <div className='w-1/3 p-10'>
+        <div className='w-1/3 p-10 print:p-4 cv-side'>
           <Languages lng={lng} language={info.basics.languages} />
           <Skills lng={lng} skills={info.basics.skills} />
           <Interests lng={lng} interests={info.basics.interests} />
