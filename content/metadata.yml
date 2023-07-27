@@ -98,8 +98,6 @@ basics:
           level: 100
         - name: Agile
           level: 90
-        - name: DevOps as philosofy
-          level: 70
         - name: Testing
           level: 40
   languages:

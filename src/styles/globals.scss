@@ -136,6 +136,9 @@ svg {
   a:visited {
     @apply print:text-black;
   }
+  h1 {
+    @apply print:text-4xl;
+  }
 }
 .cv-side {
   > div {
