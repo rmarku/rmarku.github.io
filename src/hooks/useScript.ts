@@ -1,15 +1,24 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
-// we need a function that accepts the script src and couple of other parameters
+// Define the type for the params
+interface Params {
+  url: string
+  theme: string
+  issueTerm: string
+  repo: string
+  ref: React.RefObject<HTMLElement>
+}
 
-const useScript = (params) => {
+// Define the type for the status
+type Status = 'loading' | 'idle' | 'ready' | 'error'
+
+const useScript = (params: Params): Status => {
   const { url, theme, issueTerm, repo, ref } = params
 
-  const [status, setStatus] = useState(url ? 'loading' : 'idle')
+  const [status, setStatus] = useState<Status>(url ? 'loading' : 'idle')
 
   console.log(params)
 
-  // run the useEffect when the url of the script changes
   useEffect(() => {
     if (!url) {
       setStatus('idle')
@@ -25,33 +34,13 @@ const useScript = (params) => {
     script.setAttribute('repo', repo)
 
     // Add script to document body
-    ref.current.appendChild(script)
+    if (ref.current) {
+      ref.current.appendChild(script)
+    }
 
     // store status of the script
-
-    const setAttributeStatus = (event) => {
-      /**
-         * Console.log value from event
-            {
-                bubbles: false
-                cancelBubble: false
-                cancelable: false
-                composed: false
-                currentTarget: null
-                defaultPrevented: false
-                eventPhase: 0
-                isTrusted: true
-                path: [script]
-                returnValue: true
-                srcElement: null
-                target: null
-                timeStamp: 276483.5
-                type: "load"
-            }
-
-            based on the type property we will get know whether script is ready or errored out
-            */
-
+    const setAttributeStatus = (event: Event) => {
+      // set status based on the type property
       setStatus(event.type === 'load' ? 'ready' : 'error')
     }
 
@@ -66,6 +55,7 @@ const useScript = (params) => {
       }
     }
   }, [url])
+
   return status
 }
 
