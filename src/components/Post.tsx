@@ -15,6 +15,7 @@ export const PostView: React.FC<{ post: Post; comp: FunctionComponent<MDXContent
 }) => {
   const { t } = useTranslation('es')
   const img = `/images/posts/${post.thumbnail}`
+  console.log('https://www.marku.me/es/posts/' + post.slug)
   return (
     <article className='blogPost'>
       <h1 className=''>{post.title}</h1>
@@ -22,7 +23,7 @@ export const PostView: React.FC<{ post: Post; comp: FunctionComponent<MDXContent
       <hr />
       <Markdown post={post} Comp={comp} />
       <hr />
-      <Comments />
+      <Comments url={'https://www.marku.me/es/posts/' + post.slug} id={post.slug} title={post.title} />
     </article>
   )
 }

@@ -170,3 +170,10 @@ svg {
     @apply bg-gray-700;
   }
 }
+
+#comments {
+  @apply border-2 p-3 border-gray-300 rounded-2xl;
+  .dark & {
+    @apply bg-gray-500 border-gray-700;
+  }
+}
