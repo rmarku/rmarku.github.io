@@ -1,0 +1,13 @@
+{{ $data := index . "data" }}
+{{ $lang := index . "lang" }}
+
+<h2><i class="fa-solid fa-file-alt"></i> {{ i18n "publications"}}</h2>
+<ul>
+    {{ range $data.publications}}
+    <li>
+        <h3><a href="{{ .website }}">{{index .title $lang}}</a></h3>
+        <p><i>{{ i18n "coauthored" }} {{ .coauthors }}</i></p>
+        <p>{{ index .detail $lang | markdownify }}</p>
+    </li>
+    {{ end }}
+</ul>

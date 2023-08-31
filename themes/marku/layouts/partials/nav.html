@@ -1,0 +1,43 @@
+<nav class="navbar">
+  <section>
+    <input type="checkbox" id="navbar_toggle" />
+    <label for="navbar_toggle" class="hamburger">&#9776;</label>
+    <ul class="nav-links">
+      <div class="menu">
+        {{ with .Site.Menus.main}}
+        {{ range sort . }}
+        <li>
+          <a href="{{ index (apply (slice .URL) (.Params.urlFunc | default "relLangURL" ) "." ) 0 }}">{{ .Name }}</a>
+        </li>
+        {{ end }}
+        {{ end }}
+      </div>
+    </ul>
+    <a class="logo" href="{{ .Site.BaseURL | relLangURL }}">{{ .Site.Title }}</a>
+    <div class="right">
+      <input type="text" placeholder="Buscar" value="" disabled />
+      {{ $siteLanguages := site.Languages}}
+      {{ $pageLang := .Page.Lang}}
+      {{- range .Page.AllTranslations }}
+      {{ $translation := . }}
+      {{- range sort $siteLanguages "Weight" "asc" }}
+      {{- if eq $translation.Lang .Lang }}
+      {{ if eq $pageLang .Lang}}
+      <a class="flagselect" href="{{ $translation.Permalink | relURL }}">{{ .Params.languageNameShort }}{{
+        .Params.languageFlag }}</a>
+      {{ else }}
+      <a class="flagnoselect" href="{{ $translation.Permalink | relURL }}">{{ .Params.languageNameShort }}{{
+        .Params.languageFlag }}</a>
+      {{ end }}
+      {{- end }}
+      {{- end }}
+      {{- end }}
+      <button aria-label="Toggle dark mode" class="dark-button" onclick="setDark(true)">
+        <i class="print-inline fa-regular fa-moon"></i>
+      </button>
+      <button aria-label="Toggle light mode" class="light-button" onclick="setDark(false)">
+        <i class="print-inline fa-regular fa-sun"></i>
+      </button>
+    </div>
+  </section>
+</nav>

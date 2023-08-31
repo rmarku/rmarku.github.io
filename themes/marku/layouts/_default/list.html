@@ -1,0 +1,38 @@
+{{ define "title" -}}
+{{ title (i18n (lower .Title)) | default .Title | title }}
+{{- end }}
+{{ define "main" -}}
+{{ .Content }}
+<section class="post-list">
+	{{ .Type }}
+	{{ $enSite := index (where .Sites "Language.Lang" "es") 0 }}
+	{{ range .RegularPages | lang.Merge (where $enSite.RegularPages "Type" .Type) }}
+	<article>
+		{{ $image := .Resources.Get (index .Params.images 0) }}
+		{{ if $image}}
+		<img src="{{ ($image.Fill " 242x144 90% webp").RelPermalink }}" loading="lazy" decoding="async">
+		{{ end }}
+		<div style="width: 100%;">
+			<h3></i> <a href="{{ .RelPermalink }}">{{ .Title | title }}</a></h3>
+			<div style="justify-content: space-between; display:flex;width:100%">
+				<time datetime="{{ .Date.Format " 2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "02 Jan 2006" }}
+				</time>
+
+				{{ $taxonomy := "tags" }}
+				{{ with .GetTerms $taxonomy }}
+				<ul class="tags">
+					{{ range . }}
+					<li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+					{{ end }}
+				</ul>
+				{{ end }}
+
+			</div>
+			<p>{{ .Description }}</p>
+			<p>{{ i18n "language" }}: <i class="flag-{{ .Lang }}"></i></p>
+		</div>
+
+	</article>
+	{{- end }}
+</section>
+{{- end }}

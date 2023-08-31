@@ -1,0 +1,39 @@
+{{ $data := index . "data" }}
+{{ $lang := index . "lang" }}
+{{ $context := index . "context" }}
+
+{{ with $data.basics }}
+<header class="header">
+    {{ $image := $context.Resources.Get (index $context.Params.images 0) }}
+    {{ if $image}}
+    <img src="{{ ($image.Fit " 200x222 90% webp").RelPermalink }}" loading="lazy" decoding="async">
+    {{ end }}
+
+
+    <ul>
+        <li><i class="print-inline fa-regular fa-envelope"></i> {{ .email }}</li>
+        <li><i class="print-inline fa-solid fa-phone"></i></i> {{ .phone }}</li>
+        <li><i class="print-inline fa-solid fa-location-pin"></i> {{ .location.city }}, {{
+            .location.countryCode }}</li>
+        {{ $birthday := .birthday.date |time.AsTime }}
+        {{ $diff := now.Sub $birthday }}
+        {{ $years := div (div $diff.Hours 24) 365 }}
+        <li><i class="print-inline  fa-solid fa-cake-candles"></i>{{ $birthday.Format (i18n "birthdayDate") }}
+            ({{ i18n
+            "years" (math.Floor $years) }})
+        </li>
+        <li>
+            <a href="https://{{ .website }}">
+                <i class="print-inline  fa-solid fa-globe"></i> {{ .website }}
+            </a>
+        </li>
+        {{ range .profiles}}
+        <li>
+            <a href="{{ .url }}">
+                <i class="print-inline  fa-brands fa-{{ .network }}"></i> {{ .username }}
+            </a>
+        </li>
+        {{ end }}
+    </ul>
+</header>
+{{ end }}

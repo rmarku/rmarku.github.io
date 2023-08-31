@@ -1,0 +1,74 @@
+years:
+  one: '{{.}} year'
+  other: '{{.}} years'
+months:
+  one: '{{.}} month'
+  other: '{{.}} months'
+
+details:
+  other: Details
+
+carrerSummary:
+  other: Profile
+usedTechnology:
+  other: Used Technologies
+languages:
+  other: Languages
+skills:
+  other: Skills
+interest:
+  other: Interests
+education:
+  other: Education
+publications:
+  other: Publications
+
+C1:
+  other: C1
+native:
+  other: Native
+
+coauthored:
+  other: Co-authored with 
+
+language:
+  other: Language
+
+404subtitle:
+  other: The content you're looking for doesn't seem to exist.
+
+readMore:
+  other: Read more
+
+minuteRead:
+  other: '{{ .ReadingTime }} minute read'
+
+publishDate:
+  other: '{{ .PublishDate.Format "Jan 2, 2006" }}'
+
+publishDateFull:
+  other: '{{ .PublishDate.Format "Jan 2, 2006" }}'
+
+birthdayDate:
+  other: 'Jan 2, 2006'
+
+monthAndYear:
+  other: '{{ .Format "Jan, 2006" }}'
+
+wordCount:
+  one: '{{ .WordCount }} word'
+  other: '{{ .WordCount }} words'
+
+postsNewer:
+  other: Newer posts
+
+postsOlder:
+  other: Older posts
+
+poweredBy:
+  other: >-
+    Powered by <a href='http://www.gohugo.io/'>Hugo</a> Theme By <a
+    href='https://github.com/nodejh/hugo-theme-mini'>nodejh</a>
+
+publishDateShort:
+  other: '{{ .PublishDate.Format "Jan 2" }}'

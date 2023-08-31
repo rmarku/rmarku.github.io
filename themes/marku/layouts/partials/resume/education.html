@@ -1,0 +1,14 @@
+{{ $data := index . "data" }}
+{{ $lang := index . "lang" }}
+
+<h2><i class="fa-solid fa-graduation-cap"></i> {{ i18n "education"}}</h2>
+<ul>
+    {{ range sort $data.educations "period" "desc"}}
+    <li>
+        <h3>{{index .course $lang}}</h3>
+        <h4>{{ .place }}</h4>
+        <span>{{ .period }}</span>
+        <p>{{ index .detail $lang | markdownify }}</p>
+    </li>
+    {{ end }}
+</ul>

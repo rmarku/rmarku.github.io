@@ -1,0 +1,124 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab|Open+Sans:400italic,700italic,400,700);
+@import 'theme';
+
+body {
+  font-family: 'Segoe UI', 'Open Sans', sans-serif;
+  background: var(--base);
+  color: var(--text);
+}
+/* UTILITIES */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a,
+a:visited {
+  text-decoration: none;
+  transition: 0.3s ease;
+  color: var(--blue);
+  &:hover {
+    @apply text-blue-700;
+  }
+}
+
+li {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  line-height: 1;
+  margin-top: 1rem;
+  font-weight: 600;
+  margin-left: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+h1 {
+  font-size: 2rem;
+}
+h2 {
+  font-size: 1.5rem;
+}
+h3 {
+  font-size: 1.25rem;
+}
+
+article {
+  padding: 1em;
+  p {
+    word-break: normal;
+    overflow-wrap: anywhere;
+    margin-block-start: 1.5em;
+    margin-block-end: 1.5em;
+    text-align: justify;
+  }
+  img {
+    border-radius: 1rem;
+    margin: 2rem 0;
+  }
+}
+hr {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+.toc {
+  ul {
+    margin-left: 20px;
+  }
+}
+.anchor {
+  font-size: 100%;
+  visibility: hidden;
+  color: var(--overlay1);
+}
+h1:hover a,
+h2:hover a,
+h3:hover a,
+h4:hover a {
+  visibility: visible;
+}
+
+@media (max-width: 768px) {
+  article {
+    img {
+      margin: 1rem 0rem;
+    }
+  }
+  hr {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+}
+
+.flagselect {
+  padding: 0px 5px;
+  margin: 0px;
+  border: 1px var(--overlay1) solid;
+  background-color: var(--overlay1);
+  border-radius: 0.5rem;
+}
+.flagnoselect {
+  padding: 0px 5px;
+  margin: 0px;
+}
+
+.flag-es::after {
+  content: '🇪🇸';
+}
+.flag-en::after {
+  content: '🇬🇧';
+}
+.opaque{
+  opacity: 50%;
+}
+@import 'nav';
+@import 'post-list';
+@import 'code';
+@import 'resume';
+@import 'highlight-latte';
+@import 'highlight-mocha';
