@@ -1,0 +1,50 @@
+{{ $data := index . "data" }}
+{{ $lang := index . "lang" }}
+<h2 id="experience"><i class="fa-solid fa-suitcase"></i> Experiencia Laboral</h2>
+<ul class="experience">
+    {{ range $data.experiences }}
+    <li>
+        <div class="timeLineCircle"></div>
+        <h2 class="float-right font-bold ml-7">
+            {{ if .url }}
+            <a href="https://www.wilab.io">{{ .organization }}</a>
+            {{ else }}
+            {{ .organization }}
+            {{ end }}
+        </h2>
+
+        {{ range sort .positions "period.start" "desc"}}
+        <div>
+            <div class="timeLineCircleTiny"></div>
+            <h3>{{ index .title $lang }}</h3>
+            {{ $start := .period.start |time.AsTime }}
+            {{ $end := .period.end |time.AsTime }}
+            {{ $endString := i18n "monthAndYear" $end }}
+            {{ if ge $end now }}
+            {{ $end = now}}
+            {{ $endString = (i18n "present")}}
+            {{ end }}
+            {{ $diff := $end.Sub $start }}
+            {{ $years := div (div $diff.Hours 24) 365 }}
+            {{ $months := mod (div (div $diff.Hours 24) 30) 12 }}
+
+            <span class="period">{{ i18n "monthAndYear" $start }} - {{ $endString }}
+                ({{ i18n "years" ($years| math.Floor) }}
+                {{- if ge $months 1 -}}
+                , {{ i18n "months" $months }}
+                {{- end -}}
+                )
+            </span>
+            <p>
+                {{ index .detail $lang | markdownify }}
+            </p>
+            <ul class="usedTechs">
+                {{ range .technology}}
+                <li>{{.}}</li>
+                {{ end }}
+            </ul>
+        </div>
+        {{end}}
+    </li>
+    {{ end }}
+</ul>

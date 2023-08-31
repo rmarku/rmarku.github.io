@@ -1,0 +1,492 @@
+---
+basics:
+  familyName: Marcucci
+  givenName: Ricardo
+  additionalName: Martín
+  alternateName: Marku
+  label: Computer Engineer
+  jobTitles:
+    - Computer Engineer
+    - Senior Software Engineer
+    - DevOps Engineer
+    - Web Developer
+    - Golang Developer
+  image: img/photo.jpg
+  gender: Male
+  birthday:
+    date: 1986-10-27
+    location:
+      city: Córdoba
+      countryCode: AR
+  location:
+    city: Tucuman
+    countryCode: AR
+  phone: +549-351-5164006
+  email: rmarku@gmail.com
+  website: www.marku.me
+  personality: https://www.16personalities.com/profiles/3de3f3563a2ec
+  height: 180
+  weight: 80
+  profiles:
+    - username: martinmarcucci
+      url: https://www.linkedin.com/in/martinmarcucci
+      network: linkedin
+    - username: rmarku
+      url: https://github.com/rmarku
+      network: github
+    - username: rmarku
+      url: https://twitter.com/rmarku
+      network: twitter
+
+  skills:
+    - type:
+        en: Programming
+        es: Programación
+      list:
+        - name: C
+          level: 100
+        - name: C++
+          level: 70
+        - name: Typescript
+          level: 80
+        - name: JavaScript
+          level: 90
+        - name: Go
+          level: 80
+        - name: Python
+          level: 45
+
+    - type:
+        en: Technologies/Tools
+        es: Tecnologías/Herramientas
+      list:
+        - name: React
+          level: 75
+        - name: NextJS
+          level: 80
+        - name: Git
+          level: 100
+        - name: GraphQL
+          level: 65
+        - name: Prisma
+          level: 60
+
+    - type:
+        en: DevOps
+        es: DevOps
+      list:
+        - name: Linux
+          level: 100
+        - name: Docker
+          level: 100
+        - name: Gitlab CI/CD
+          level: 100
+        - name: Github Actions
+          level: 60
+        - name: Kubernetes
+          level: 80
+        - name: ArgoCD
+          level: 80
+        - name: AWS
+          level: 60
+
+    - type:
+        en: Data Bases
+        es: Base de Datos
+      list:
+        - name: Elasticsearch
+          level: 35
+        - name: PostgreSQL
+          level: 60
+        - name: MongoDB
+          level: 25
+
+    - type:
+        en: Others
+        es: Otras
+      list:
+        - name: Team Work
+          level: 100
+        - name: Agile
+          level: 90
+        - name: Testing
+          level: 40
+  languages:
+    - name:
+        es: Español
+        en: Spanish
+      code: es
+      fluency: native
+    - name:
+        es: Ingles
+        en: English
+      code: en
+      fluency: C1
+  interests:
+    - name:
+        en: Swiming
+        es: Natación
+    - name:
+        en: 3D Printing
+        es: Impresión 3D
+    - name:
+        en: Cycling
+        es: Ciclismo
+    - name:
+        en: Home Automation
+        es: Domotica
+
+summary:
+  es: |-
+    Soy un apasionado de la tecnología y me encanta estar siempre al día con los avances más recientes en este campo.
+
+    Habiendo estudiado Ingeniería en computación y mi interés en el desarrollo de hardware y software, hizo que me guste desde sistemas embebidos e Internet de las cosas hasta tecnologías FrontEnd como React y Vue.
+
+    También disfruto programando y usando software que haga la vida mas simple y fácil. Creo que la tecnología nos debe ayudar automatizando y simplificando tareas repetitivas y tediosas. Por esto me gusta tambien saber sobre el mundo DevOps, CI/CD, Kubernetes, etc.
+
+    Considero muy importante la performance y el uso inteligente de los recursos de hardware, esto es importante tanto para ahorrar costos operativos como para colaborar con el medio ambiente. Por eso me gustan los lenguajes de bajo nivel como C/C++ y Rust y los que permiten facilidad sin sacrificar performance, como Go.
+
+    Me encanta enseñar a programar y a diseñar hardware haciendo énfasis en patrones y buenas prácticas. Actualmente ya no enseño mas en la Universidad, pero tengo siempre presente comunicar y enseñar a colegas, amigos y familia.
+
+  en: |-
+    Experienced software developer with a strong background in Computer Engineering and over a decade
+    of industry expertise. Proficiently navigating a wide spectrum of technologies, from low-level C programming
+    to architecting microservices in Golang, and crafting dynamic FrontEnd solutions using React. Adeptly harnessing
+    the power of DevOps practices for task automation and demonstrating prowess in optimizing system performance.
+    Committed to teaching, disseminating knowledge and championing best practices in programming methodologies.
+
+experiences:
+  - organization: Wilab
+    url: https://www.wilab.io
+    positions:
+      - title:
+          es: Líder Técnico
+          en: Technical Lead
+        period:
+          start: 2022-05-01
+          end: 2100-02-01
+        detail:
+          es: |-
+            En esta startup, asumí varias funciones que abarcaron múltiples áreas. Principalmente, me desempeñé en el desarrollo backend en Go, implementado sobre una arquitectura de microservicios. Inicié y supervisé la configuración de toda la infraestructura en Kubernetes. Este desafío me llevó a asumir el papel de SRE (DevOps) durante casi un año, durante el cual desplegué clusters RKE2 y k3s, desarrollé helm charts y desplegué una pila completa de monitoreo, almacenamiento, CSI, etc. Como líder técnico, estuve a cargo del diseño y la arquitectura del proyecto, donde diseñamos un sistema de servicios distribuidos en Go, comunicados mediante NATS, y utilizando base de datos Postgre y Elastic. Todo monitoreado con OpenTelemetry.
+          en: |-
+            Lead the development of a NWDAF in Go language with microservices architecture. 
+            Developed, profiled, and tune Go code for performance in critical
+            paths. Designed and implemented the CI/CD pipelines.
+        technology:
+          - Go
+          - Kubernetes
+          - Postgres
+          - NATS
+      - title:
+          es: Desarrollador senior Full-stack
+          en: Senior Full-stack developer
+        period:
+          start: 2020-03-01
+          end: 2024-02-01
+        detail:
+          es: |-
+            En esta startup, asumí varias funciones que abarcaron múltiples áreas. Principalmente, me desempeñé en el desarrollo backend en Go, implementado sobre una arquitectura de microservicios. Inicié y supervisé la configuración de toda la infraestructura en Kubernetes. Este desafío me llevó a asumir el papel de SRE (DevOps) durante casi un año, durante el cual desplegué clusters RKE2 y k3s, desarrollé helm charts y desplegué una pila completa de monitoreo, almacenamiento, CSI, etc. Como líder técnico, estuve a cargo del diseño y la arquitectura del proyecto, donde diseñamos un sistema de servicios distribuidos en Go, comunicados mediante NATS, y utilizando base de datos Postgre y Elastic. Todo monitoreado con OpenTelemetry.
+          en: |-
+            Designed and developed a centralized dashboard for 5G network. Implemented microservices with Nest.JS with GraphQL API.
+            Implemented Frontend application with Next.js
+        technology:
+          - GraphQL
+          - Next.js
+          - Nest.js
+          - Prisma.js
+          - MUI
+      - title:
+          es: DevOps
+          en: DevOps
+        period:
+          start: 2020-03-01
+          end: 2024-02-01
+        detail:
+          es: |-
+            En esta startup, asumí varias funciones que abarcaron múltiples áreas. Principalmente, me desempeñé en el desarrollo backend en Go, implementado sobre una arquitectura de microservicios. Inicié y supervisé la configuración de toda la infraestructura en Kubernetes. Este desafío me llevó a asumir el papel de SRE (DevOps) durante casi un año, durante el cual desplegué clusters RKE2 y k3s, desarrollé helm charts y desplegué una pila completa de monitoreo, almacenamiento, CSI, etc. Como líder técnico, estuve a cargo del diseño y la arquitectura del proyecto, donde diseñamos un sistema de servicios distribuidos en Go, comunicados mediante NATS, y utilizando base de datos Postgre y Elastic. Todo monitoreado con OpenTelemetry.
+          en: |-
+            Implemented the DevOps transformation. Modernized the development flow with complete
+            CI/CD pipelines and helm chart deployment in Kubernetes. Migrated the project to monorepo
+            easing the developers work. Implemented by branch dev deployment for developers easy code
+            review and system test.
+        technology:
+          - Kubernetes
+          - Grafana Stack
+          - ArgoCD
+          - Gitlab
+          - Docker
+          - Helm
+      - title:
+          es: Desarrollador Golang Senior
+          en: Senior Golang Developer
+        period:
+          start: 2020-03-01
+          end: 2024-02-01
+        detail:
+          es: |-
+            En esta startup, asumí varias funciones que abarcaron múltiples áreas. Principalmente, me desempeñé en el desarrollo backend en Go, implementado sobre una arquitectura de microservicios. Inicié y supervisé la configuración de toda la infraestructura en Kubernetes. Este desafío me llevó a asumir el papel de SRE (DevOps) durante casi un año, durante el cual desplegué clusters RKE2 y k3s, desarrollé helm charts y desplegué una pila completa de monitoreo, almacenamiento, CSI, etc. Como líder técnico, estuve a cargo del diseño y la arquitectura del proyecto, donde diseñamos un sistema de servicios distribuidos en Go, comunicados mediante NATS, y utilizando base de datos Postgre y Elastic. Todo monitoreado con OpenTelemetry.
+          en: |-
+            Refactored and modernized a microservice system for gathering energy metrics from 4G devices. Designed new Postgres database
+            schema. Improved performance in critical microservices. Developed a similar system for gathering metrics information from
+            radio devices.
+        technology:
+          - Go
+          - Postgres
+          - NATS
+          - Elasticsearch
+          - Docker
+
+  - organization: Universidad Católica de Córdoba
+    url: https://www.ucc.edu.ar
+    positions:
+      - title:
+          es: Profesor
+          en: University Lecturer
+        period:
+          start: 2016-02-01
+          end: 2022-02-01
+        detail:
+          es: |-
+            Me desempeñe como docente de varias materias de Programación y Electrónica. Siempre tratando de enseñar a los alumnos lo mas nuevo e innovador en estas áreas.
+          en: |-
+            #### Computer Engineering subjects
+
+            Instructed lectures for courses including _"Computer Architecture"_, _"Computing Laboratory"_, and _"Embedded Software Development"_.
+
+            Created assignments and projects focusing on hardware design and embedded software to enhance low-level programming skills.
+
+            Guided students in mastering CPU architectures and the intricacies of low-level programming.
+
+            #### Computer Science subjects
+
+            Conducted lectures for _"Programming 2"_, _"Programming 3"_ and _"Software Architecture 1"_ courses.
+
+            Formulated coding assignments and projects, emphasizing coding excellence and best practices.
+
+            Mentored students through _data structures_, _algorithms_, _design patterns_ and _software architectures_.
+
+            Supervised group projects, fostering teamwork and agile practices.
+
+        technology:
+          - Kicad
+          - C
+          - AARCH64 asm
+          - C++
+          - Raylib
+          - Node.js
+          - React
+          - Git
+      - title:
+          es: Coordinador de Ciclo Básico
+          en: First and Second year Advisor
+        detail:
+          es: |-
+            Supervisión y coordinación de profesores y alumnos en los dos primeros años de las carreras
+            de Ingeniería. Proporcioné asesoramiento y orientación personalizada a estudiantes, promoviendo 
+            su desarrollo académico.
+          en: |-
+            Supervision and coordination of professors and students in the first two years of Engineering
+            programs. Provided personalized counseling and guidance to students, fostering their academic.
+        period:
+          start: 2018-03-01
+          end: 2020-02-01
+
+      - title:
+          es: Becario Doctoral CONICET
+          en: PhD scholarship (CONICET)
+        period:
+          start: 2016-03-01
+          end: 2018-01-01
+        detail:
+          es: |-
+            Trabajé con hardware reconfigurable y algoritmos genéticos para desarrollar técnicas de tolerancia a falla
+            en dispositivos electrónicos
+          en: I worked with reconfigurable hardware and evolutionary algorithms to make fault tolerant devices.
+        technology:
+          - C
+          - ASM
+          - Genetic Algorithms
+
+  - organization: Instituto Universitario Aeronáutico
+    url: https://www.iua.edu.ar
+    positions:
+      - title:
+          es: Profesor
+          en: University Lecturer
+        period:
+          start: 2016-06-01
+          end: 2022-03-01
+        detail:
+          es: Me desempeñe como docente de varias materias de Programación y Electrónica. Siempre tratando de enseñar a los alumnos lo mas nuevo e innovador en estas áreas
+          en: |-
+            Instructed "Informatics 1", "Informatics 2", "Informatics 3", and "Computer Architecture 2" courses, guiding students in the realm of software development.
+
+            Developed programming assignments and projects aimed at introducing and reinforcing crucial coding skills.
+
+            Provided mentoring to students, guiding them through complex topics such as _data structures_, _algorithms_, and _CPU architecture_.
+
+            Supervised student projects, fostering a collaborative environment that enabled students to tackle real-life challenges.
+        technology:
+          - java
+          - C
+          - AARCH64 asm
+
+  - organization: enPunto
+    positions:
+      - title:
+          es: Co-Funder & Developer
+          en: Co-Funder & Developer
+        period:
+          start: 2016-01-01
+          end: 2017-12-01
+        detail:
+          es: |-
+            Creamos un sistema de control de personal basado en la nube. Desarrollamos el hardware con lector RFID
+            y de huella dactilar y se conecta a la nube mediante WiFi o Ethernet.
+            Como Co-fundador, me dediqué al desarrollo del software embebido en el dispositivo, la lectura de huellas
+            y el guardado y envío de datos a la nube.
+          en: |-
+            Co-founded and led the development of a Cloud-based Fingerprint Time Attendance system.
+            Oversaw hardware reader creation, device firmware development, and seamless cloud data
+            transmission for optimal system efficiency.
+        technology:
+          - NodeJS/ElectronJs
+          - ReactJS
+          - Docker
+          - Embedded Linux
+          - Raspberry Pi
+
+  - organization: AWM Ingeniería
+    positions:
+      - title:
+          es: Co-Funder & CTO
+          en: Co-Funder & CTO
+        period:
+          start: 2015-01-01
+          end: 2016-10-01
+        detail:
+          es: |-
+            AWM fue una excelente experiencia. Fundamos una empresa, diseñamos, desarrollamos e implementamos
+            un producto que fue comercializado en las principales bodegas de Mendoza.
+            Me desarrollé como líder Técnico y estuve a cargo del desarrollo del firmware de los equipos.
+          en: |-
+            Co-founded a company focused on conceiving, developing, and deploying a product adopted
+            by key wineries in Mendoza. Led as a technical authority, directing equipment firmware development.
+        technology:
+          - STM32 uC
+          - Kicad
+          - Embedded C
+
+  - organization: CINECA
+    url: https://www.cineca.it/
+    positions:
+      - title:
+          es: Desarrollador Full Stack
+          en: Full Stack Developer
+        period:
+          start: 2013-06-01
+          end: 2015-01-01
+        detail:
+          es: |-
+            Desarrollo de plataformas médicas para recolección de datos de tratamientos experimentales
+            y medicamentos experimentales
+          en: Developed medical platforms for gathering data on experimental treatments and medications.
+        technology:
+          - PHP
+          - HTML
+          - CSS
+          - JavaScript
+          - SQL
+
+  # - organization: 'Profesional Independiente'
+  #   positions:
+  #     - title:
+  #         es: Desarrollador Full-Stack
+  #         en: Full-Stack Software Developer
+  #       period:
+  #         start: 2012-03-01
+  #         end: 2100-02-01
+  #       detail:
+  #         es: |-
+  #           Desarrollo de aplicación web para la gestión de consorcio de edificios
+  #           Desarrollo de aplicación web para gestión de alquileres inmobiliarios
+  #         en: |-
+  #           Developed a Consortia Management web application with on line payment.
+  #           Developed a House Rent Management web application.
+
+  #       technology:
+  #         - NodeJS
+  #         - ReactJS
+  #         - GraphQL
+  #         - HTML/JS/CSS
+  #         - MongoDB
+
+  - organization: Omixom
+    url: https://www.omixom.com
+    positions:
+      - title:
+          es: Desarrollador Full Stack y desarrollo de Sistemas Embebidos
+          en: Full Stack Developer and Embedded Software Developer
+        detail:
+          es: |-
+            Desarrollo de una aplicación web para gestión de estaciones meteorológicas y programación de
+            microcontroladores de estaciones meteorológicas
+          en: Contributed to the development of the Climatium Platform, involving weather stations and embedded microcontroller.
+
+        period:
+          start: 2007-03-01
+          end: 2012-07-01
+        technology:
+          - PHP
+          - HTML/JS/CSS
+          - MySQL
+          - C / C++
+
+educations:
+  - course:
+      en: Center for International Education - English
+      es: Centro de educación internacional - Inglés
+    place: Maryville College
+    url: https://www.maryvillecollege.edu/
+    period: 2005 (3 month)
+    detail:
+      es: Ingles avanzado para extranjeros
+      en: Advance english course for international students
+  - course:
+      en: Bachelor Degree in Computer Engineering
+      es: Ingeniería en Computación
+    place: Universidad Católica de Córdoba
+    url: https://www.ucc.edu.ar
+    period: 2013 - 2015
+    detail:
+      es: |-
+        _Tesis:_ Juego Multijugador Online en tiempo real (HTML/JS/CSS, nodejs, Angular.js, websocket)
+        Promedio: 8,82
+      en: |-
+        _Thesis:_ Massive Multiplayer Online Educational Game (HTML/JS/CSS, nodejs, Angular.js, websocket)
+        Grade Average: 8,82
+
+publications:
+  - coauthors: Aliciardi Agustina Edmé, Collino Fabricio, De Cunto Guillermo, Bosio, M. Alejandra, Chiodi Gustavo A
+    title:
+      es: Videojuegos como parte del aprendizaje
+      en: Video games as a part of learning
+    journal: 44° Jornadas Argentinas de Informática
+    date: 2015-09-01
+    ISSN: 2451-7631
+    website: http://44jaiio.sadio.org.ar/sites/default/files/sts44-53.pdf
+    detail:
+      es: ''
+      en: Investigates game-based learning's impact, implementing online role-playing to foster immersive educational experiences.
+
+  - coauthors: Aliciardi Agustina E., Bosio, M. Alejandra ,  Pautasso Pablo, Chiodi Gustavo A
+    title:
+      es: Plataforma informática aplicada como ayuda al proceso de enseñanza-aprendizaje en el área de matemáticas
+      en: Computer platform applied as an aid to the teaching-learning process in the area of mathematics.
+    journal: 43° Jornadas Argentinas de Informática
+    date: 2015-09-01
+    ISSN: 2362-5139
+    website: http://43jaiio.sadio.org.ar/proceedings/STS/781-Chiodi%20et%20al.pdf
+    detail:
+      es: ''
+      en: Developed educational platform aids secondary education by providing extra-curricular learning trajectories.

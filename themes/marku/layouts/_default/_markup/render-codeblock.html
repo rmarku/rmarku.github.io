@@ -1,0 +1,35 @@
+{{ $class := .Attributes.class | default "" }}
+{{ $lang := .Attributes.lang | default .Type }}
+{{ $file := index .Attributes "file"}}
+{{ $url := index .Attributes "url"}}
+{{ $data := .Inner}}
+{{ if $file}}
+{{ $fileRead := .Page.Resources.Get (index .Attributes "file")}}
+{{ if not $fileRead}}
+{{ errorf "Cannot read code file %q in page %q" $file .Page.Path }}
+{{ else }}
+{{ $data = $fileRead.Content }}
+{{ end }}
+{{ end }}
+<div class="code">
+  <div class="code-header">
+    {{ if $file}}
+    <span>File: {{$file}}</span>
+    {{ end }}
+    <button style="padding: 0 1rem;" onclick="navigator.clipboard.writeText('{{ $data }}')">
+      <i class="fa-regular fa-clipboard"></i>
+    </button>
+  </div>
+
+  {{ if transform.CanHighlight $lang }}
+  <div class="{{ $class }}" id="code-block-{{ .Ordinal }}">
+    {{ highlight $data $lang }}
+  </div>
+  {{else}}
+  <pre>
+    <code class="{{ $class }}" id="code-block-{{ .Ordinal }}">
+      {{ $data }}
+    </code>
+  </pre>
+  {{end}}
+</div>

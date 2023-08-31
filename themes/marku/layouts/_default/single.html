@@ -1,0 +1,17 @@
+{{ define "title" -}} {{ .Title }} {{- end }}
+
+
+{{ define "main" -}}
+<article>
+    <h1>{{ .Title }}</h1>
+    <section>
+        <i class="fa-solid fa-calendar"></i> <time datetime="{{ .PublishDate }}">{{ i18n "publishDateFull" .
+            }}</time><br />
+        <i class="fa-solid fa-file-word"></i> {{ i18n "wordCount" . }}<br />
+        <i class="fa-solid fa-book-open-reader"></i> {{ i18n "minuteRead" . }}<br />
+
+
+    </section>
+    {{ .Content }}
+</article>
+{{- end }}

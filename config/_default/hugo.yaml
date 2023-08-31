@@ -1,0 +1,42 @@
+baseURL: 'https://www.marku.me/'
+languageCode: 'es'
+title: 'Marku blog'
+authors:
+  - name: Ricardo Martin Marcucci
+theme: 'marku'
+enableEmoji: true
+paginate: 5
+
+enableGitInfo: true
+taxonomies:
+  category: 'categories'
+  tag: 'tags'
+  series: 'series'
+
+outputs:
+  home:
+    - 'HTML'
+    - 'RSS'
+
+defaultContentLanguage: 'es'
+languages:
+  en:
+    languageName: 'English'
+    languageCode: 'en'
+    weight: 1
+    params:
+      languageFlag: '🇬🇧'
+
+  es:
+    languageName: 'Español'
+    languageCode: 'es'
+    weight: 2
+    params:
+      languageFlag: '🇪🇸'
+
+params:
+  description: Between transistors and bytes
+  images:
+    - site-feature-image.jpg
+  title: 'Marku blog'
+  tags: true

@@ -1,8 +1,0 @@
-@use '@catppuccin/highlightjs/sass/theme';
-
-pre {
-  @include theme.highlights('latte', 'hex');
-  .dark & {
-    @include theme.highlights('mocha', 'hex');
-  }
-}

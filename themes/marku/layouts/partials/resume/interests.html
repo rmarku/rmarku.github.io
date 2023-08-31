@@ -1,0 +1,10 @@
+{{ $data := index . "data" }}
+{{ $lang := index . "lang" }}
+<h2 id="language"><i class="fa-solid fa-lightbulb"></i> {{ i18n "interest"}}</h2>
+<ul>
+    {{ range $data.basics.interests}}
+    <li>
+        <i class="fa-solid fa-circle-chevron-right"></i> {{index .name $lang}}
+    </li>
+    {{end}}
+</ul>
