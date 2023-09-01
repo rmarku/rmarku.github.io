@@ -15,7 +15,8 @@
     </ul>
     <a class="logo" href="{{ .Site.BaseURL | relLangURL }}">{{ .Site.Title }}</a>
     <div class="right">
-      <input type="text" placeholder="Buscar" value="" disabled />
+      <input id="searchInput" type="text" placeholder="Buscar" value="" />
+      <div id="searchResults" class="search-results"></div>
       {{ $siteLanguages := site.Languages}}
       {{ $pageLang := .Page.Lang}}
       {{- range .Page.AllTranslations }}

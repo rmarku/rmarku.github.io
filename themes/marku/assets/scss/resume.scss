@@ -19,7 +19,6 @@
     font-size: 1.1rem;
     margin: 0.75rem 0 0.3rem 0.6rem;
   }
-
   h3 {
     font-size: 0.95rem;
     margin: 0.5rem 0 0.1rem;
@@ -31,13 +30,28 @@
   }
   // Experience
   .experience {
-    border-left: solid 1px;
     li {
-      padding: 0 0 0 1rem;
-
+      padding: 0;
+      overflow: hidden;
       h2 {
         margin: 0 0 0 2rem;
         padding: 0;
+        position: relative;
+      }
+      h2::before{
+        content: '·';
+      }
+      h2::after {
+        content: '';
+        position: absolute;
+        z-index: -3;
+        border-top: 1px solid;
+        border-bottom: 1px solid;
+        border-color: #aaa;
+        width: 50rem;
+        height: 3px;
+        margin-left: 0.5rem;
+        margin-top: 0.5rem;
       }
       h3 {
         margin: 0.5rem 0 0.1rem;
@@ -54,7 +68,7 @@
       }
       .usedTechs {
         border: none;
-        font-size: 80%;
+        font-size: 90%;
         text-align: right;
         li {
           display: inline-block;
@@ -65,30 +79,13 @@
           padding: 0.1em 0.5rem;
         }
       }
-    }
-
-    .timeLineCircle {
-      float: left;
-      display: inline;
-      margin-left: -1.75rem;
-      height: 1.5rem;
-      width: 1.5rem;
-      border-radius: 9999px;
-      border: solid 2px;
-      border-color: var(--subtext0);
-      background-color: var(--surface0);
-    }
-    .timeLineCircleTiny {
-      float: left;
-      display: inline;
-      margin-left: -1.5rem;
-      margin-top: 0.2rem;
-      height: 1rem;
-      width: 1rem;
-      border-radius: 9999px;
-      border: solid 2px;
-      border-color: var(--overlay1);
-      background-color: var(--crust);
+      .markdown {
+        ul {
+          li{
+            list-style: circle inside;
+          }
+        }
+      }
     }
   }
 
@@ -129,7 +126,7 @@
   size: A4;
   margin: 1cm;
   @center {
-    content: counter(page) ' of ' counter(pages);
+    content: counter(page) " of " counter(pages);
   }
 }
 @media print {

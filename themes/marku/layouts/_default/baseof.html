@@ -10,7 +10,7 @@
 		integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
 		crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-	<script type="text/javascript" src="{{ " /js/dark-mode.js" | urlize | relURL }}"></script>
+	<script type="text/javascript" src="{{ "/js/site.js" | urlize | relURL }}"></script>
 	{{ $options := dict "transpiler" "libsass" "targetPath" "css/style.css" }}
 	{{ with resources.Get "scss/main.scss" | toCSS $options | minify | fingerprint }}
 	<link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
@@ -27,7 +27,7 @@
 	{{ if isset .Params "tags" }}
 	<meta name="keywords" content="{{ with .Params.tags }}{{ delimit . " , " }}{{ end }}">
 	{{ end -}}
-	
+
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="robots" content="index, follow">
 	<meta charset="utf-8">
@@ -47,6 +47,7 @@
 	</footer>
 	{{ end }}
 
+	<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
 </body>
 
 </html>

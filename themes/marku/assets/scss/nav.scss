@@ -3,6 +3,8 @@
 .navbar {
   background-color: var(--crust);
   color: var(--text);
+  display: flex;
+  position: relative;
   section {
     display: flex;
     justify-content: space-between;
@@ -60,6 +62,26 @@
       }
       .light-button {
         display: var(--theme-light);
+      }
+      .search-results{
+        position: absolute; /* Position the search results absolutely */
+        top: 90%;
+        min-height: 100px;
+        min-width: 200px;
+        padding: 0.5rem 0.5rem;
+        border-radius: 1rem;
+        z-index: 999;
+        background-color: var(--surface1);
+        p{
+          padding: 0.25rem 0.25rem;
+        }
+        p:hover{
+          background-color: var(--surface0);
+
+        }
+      }
+      .search-results:empty {
+        display: none;
       }
     }
   }

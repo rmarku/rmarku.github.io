@@ -17,6 +17,7 @@ outputs:
   home:
     - 'HTML'
     - 'RSS'
+    - 'JSON'
 
 defaultContentLanguage: 'es'
 languages:

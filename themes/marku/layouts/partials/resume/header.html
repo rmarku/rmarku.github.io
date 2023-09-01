@@ -4,12 +4,6 @@
 
 {{ with $data.basics }}
 <header class="header">
-    {{ $image := $context.Resources.Get (index $context.Params.images 0) }}
-    {{ if $image}}
-    <img src="{{ ($image.Fit " 200x222 90% webp").RelPermalink }}" loading="lazy" decoding="async">
-    {{ end }}
-
-
     <ul>
         <li><i class="print-inline fa-regular fa-envelope"></i> {{ .email }}</li>
         <li><i class="print-inline fa-solid fa-phone"></i></i> {{ .phone }}</li>

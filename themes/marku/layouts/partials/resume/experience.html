@@ -4,7 +4,6 @@
 <ul class="experience">
     {{ range $data.experiences }}
     <li>
-        <div class="timeLineCircle"></div>
         <h2 class="float-right font-bold ml-7">
             {{ if .url }}
             <a href="https://www.wilab.io">{{ .organization }}</a>
@@ -15,7 +14,6 @@
 
         {{ range sort .positions "period.start" "desc"}}
         <div>
-            <div class="timeLineCircleTiny"></div>
             <h3>{{ index .title $lang }}</h3>
             {{ $start := .period.start |time.AsTime }}
             {{ $end := .period.end |time.AsTime }}
@@ -35,9 +33,9 @@
                 {{- end -}}
                 )
             </span>
-            <p>
+            <div class="markdown">
                 {{ index .detail $lang | markdownify }}
-            </p>
+            </div>
             <ul class="usedTechs">
                 {{ range .technology}}
                 <li>{{.}}</li>

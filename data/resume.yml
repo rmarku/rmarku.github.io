@@ -57,8 +57,8 @@ basics:
           level: 45
 
     - type:
-        en: Technologies/Tools
-        es: Tecnologías/Herramientas
+        en: Technologies
+        es: Tecnologías
       list:
         - name: React
           level: 75
@@ -169,9 +169,9 @@ experiences:
           es: |-
             En esta startup, asumí varias funciones que abarcaron múltiples áreas. Principalmente, me desempeñé en el desarrollo backend en Go, implementado sobre una arquitectura de microservicios. Inicié y supervisé la configuración de toda la infraestructura en Kubernetes. Este desafío me llevó a asumir el papel de SRE (DevOps) durante casi un año, durante el cual desplegué clusters RKE2 y k3s, desarrollé helm charts y desplegué una pila completa de monitoreo, almacenamiento, CSI, etc. Como líder técnico, estuve a cargo del diseño y la arquitectura del proyecto, donde diseñamos un sistema de servicios distribuidos en Go, comunicados mediante NATS, y utilizando base de datos Postgre y Elastic. Todo monitoreado con OpenTelemetry.
           en: |-
-            Lead the development of a NWDAF in Go language with microservices architecture. 
-            Developed, profiled, and tune Go code for performance in critical
-            paths. Designed and implemented the CI/CD pipelines.
+            - Lead the development of a NWDAF in Go language with microservices architecture. 
+            - Developed, profiled, and tune Go code for performance in critical paths.
+            - Designed and implemented the CI/CD pipelines.
         technology:
           - Go
           - Kubernetes
@@ -187,8 +187,9 @@ experiences:
           es: |-
             En esta startup, asumí varias funciones que abarcaron múltiples áreas. Principalmente, me desempeñé en el desarrollo backend en Go, implementado sobre una arquitectura de microservicios. Inicié y supervisé la configuración de toda la infraestructura en Kubernetes. Este desafío me llevó a asumir el papel de SRE (DevOps) durante casi un año, durante el cual desplegué clusters RKE2 y k3s, desarrollé helm charts y desplegué una pila completa de monitoreo, almacenamiento, CSI, etc. Como líder técnico, estuve a cargo del diseño y la arquitectura del proyecto, donde diseñamos un sistema de servicios distribuidos en Go, comunicados mediante NATS, y utilizando base de datos Postgre y Elastic. Todo monitoreado con OpenTelemetry.
           en: |-
-            Designed and developed a centralized dashboard for 5G network. Implemented microservices with Nest.JS with GraphQL API.
-            Implemented Frontend application with Next.js
+            - Designed and developed a centralized dashboard for 5G network. 
+            - Implemented microservices with Nest.JS with GraphQL API.
+            - Implemented Frontend application with Next.js
         technology:
           - GraphQL
           - Next.js
@@ -205,10 +206,10 @@ experiences:
           es: |-
             En esta startup, asumí varias funciones que abarcaron múltiples áreas. Principalmente, me desempeñé en el desarrollo backend en Go, implementado sobre una arquitectura de microservicios. Inicié y supervisé la configuración de toda la infraestructura en Kubernetes. Este desafío me llevó a asumir el papel de SRE (DevOps) durante casi un año, durante el cual desplegué clusters RKE2 y k3s, desarrollé helm charts y desplegué una pila completa de monitoreo, almacenamiento, CSI, etc. Como líder técnico, estuve a cargo del diseño y la arquitectura del proyecto, donde diseñamos un sistema de servicios distribuidos en Go, comunicados mediante NATS, y utilizando base de datos Postgre y Elastic. Todo monitoreado con OpenTelemetry.
           en: |-
-            Implemented the DevOps transformation. Modernized the development flow with complete
-            CI/CD pipelines and helm chart deployment in Kubernetes. Migrated the project to monorepo
-            easing the developers work. Implemented by branch dev deployment for developers easy code
-            review and system test.
+            - Implemented the DevOps transformation. 
+            - Modernized the development flow with complete CI/CD pipelines and helm chart deployment in Kubernetes.
+            - Migrated the project to monorepo easing the developers work. 
+            - Implemented by branch dev deployment for developers easy code review and system test.
         technology:
           - Kubernetes
           - Grafana Stack
@@ -226,9 +227,10 @@ experiences:
           es: |-
             En esta startup, asumí varias funciones que abarcaron múltiples áreas. Principalmente, me desempeñé en el desarrollo backend en Go, implementado sobre una arquitectura de microservicios. Inicié y supervisé la configuración de toda la infraestructura en Kubernetes. Este desafío me llevó a asumir el papel de SRE (DevOps) durante casi un año, durante el cual desplegué clusters RKE2 y k3s, desarrollé helm charts y desplegué una pila completa de monitoreo, almacenamiento, CSI, etc. Como líder técnico, estuve a cargo del diseño y la arquitectura del proyecto, donde diseñamos un sistema de servicios distribuidos en Go, comunicados mediante NATS, y utilizando base de datos Postgre y Elastic. Todo monitoreado con OpenTelemetry.
           en: |-
-            Refactored and modernized a microservice system for gathering energy metrics from 4G devices. Designed new Postgres database
-            schema. Improved performance in critical microservices. Developed a similar system for gathering metrics information from
-            radio devices.
+            - Refactored and modernized a microservice system for gathering energy metrics from 4G devices. 
+            - Designed new Postgres database schema.
+            - Improved performance in critical microservices.
+            - Developed a similar system for gathering metrics information from radio devices.
         technology:
           - Go
           - Postgres
@@ -249,24 +251,11 @@ experiences:
           es: |-
             Me desempeñe como docente de varias materias de Programación y Electrónica. Siempre tratando de enseñar a los alumnos lo mas nuevo e innovador en estas áreas.
           en: |-
-            #### Computer Engineering subjects
-
-            Instructed lectures for courses including _"Computer Architecture"_, _"Computing Laboratory"_, and _"Embedded Software Development"_.
-
-            Created assignments and projects focusing on hardware design and embedded software to enhance low-level programming skills.
-
-            Guided students in mastering CPU architectures and the intricacies of low-level programming.
-
-            #### Computer Science subjects
-
-            Conducted lectures for _"Programming 2"_, _"Programming 3"_ and _"Software Architecture 1"_ courses.
-
-            Formulated coding assignments and projects, emphasizing coding excellence and best practices.
-
-            Mentored students through _data structures_, _algorithms_, _design patterns_ and _software architectures_.
-
-            Supervised group projects, fostering teamwork and agile practices.
-
+            - Instructed lectures for courses including _"Computer Architecture"_, _"Computing Laboratory"_, and _"Embedded Software Development"_.
+            - Guided students in mastering CPU architectures and the intricacies of low-level programming.
+            - Conducted lectures for _"Programming 2"_, _"Programming 3"_ and _"Software Architecture 1"_ courses.
+            - Mentored students through _data structures_, _algorithms_, _design patterns_ and _software architectures_.
+            - Supervised group projects, fostering teamwork and agile practices.
         technology:
           - Kicad
           - C
@@ -285,8 +274,8 @@ experiences:
             de Ingeniería. Proporcioné asesoramiento y orientación personalizada a estudiantes, promoviendo 
             su desarrollo académico.
           en: |-
-            Supervision and coordination of professors and students in the first two years of Engineering
-            programs. Provided personalized counseling and guidance to students, fostering their academic.
+            - Supervision and coordination of professors and students in the first two years of Engineering programs.
+            - Provided personalized counseling and guidance to students, fostering their academic.
         period:
           start: 2018-03-01
           end: 2020-02-01
@@ -301,7 +290,8 @@ experiences:
           es: |-
             Trabajé con hardware reconfigurable y algoritmos genéticos para desarrollar técnicas de tolerancia a falla
             en dispositivos electrónicos
-          en: I worked with reconfigurable hardware and evolutionary algorithms to make fault tolerant devices.
+          en: |-
+            - I worked with reconfigurable hardware and evolutionary algorithms to make fault tolerant devices.
         technology:
           - C
           - ASM
@@ -319,13 +309,10 @@ experiences:
         detail:
           es: Me desempeñe como docente de varias materias de Programación y Electrónica. Siempre tratando de enseñar a los alumnos lo mas nuevo e innovador en estas áreas
           en: |-
-            Instructed "Informatics 1", "Informatics 2", "Informatics 3", and "Computer Architecture 2" courses, guiding students in the realm of software development.
-
-            Developed programming assignments and projects aimed at introducing and reinforcing crucial coding skills.
-
-            Provided mentoring to students, guiding them through complex topics such as _data structures_, _algorithms_, and _CPU architecture_.
-
-            Supervised student projects, fostering a collaborative environment that enabled students to tackle real-life challenges.
+            - Instructed "Informatics 1", "Informatics 2", "Informatics 3", and "Computer Architecture 2" courses, guiding students in the realm of software development.
+            - Developed programming assignments and projects aimed at introducing and reinforcing crucial coding skills.
+            - Provided mentoring to students, guiding them through complex topics such as _data structures_, _algorithms_, and _CPU architecture_.
+            - Supervised student projects, fostering a collaborative environment that enabled students to tackle real-life challenges.
         technology:
           - java
           - C
@@ -346,9 +333,8 @@ experiences:
             Como Co-fundador, me dediqué al desarrollo del software embebido en el dispositivo, la lectura de huellas
             y el guardado y envío de datos a la nube.
           en: |-
-            Co-founded and led the development of a Cloud-based Fingerprint Time Attendance system.
-            Oversaw hardware reader creation, device firmware development, and seamless cloud data
-            transmission for optimal system efficiency.
+            - Co-founded and led the development of a Cloud-based Fingerprint Time Attendance system.
+            - Oversaw hardware reader creation, device firmware development, and seamless cloud data transmission for optimal system efficiency.
         technology:
           - NodeJS/ElectronJs
           - ReactJS
@@ -370,8 +356,8 @@ experiences:
             un producto que fue comercializado en las principales bodegas de Mendoza.
             Me desarrollé como líder Técnico y estuve a cargo del desarrollo del firmware de los equipos.
           en: |-
-            Co-founded a company focused on conceiving, developing, and deploying a product adopted
-            by key wineries in Mendoza. Led as a technical authority, directing equipment firmware development.
+            - Co-founded a company focused on conceiving, developing, and deploying a product adopted by key wineries in Mendoza.
+            - Led as a technical authority, directing equipment firmware development.
         technology:
           - STM32 uC
           - Kicad
@@ -390,7 +376,8 @@ experiences:
           es: |-
             Desarrollo de plataformas médicas para recolección de datos de tratamientos experimentales
             y medicamentos experimentales
-          en: Developed medical platforms for gathering data on experimental treatments and medications.
+          en: |-
+            - Developed medical platforms for gathering data on experimental treatments and medications.
         technology:
           - PHP
           - HTML
@@ -431,7 +418,8 @@ experiences:
           es: |-
             Desarrollo de una aplicación web para gestión de estaciones meteorológicas y programación de
             microcontroladores de estaciones meteorológicas
-          en: Contributed to the development of the Climatium Platform, involving weather stations and embedded microcontroller.
+          en: |-
+            - Developed full-stack Climatium Platform, involving weather stations and embedded microcontroller.
 
         period:
           start: 2007-03-01
