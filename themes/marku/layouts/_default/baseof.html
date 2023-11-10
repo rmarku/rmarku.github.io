@@ -10,7 +10,24 @@
 		integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
 		crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-	<script type="text/javascript" src="{{ "/js/site.js" | urlize | relURL }}"></script>
+	<script>
+		window.remark_config = {
+			host: 'https://comments.casa.marku.me',
+			site_id: 'marku',
+			simple_view: "false",
+			no_footer: "true",
+			theme: 'dark',
+			locale: '{{ .Site.Language }}'
+		}
+	</script>
+
+	<script src="https://unpkg.com/htmx.org@1.9.8"
+		integrity="sha384-rgjA7mptc2ETQqXoYC3/zJvkU7K/aP44Y+z7xQuJiVnB/422P/Ak+F/AqFR7E4Wr"
+		crossorigin="anonymous"></script>
+	<script async defer data-website-id="44a19254-0899-4f32-ba04-3a9921edc5f9"
+		src="https://recolectar.casa.marku.me/markus.js"></script>
+	<script type="text/javascript" src="{{ " /js/site.js" | urlize | relURL }}"></script>
+
 	{{ $options := dict "transpiler" "libsass" "targetPath" "css/style.css" }}
 	{{ with resources.Get "scss/main.scss" | toCSS $options | minify | fingerprint }}
 	<link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
@@ -33,7 +50,7 @@
 	<meta charset="utf-8">
 </head>
 
-<body>
+<body hx-boost="true">
 	{{ if .Site.Menus.main }}{{ partial "nav.html" . }}{{ end -}}
 	<main>
 		{{ block "main" . }}
@@ -41,6 +58,7 @@
 		{{ end }}
 	</main>
 	{{ block "footer" . }}
+	<hr />
 	<footer>
 		Created by Ricardo Martín Marcucci, © 2019<br>
 		<a href="/index.xml" style="color: orange"><i class="fa-solid fa-rss"></i></a>
@@ -48,6 +66,7 @@
 	{{ end }}
 
 	<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+
 </body>
 
 </html>
