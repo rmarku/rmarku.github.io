@@ -12,7 +12,7 @@ keywords:
   - First page
   - Martin Marcucci
 tags:
-  - primer
+  - first
 ---
 
 So as not to lose the habit, we start with a Hello World. The idea of
