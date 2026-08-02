@@ -1,7 +1,6 @@
 {{ $class := .Attributes.class | default "" }}
 {{ $lang := .Attributes.lang | default .Type }}
 {{ $file := index .Attributes "file"}}
-{{ $url := index .Attributes "url"}}
 {{ $data := .Inner}}
 {{ if $file}}
 {{ $fileRead := .Page.Resources.Get (index .Attributes "file")}}

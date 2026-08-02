@@ -11,10 +11,9 @@
             .location.countryCode }}</li>
         {{ $birthday := .birthday.date |time.AsTime }}
         {{ $diff := now.Sub $birthday }}
-        {{ $years := div (div $diff.Hours 24) 365 }}
+        {{ $years := math.Floor (div (div $diff.Hours 24) 365.25) | int }}
         <li><i class="print-inline  fa-solid fa-cake-candles"></i>{{ $birthday.Format (i18n "birthdayDate") }}
-            ({{ i18n
-            "years" (math.Floor $years) }})
+            ({{ i18n "years" $years }})
         </li>
         <li>
             <a href="https://{{ .website }}">

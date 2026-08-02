@@ -4,31 +4,30 @@
     <label for="navbar_toggle" class="hamburger">&#9776;</label>
     <ul class="nav-links">
       <div class="menu">
-        {{ with .Site.Menus.main}}
-        {{ range sort . }}
+        {{ range .Site.Menus.main.ByWeight }}
         <li>
-          <a href="{{ index (apply (slice .URL) (.Params.urlFunc | default "relLangURL" ) "." ) 0 }}">{{ .Name }}</a>
+          <a href="{{ .URL | relLangURL }}">{{ .Name }}</a>
         </li>
-        {{ end }}
         {{ end }}
       </div>
     </ul>
-    <a class="logo" href="{{ .Site.BaseURL | relLangURL }}">{{ .Site.Title }}</a>
+    <a class="logo" href="{{ .Site.Home.RelPermalink }}">{{ .Site.Title }}</a>
     <div class="right">
       <input id="searchInput" type="text" placeholder="Buscar" value="" />
       <div id="searchResults" class="search-results"></div>
-      {{ $siteLanguages := site.Languages}}
-      {{ $pageLang := .Page.Lang}}
-      {{- range .Page.AllTranslations }}
+      {{ $pageLang := .Lang }}
+      {{- range .AllTranslations }}
       {{ $translation := . }}
-      {{- range sort $siteLanguages "Weight" "asc" }}
-      {{- if eq $translation.Lang .Lang }}
-      {{ if eq $pageLang .Lang}}
-      <a class="flagselect" href="{{ $translation.Permalink | relURL }}">{{ .Params.languageNameShort }}{{
-        .Params.languageFlag }}</a>
+      {{- /* hugo.Sites is already sorted by language weight ascending. */ -}}
+      {{- range hugo.Sites }}
+      {{- $lang := .Language }}
+      {{- if eq $translation.Lang $lang.Lang }}
+      {{ if eq $pageLang $lang.Lang }}
+      <a class="flagselect" href="{{ $translation.RelPermalink }}">{{ $lang.Params.languageNameShort }}{{
+        $lang.Params.languageFlag }}</a>
       {{ else }}
-      <a class="flagnoselect" href="{{ $translation.Permalink | relURL }}">{{ .Params.languageNameShort }}{{
-        .Params.languageFlag }}</a>
+      <a class="flagnoselect" href="{{ $translation.RelPermalink }}">{{ $lang.Params.languageNameShort }}{{
+        $lang.Params.languageFlag }}</a>
       {{ end }}
       {{- end }}
       {{- end }}

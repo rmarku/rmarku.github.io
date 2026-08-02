@@ -1,14 +1,9 @@
 highlight:
   anchorLineNos: false
   codeFences: true
-  guessSyntax: false
-  hl_Lines: ''
-  hl_inline: false
-  lineAnchors: ''
-  lineNoStart: 1
   lineNos: true
   lineNumbersInTable: true
+  # Emit CSS classes; colors come from the theme's own chroma stylesheets
+  # (assets/scss/highlight-latte.scss and highlight-mocha.scss).
   noClasses: false
-  noHl: false
-  style: monokai
   tabWidth: 4

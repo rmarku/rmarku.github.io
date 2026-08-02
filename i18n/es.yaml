@@ -8,7 +8,7 @@ months:
 details:
   other: Detalles
 
-carrerSummary:
+careerSummary:
   other: Trayectoria profesional
 usedTechnology:
   other: 'Tecnologías Utilizadas'
@@ -88,3 +88,11 @@ poweredBy:
 
 publishDateShort:
   other: '{{ .PublishDate.Format "01/02" }}'
+
+present:
+  other: Actualidad
+toc:
+  other: Tabla de contenidos
+
+coauthored:
+  other: En coautoría con

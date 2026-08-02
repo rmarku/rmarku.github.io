@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.Language }}">
+<html lang="{{ .Site.Language.Lang }}">
 
 <head>
 	<title>{{ if not .IsHome }}{{ .Title | title }} | {{ end }}{{ .Site.Title }}</title>
-	<link rel="canonical" href="{{ .Site.BaseURL }}">
-	<link rel='alternate' type='application/rss+xml' title="{{ .Site.Title }} RSS" href='/index.xml'>
-	<link rel='stylesheet' type='text/css' href='/style.css'>
+	<link rel="canonical" href="{{ .Permalink }}">
+	<link rel='alternate' type='application/rss+xml' title="{{ .Site.Title }} RSS" href='{{ "index.xml" | relLangURL }}'>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css?family=Roboto+Slab|Open+Sans:400italic,700italic,400,700&display=swap">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
 		integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
 		crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -17,7 +20,7 @@
 			simple_view: "false",
 			no_footer: "true",
 			theme: 'dark',
-			locale: '{{ .Site.Language }}'
+			locale: '{{ .Site.Language.Lang }}'
 		}
 	</script>
 
@@ -26,15 +29,15 @@
 		crossorigin="anonymous"></script>
 	<script async defer data-website-id="822a62b6-561d-44b1-9d4b-fa47ad109287"
 		src="https://recolectar.casa.marku.me/markus.js"></script>
-	<script type="text/javascript" src="{{ " /js/site.js" | urlize | relURL }}"></script>
+	<script type="text/javascript" src="{{ "js/site.js" | relURL }}"></script>
 
-	{{ $options := dict "transpiler" "libsass" "targetPath" "css/style.css" }}
-	{{ with resources.Get "scss/main.scss" | toCSS $options | minify | fingerprint }}
+	{{ $options := dict "transpiler" "dartsass" "targetPath" "css/style.css" }}
+	{{ with resources.Get "scss/main.scss" | css.Sass $options | minify | fingerprint }}
 	<link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
 	{{ end }}
 
-	{{ template "_internal/opengraph.html" . }}
-	{{ template "_internal/twitter_cards.html" . }}
+	{{ partial "opengraph.html" . }}
+	{{ partial "twitter_cards.html" . }}
 	{{ partial "jsonld.html" . }}
 
 	{{ with .Site.Params.favicon }}

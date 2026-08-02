@@ -23,11 +23,13 @@
             {{ $endString = (i18n "present")}}
             {{ end }}
             {{ $diff := $end.Sub $start }}
-            {{ $years := div (div $diff.Hours 24) 365 }}
-            {{ $months := mod (div (div $diff.Hours 24) 30) 12 }}
+            {{/* 730.5 h = 30.4375 days = one average month, so years and months compose. */}}
+            {{ $totalMonths := math.Floor (div $diff.Hours 730.5) | int }}
+            {{ $years := math.Floor (div $totalMonths 12) | int }}
+            {{ $months := mod $totalMonths 12 }}
 
             <span class="period">{{ i18n "monthAndYear" $start }} - {{ $endString }}
-                ({{ i18n "years" ($years| math.Floor) }}
+                ({{ i18n "years" $years }}
                 {{- if ge $months 1 -}}
                 , {{ i18n "months" $months }}
                 {{- end -}}
@@ -36,6 +38,9 @@
             <div class="markdown">
                 {{ index .detail $lang | markdownify }}
             </div>
+            {{ with .technology }}
+            <h4 class="usedTechsTitle">{{ i18n "usedTechnology" }}</h4>
+            {{ end }}
             <ul class="usedTechs">
                 {{ range .technology}}
                 <li>{{.}}</li>

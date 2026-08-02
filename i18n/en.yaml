@@ -8,7 +8,7 @@ months:
 details:
   other: Details
 
-carrerSummary:
+careerSummary:
   other: Profile
 usedTechnology:
   other: Used Technologies
@@ -72,3 +72,8 @@ poweredBy:
 
 publishDateShort:
   other: '{{ .PublishDate.Format "Jan 2" }}'
+
+present:
+  other: Present
+toc:
+  other: Table of Contents

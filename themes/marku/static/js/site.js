@@ -94,3 +94,34 @@ function addRemakeComment() {
 
 document.addEventListener('htmx:pushedIntoHistory', addRemakeComment)
 
+// Mermaid diagrams
+//
+// The codeblock render hook emits <pre class="mermaid">. Mermaid itself is
+// imported on demand, so pages without a diagram never pay for it. This lives
+// here rather than in a <script type="module"> in the page because <body> is
+// swapped by hx-boost on every in-site navigation, which would neither re-run a
+// module script nor render diagrams on the newly swapped-in page.
+
+let mermaidLib = null
+
+async function renderMermaid() {
+  const pending = document.querySelectorAll('pre.mermaid:not([data-processed])')
+  if (pending.length === 0) return
+
+  if (!mermaidLib) {
+    mermaidLib = (await import('https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs')).default
+    mermaidLib.initialize({
+      startOnLoad: false,
+      theme: document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default',
+    })
+  }
+  await mermaidLib.run({ nodes: pending })
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', renderMermaid)
+} else {
+  renderMermaid()
+}
+document.addEventListener('htmx:pushedIntoHistory', renderMermaid)
+

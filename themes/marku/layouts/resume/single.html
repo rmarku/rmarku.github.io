@@ -1,9 +1,8 @@
-{{ define "title" -}}{{ .Title }}{{- end }}
 
 
 {{ define "main" -}}
-{{ $data := dict "data" .Site.Data.resume "lang" .Page.Language.Lang "context" . }}
-{{ with .Site.Data.resume }}
+{{ $data := dict "data" hugo.Data.resume "lang" .Language.Lang "context" . }}
+{{ with hugo.Data.resume }}
 <span class="printButton" onclick="window.print();">
     <i class="fa-solid fa-print"></i>
 </span>

@@ -1,11 +1,12 @@
 baseURL: 'https://www.marku.me/'
-languageCode: 'es'
+locale: 'es'
 title: 'Marku blog'
-authors:
-  - name: Ricardo Martin Marcucci
+copyright: '© 2019 Ricardo Martín Marcucci'
 theme: 'marku'
 enableEmoji: true
-paginate: 5
+
+pagination:
+  pagerSize: 5
 
 enableGitInfo: true
 taxonomies:
@@ -22,20 +23,25 @@ outputs:
 defaultContentLanguage: 'es'
 languages:
   en:
-    languageName: 'English'
-    languageCode: 'en'
+    label: 'English'
+    locale: 'en'
     weight: 1
     params:
       languageFlag: '🇬🇧'
+      languageNameShort: 'EN'
 
   es:
-    languageName: 'Español'
-    languageCode: 'es'
+    label: 'Español'
+    locale: 'es'
     weight: 2
     params:
       languageFlag: '🇪🇸'
+      languageNameShort: 'ES'
 
 params:
+  author:
+    name: 'Ricardo Martín Marcucci'
+    email: 'rmarku@gmail.com'
   description: Between transistors and bytes
   images:
     - site-feature-image.jpg
