@@ -1,0 +1,8 @@
+# Declared here rather than relying on CI's --minify flag, so local production
+# builds match what gets deployed.
+minifyOutput: false
+tdewolff:
+  html:
+    keepComments: false
+  json:
+    precision: 0

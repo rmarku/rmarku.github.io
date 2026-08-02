@@ -1,9 +1,35 @@
+goldmark:
+  parser:
+    attribute:
+      # render-codeblock.html reads .Attributes.class/.lang/.file, which requires
+      # block-level attributes to be parsed.
+      block: true
+      title: true
+  extensions:
+    typographer:
+      disable: false
+    # Hands $$...$$ and \(...\) to render-passthrough.html, which renders them
+    # to MathML at build time via transform.ToMath. No client-side KaTeX.
+    passthrough:
+      enable: true
+      delimiters:
+        block:
+          - ['$$', '$$']
+          - ['\[', '\]']
+        inline:
+          - ['\(', '\)']
+
 highlight:
   anchorLineNos: false
   codeFences: true
   lineNos: true
   lineNumbersInTable: true
-  # Emit CSS classes; colors come from the theme's own chroma stylesheets
-  # (assets/scss/highlight-latte.scss and highlight-mocha.scss).
+  # Emit CSS classes; colours come from the theme's own token-driven Chroma
+  # stylesheet (assets/css/syntax.css).
   noClasses: false
   tabWidth: 4
+
+tableOfContents:
+  startLevel: 2
+  endLevel: 3
+  ordered: false

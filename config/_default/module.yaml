@@ -1,0 +1,67 @@
+# Declaring any mount replaces Hugo's defaults, so the standard project dirs are
+# re-listed here alongside the node_modules mounts. Those let the theme reach
+# self-hosted fonts and icons through resources.Get, which is what removes the
+# Google Fonts and Font Awesome CDN <link>s from every page.
+mounts:
+  - source: 'assets'
+    target: 'assets'
+  - source: 'content'
+    target: 'content'
+  - source: 'data'
+    target: 'data'
+  - source: 'i18n'
+    target: 'i18n'
+  - source: 'layouts'
+    target: 'layouts'
+  - source: 'static'
+    target: 'static'
+  - source: 'archetypes'
+    target: 'archetypes'
+
+  # Variable fonts, latin + latin-ext only.
+  - source: 'node_modules/@fontsource-variable/source-serif-4/files'
+    target: 'assets/fonts'
+    files:
+      - '**-latin-wght-normal.woff2'
+      - '**-latin-ext-wght-normal.woff2'
+      - '**-latin-wght-italic.woff2'
+  - source: 'node_modules/@fontsource-variable/inter/files'
+    target: 'assets/fonts'
+    files:
+      - '**-latin-wght-normal.woff2'
+      - '**-latin-ext-wght-normal.woff2'
+  - source: 'node_modules/@fontsource-variable/jetbrains-mono/files'
+    target: 'assets/fonts'
+    files:
+      - '**-latin-wght-normal.woff2'
+      - '**-latin-ext-wght-normal.woff2'
+
+  # Only the icons the theme actually inlines; mounting all 1869 would put them
+  # all in the resource tree for no benefit.
+  - source: 'node_modules/lucide-static/icons'
+    target: 'assets/icons'
+    files:
+      - 'arrow-left.svg'
+      - 'arrow-right.svg'
+      - 'book-open.svg'
+      - 'calendar.svg'
+      - 'check.svg'
+      - 'chevron-right.svg'
+      - 'circle-alert.svg'
+      - 'clock.svg'
+      - 'copy.svg'
+      - 'info.svg'
+      - 'languages.svg'
+      - 'lightbulb.svg'
+      - 'link.svg'
+      - 'menu.svg'
+      - 'monitor.svg'
+      - 'moon.svg'
+      - 'octagon-alert.svg'
+      - 'printer.svg'
+      - 'rss.svg'
+      - 'search.svg'
+      - 'sun.svg'
+      - 'tag.svg'
+      - 'triangle-alert.svg'
+      - 'x.svg'

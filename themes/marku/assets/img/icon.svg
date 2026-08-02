@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="marku">
+  <title>marku</title>
+  <rect width="64" height="64" rx="14" fill="#1e2030"/>
+  <!-- "m" as a trace: two rising strokes off a baseline, transistors-and-bytes -->
+  <path d="M14 44V26c0-4.4 3.6-8 8-8s8 3.6 8 8v18M30 44V26c0-4.4 3.6-8 8-8s8 3.6 8 8v18"
+        fill="none" stroke="#8caaee" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="50" cy="20" r="4" fill="#a6d189"/>
+</svg>

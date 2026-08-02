@@ -1,0 +1,8 @@
+# Per-language client-side search index. Using a named format rather than the
+# built-in JSON output keeps /index.json free and gives each language its own
+# /search.json (the old single index meant /en/ searched the Spanish content).
+SearchIndex:
+  mediaType: 'application/json'
+  baseName: 'search'
+  isPlainText: true
+  notAlternative: true

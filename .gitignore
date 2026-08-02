@@ -11,3 +11,6 @@ hugo.linux
 
 # Temporary lock file while building
 /.hugo_build.lock
+
+# Build-time deps resolved by Hugo's embedded esbuild and module mounts
+/node_modules/

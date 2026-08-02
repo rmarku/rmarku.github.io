@@ -1,0 +1,21 @@
+description: 'Between transistors and bytes'
+
+author:
+  name: 'Ricardo Martín Marcucci'
+  email: 'rmarku@gmail.com'
+
+# Paths into the theme's assets/ dir, resolved with resources.Get. Referenced by
+# the JSON-LD, favicon and OG-image partials, all of which emitted an empty or
+# 404ing URL before these existed.
+logo: 'img/icon.svg'
+favicon: 'img/icon.svg'
+
+comments:
+  enable: true
+  host: 'https://comments.casa.marku.me'
+  siteId: 'marku'
+
+analytics:
+  # Only emitted when hugo.IsProduction.
+  umamiHost: 'https://recolectar.casa.marku.me/markus.js'
+  umamiWebsiteId: '822a62b6-561d-44b1-9d4b-fa47ad109287'

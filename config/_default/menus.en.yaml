@@ -1,17 +1,19 @@
+# pageRef (rather than url) lets Hugo validate the target at build time and
+# populate .IsMenuCurrent / .HasMenuCurrent for active-state styling.
 main:
   - identifier: posts
     name: Blog
-    url: /articles/
+    pageRef: /articles
     weight: 1
   - identifier: about
     name: About me
-    url: /page/about
+    pageRef: /page/about
     weight: 2
   - identifier: resume
     name: Resume
-    url: /resume
+    pageRef: /resume
     weight: 3
   - identifier: uses
     name: Uses
-    url: /page/uses
+    pageRef: /page/uses
     weight: 4

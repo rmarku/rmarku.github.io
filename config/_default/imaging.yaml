@@ -1,0 +1,3 @@
+resampleFilter: 'Lanczos'
+quality: 82
+anchor: 'Smart'

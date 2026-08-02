@@ -1,0 +1,15 @@
+en:
+  label: 'English'
+  locale: 'en-GB'
+  weight: 1
+  params:
+    languageFlag: '🇬🇧'
+    languageNameShort: 'EN'
+
+es:
+  label: 'Español'
+  locale: 'es-AR'
+  weight: 2
+  params:
+    languageFlag: '🇪🇸'
+    languageNameShort: 'ES'

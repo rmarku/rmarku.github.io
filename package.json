@@ -1,0 +1,21 @@
+{
+  "name": "marku-me",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Build-time dependencies for the marku theme. Hugo's embedded esbuild resolves these from node_modules; there is no separate bundler step.",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "hugo server --disableFastRender",
+    "build": "hugo --gc --minify",
+    "check": "hugo --renderToMemory --panicOnWarning --printPathWarnings --printI18nWarnings --printUnusedTemplates"
+  },
+  "dependencies": {
+    "@fontsource-variable/inter": "^5.2.8",
+    "@fontsource-variable/jetbrains-mono": "^5.2.8",
+    "@fontsource-variable/source-serif-4": "^5.2.8",
+    "fuse.js": "^7.1.0",
+    "lucide-static": "^0.548.0",
+    "mermaid": "^11.12.0"
+  }
+}

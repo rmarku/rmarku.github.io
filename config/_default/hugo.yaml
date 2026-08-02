@@ -1,14 +1,17 @@
 baseURL: 'https://www.marku.me/'
-locale: 'es'
 title: 'Marku blog'
 copyright: '© 2019 Ricardo Martín Marcucci'
 theme: 'marku'
+
 enableEmoji: true
+enableGitInfo: true
+enableRobotsTXT: true
+
+defaultContentLanguage: 'es'
 
 pagination:
-  pagerSize: 5
+  pagerSize: 8
 
-enableGitInfo: true
 taxonomies:
   category: 'categories'
   tag: 'tags'
@@ -18,32 +21,13 @@ outputs:
   home:
     - 'HTML'
     - 'RSS'
-    - 'JSON'
+    - 'SearchIndex'
 
-defaultContentLanguage: 'es'
-languages:
-  en:
-    label: 'English'
-    locale: 'en'
-    weight: 1
-    params:
-      languageFlag: '🇬🇧'
-      languageNameShort: 'EN'
-
-  es:
-    label: 'Español'
-    locale: 'es'
-    weight: 2
-    params:
-      languageFlag: '🇪🇸'
-      languageNameShort: 'ES'
-
-params:
-  author:
-    name: 'Ricardo Martín Marcucci'
-    email: 'rmarku@gmail.com'
-  description: Between transistors and bytes
-  images:
-    - site-feature-image.jpg
-  title: 'Marku blog'
-  tags: true
+build:
+  # Without these, editing CSS/JS under assets/ during `hugo server` only
+  # rebuilds the resource, not the pages that fingerprint it.
+  cachebusters:
+    - source: 'assets/css/.*\.css'
+      target: 'css'
+    - source: 'assets/js/.*\.js'
+      target: 'js'

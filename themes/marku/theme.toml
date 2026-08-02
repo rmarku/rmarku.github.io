@@ -1,0 +1,10 @@
+name = "Marku"
+license = "MIT"
+licenselink = "https://github.com/rmarku/rmarku.github.io/blob/master/themes/marku/LICENSE"
+description = "Reading-first bilingual blog theme with a self-hosted asset pipeline."
+homepage = "https://www.marku.me/"
+min_version = "0.146.0"
+
+[author]
+  name = "Ricardo Martín Marcucci"
+  homepage = "https://www.marku.me/"
