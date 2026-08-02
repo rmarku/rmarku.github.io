@@ -1,1 +1,16 @@
-<img src="{{ .Destination | safeURL }}" alt="{{ .Text }}" {{ with .Title}} title="{{ . }}" {{ end }} />
+{{- /*
+  Body images used to be emitted as a raw <img> pointing at the markdown
+  destination, so they skipped Hugo's image pipeline entirely while list and
+  hero images used it. Route them through the shared partial instead.
+
+  A markdown title becomes the caption:  ![alt](photo.jpg "Caption text")
+  Mark an image full-bleed with a block attribute:  {class="full-bleed"}
+*/ -}}
+{{- partial "image.html" (dict
+      "page" .Page
+      "src" .Destination
+      "alt" .PlainText
+      "caption" .Title
+      "class" (.Attributes.class | default "")
+      "loading" (cond (eq .Ordinal 0) "eager" "lazy")
+) -}}

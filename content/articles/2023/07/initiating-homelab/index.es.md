@@ -118,7 +118,7 @@ pero es demasiado vieja para poder utilizar.
 - 480Gb SSD
 - 8Gb Ram
 
-![Gigabyte Brix](/images/posts/HomeLab/brix.webp)
+![Gigabyte Brix](brix.avif)
 
 1 x Synology NAS Ds220+
 
@@ -126,7 +126,7 @@ pero es demasiado vieja para poder utilizar.
 - 2 x 6Tb HDD
 - 2Gb Ram
 
-![Synology Ds220+](/images/posts/HomeLab/nas.webp)
+![Synology Ds220+](nas.avif)
 
 2 x Raspberry Pi 4
 
@@ -134,21 +134,21 @@ pero es demasiado vieja para poder utilizar.
 - 32Gb SD
 - 4Gb Ram
 
-![Raspberry Pi 4](/images/posts/HomeLab/rpi.webp)
+![Raspberry Pi 4](rpi.avif)
 
 ### Conectividad
 
 1 x Raspberry Pi 3
 
-![Raspberry Pi 3](/images/posts/HomeLab/rpi3.webp)
+![Raspberry Pi 3](rpi3.avif)
 
 1 x Tp-Link Archer C6 (con OpenWrt)
 
-![Tp-Link Archer C6](/images/posts/HomeLab/archerC6.webp)
+![Tp-Link Archer C6](archerC6.avif)
 
 1 x TP-Link TL-WDR4300 (con OpenWrt)
 
-![TP-Link TL-WDR4300](/images/posts/HomeLab/wdr4300.webp)
+![TP-Link TL-WDR4300](wdr4300.avif)
 
 ## Software
 

@@ -1,34 +1,57 @@
-{{ $class := .Attributes.class | default "" }}
-{{ $lang := .Attributes.lang | default .Type }}
-{{ $file := index .Attributes "file"}}
-{{ $data := .Inner}}
-{{ if $file}}
-{{ $fileRead := .Page.Resources.Get (index .Attributes "file")}}
-{{ if not $fileRead}}
-{{ errorf "Cannot read code file %q in page %q" $file .Page.Path }}
-{{ else }}
-{{ $data = $fileRead.Content }}
-{{ end }}
-{{ end }}
-<div class="code">
+{{- /*
+  Fenced code blocks.
+
+  Fence attributes:
+    file=path.go        read the body from a page resource instead of the fence
+    class=...           extra classes on the wrapper
+    hl_lines=["2-4"]    and any other Chroma option
+
+  Hugo splits the info string: Chroma options land in .Options and everything
+  else in .Attributes, so .Options has to be forwarded to `highlight` for
+  hl_lines/linenos/anchorlinenos to have any effect.
+
+  The copy button used to be
+    onclick="navigator.clipboard.writeText('{{ $data }}')"
+  which interpolated arbitrary source into a single-quoted JS string inside an
+  HTML attribute. Any code containing a quote or newline mangled the button, and
+  inline handlers rule out a strict CSP. The source now lives in a <script
+  type="text/plain"> sibling that one delegated listener in code-copy.js reads.
+*/ -}}
+
+{{- $class := .Attributes.class | default "" }}
+{{- $lang := .Attributes.lang | default .Type }}
+{{- $file := index .Attributes "file" }}
+{{- $data := .Inner }}
+
+{{- with $file }}
+  {{- with $.Page.Resources.Get . }}
+    {{- $data = .Content }}
+  {{- else }}
+    {{- errorf "render-codeblock.html: cannot read code file %q in page %q" . $.Page.Path }}
+  {{- end }}
+{{- end }}
+
+{{- $id := printf "code-%d" .Ordinal }}
+
+<div class="code {{ $class }}">
   <div class="code-header">
-    {{ if $file}}
-    <span>File: {{$file}}</span>
-    {{ end }}
-    <button style="padding: 0 1rem;" onclick="navigator.clipboard.writeText('{{ $data }}')">
-      <i class="fa-regular fa-clipboard"></i>
+    <span class="code-lang">{{ with $file }}{{ . }}{{ else }}{{ $lang }}{{ end }}</span>
+    <button type="button" class="code-copy" data-copy-for="{{ $id }}"
+      aria-label="{{ i18n "copyCode" | default "Copy code" }}">
+      {{ partial "icon.html" "copy" }}
+      <span class="code-copy-done" hidden>{{ partial "icon.html" "check" }}</span>
     </button>
   </div>
 
-  {{ if transform.CanHighlight $lang }}
-  <div class="{{ $class }}" id="code-block-{{ .Ordinal }}">
-    {{ highlight $data $lang }}
+  {{- if transform.CanHighlight $lang }}
+  <div id="{{ $id }}-src" class="highlight-wrap">
+    {{ highlight $data $lang .Options }}
   </div>
-  {{else}}
-  <pre>
-    <code class="{{ $class }}" id="code-block-{{ .Ordinal }}">
-      {{ $data }}
-    </code>
-  </pre>
-  {{end}}
+  {{- else }}
+  <pre id="{{ $id }}-src"><code>{{ $data }}</code></pre>
+  {{- end }}
+
+  {{- /* Verbatim source for the clipboard: taking it from the DOM would pick up
+         Chroma's line numbers. Not executable -- text/plain is inert. */}}
+  <script id="{{ $id }}-raw" type="text/plain">{{ $data }}</script>
 </div>

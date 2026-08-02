@@ -1,0 +1,105 @@
+{{- /*
+  The single image code path for the theme: render hooks, cards and heroes all
+  come through here. Emits a <picture> with AVIF and WebP srcsets plus intrinsic
+  width/height, so nothing shifts while images load.
+
+  Before this existed, list and hero images called .Fill inline with a hardcoded
+  size and no dimensions, and render-image.html emitted a raw <img> pointing at
+  the markdown destination -- body images bypassed Hugo's image pipeline
+  entirely.
+
+  @param {page} page          page the image is resolved against
+  @param {string} src         page-resource path, global asset path, or absolute URL
+  @param {string} (alt)
+  @param {string} (caption)   renders a <figure>/<figcaption> when set
+  @param {string} (class)
+  @param {string} (sizes)     defaults to the prose measure
+  @param {string} (loading)   "lazy" (default) or "eager"
+  @param {string} (fill)      "WIDTHxHEIGHT" to crop to a fixed ratio
+  @param {bool}   (figure)    force <figure> even with no caption
+
+  @returns {template.HTML}
+*/ -}}
+
+{{- $page := .page }}
+{{- $src := .src }}
+{{- $alt := .alt | default "" }}
+{{- $caption := .caption | default "" }}
+{{- $class := .class | default "" }}
+{{- $sizes := .sizes | default "(min-width: 52rem) 44rem, 92vw" }}
+{{- $loading := .loading | default "lazy" }}
+{{- $fill := .fill | default "" }}
+{{- $figure := or .figure (ne $caption "") }}
+
+{{- /* Candidate widths, capped at the source width -- upscaling only wastes bytes. */ -}}
+{{- $candidates := slice 420 640 900 1280 1800 }}
+
+{{- $img := "" }}
+{{- $remote := or (strings.HasPrefix $src "http") (strings.HasPrefix $src "//") }}
+{{- if not $remote }}
+  {{- with $page }}{{ $img = .Resources.GetMatch $src }}{{ end }}
+  {{- if not $img }}{{ $img = resources.Get $src }}{{ end }}
+{{- end }}
+
+{{- $inner := "" }}
+
+{{- if $remote }}
+  {{- $inner = printf `<img src=%q alt=%q loading=%q decoding="async" class=%q>` $src $alt $loading $class }}
+
+{{- else if not $img }}
+  {{- errorf "partial image.html: %q resolves to nothing on page %q" $src (or $page.Path "?") }}
+
+{{- else if in (slice "svg" "gif") $img.MediaType.SubType }}
+  {{- /* Neither is worth (or able to be) re-encoded; pass through with dimensions. */ -}}
+  {{- $w := "" }}{{ $h := "" }}
+  {{- if eq $img.MediaType.SubType "gif" }}{{ $w = $img.Width }}{{ $h = $img.Height }}{{ end }}
+  {{- $inner = printf `<img src=%q alt=%q loading=%q decoding="async" class=%q%s>`
+        $img.RelPermalink $alt $loading $class
+        (cond (eq $w "") "" (printf ` width="%v" height="%v"` $w $h)) }}
+
+{{- else }}
+  {{- $base := $img }}
+  {{- if $fill }}{{ $base = $img.Fill (printf "%s webp" $fill) }}{{ end }}
+
+  {{- $widths := slice }}
+  {{- range $candidates }}
+    {{- if le . $base.Width }}{{ $widths = $widths | append . }}{{ end }}
+  {{- end }}
+  {{- if not $widths }}{{ $widths = slice $base.Width }}{{ end }}
+
+  {{- $avif := slice }}
+  {{- $webp := slice }}
+  {{- range $widths }}
+    {{- $spec := printf "%dx" . }}
+    {{- if $fill }}
+      {{- $ratio := div (float $base.Height) (float $base.Width) }}
+      {{- $spec = printf "%dx%d" . (math.Round (mul (float .) $ratio)) }}
+      {{- $avif = $avif | append (printf "%s %dw" ($base.Fill (printf "%s avif" $spec)).RelPermalink .) }}
+      {{- $webp = $webp | append (printf "%s %dw" ($base.Fill (printf "%s webp" $spec)).RelPermalink .) }}
+    {{- else }}
+      {{- $avif = $avif | append (printf "%s %dw" ($base.Resize (printf "%s avif" $spec)).RelPermalink .) }}
+      {{- $webp = $webp | append (printf "%s %dw" ($base.Resize (printf "%s webp" $spec)).RelPermalink .) }}
+    {{- end }}
+  {{- end }}
+
+  {{- /* Fallback <img> is the largest WebP; every target browser supports it.
+         Built with if/else, not cond -- cond evaluates both arms, so the Fill
+         branch would run (and fail) on images with no fill spec. */ -}}
+  {{- $fallback := "" }}
+  {{- if $fill }}
+    {{- $fallback = $base.Fill (printf "%s webp" $fill) }}
+  {{- else }}
+    {{- $fallback = $base.Resize (printf "%dx webp" (index $widths (sub (len $widths) 1))) }}
+  {{- end }}
+
+  {{- $inner = printf `<picture><source type="image/avif" srcset=%q sizes=%q><source type="image/webp" srcset=%q sizes=%q><img src=%q width="%d" height="%d" alt=%q loading=%q decoding="async" class=%q></picture>`
+        (delimit $avif ", ") $sizes
+        (delimit $webp ", ") $sizes
+        $fallback.RelPermalink $fallback.Width $fallback.Height $alt $loading $class }}
+{{- end }}
+
+{{- if $figure -}}
+<figure>{{ $inner | safeHTML }}{{ with $caption }}<figcaption>{{ . | markdownify }}</figcaption>{{ end }}</figure>
+{{- else -}}
+{{ $inner | safeHTML }}
+{{- end -}}

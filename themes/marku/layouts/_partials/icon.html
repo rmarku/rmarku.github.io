@@ -1,0 +1,42 @@
+{{- /*
+  Inline a Lucide SVG from assets/icons (mounted out of node_modules by
+  config/_default/module.yaml). Replaces the Font Awesome CDN stylesheet, which
+  cost ~100 KB of render-blocking CSS plus webfonts for around twenty glyphs.
+
+  Every Lucide icon shares one root tag -- 24x24 grid, stroke="currentColor" --
+  so the root is rebuilt rather than patched. Patching is not an option anyway:
+  the files open with a licence comment (so a `^<svg` regex never matches) and
+  already carry a class attribute, which a naive injection would duplicate.
+
+  @param {string} (name) icon file name, without .svg
+  @param {string} (class) extra classes for the <svg>
+  @param {string} (label) accessible name; omit for decorative icons
+
+  @returns {template.HTML}
+
+  @example {{ partial "icon.html" "rss" }}
+  @example {{ partial "icon.html" (dict "name" "sun" "label" (i18n "themeLight")) }}
+*/ -}}
+
+{{- $name := "" }}
+{{- $class := "" }}
+{{- $label := "" }}
+{{- if reflect.IsMap . }}
+  {{- $name = .name }}
+  {{- $class = .class | default "" }}
+  {{- $label = .label | default "" }}
+{{- else }}
+  {{- $name = . }}
+{{- end }}
+
+{{- with resources.Get (printf "icons/%s.svg" $name) }}
+  {{- $inner := .Content
+        | replaceRE `(?s)^.*?<svg[^>]*>` ""
+        | replaceRE `(?s)</svg>\s*$` "" }}
+  {{- $a11y := `aria-hidden="true" focusable="false"` }}
+  {{- if $label }}{{ $a11y = printf `role="img" aria-label="%s"` $label }}{{ end }}
+  {{- printf `<svg class="icon icon-%s %s" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" %s>%s</svg>`
+        $name $class $a11y $inner | safeHTML }}
+{{- else }}
+  {{- errorf "partial icon.html: no icon named %q. Add it to the files list for the lucide mount in config/_default/module.yaml." $name }}
+{{- end }}

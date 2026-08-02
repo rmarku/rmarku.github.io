@@ -83,3 +83,23 @@ experience:
 
 skillsLegend:
   other: 'Jr = 1-2 years | Spec = 2-5 years | Exp >= 5+ years'
+
+anchorLabel:
+  other: Link to this section
+copyCode:
+  other: Copy code
+copied:
+  other: Copied
+table:
+  other: Table
+
+alertNote:
+  other: Note
+alertTip:
+  other: Tip
+alertImportant:
+  other: Important
+alertWarning:
+  other: Warning
+alertCaution:
+  other: Caution

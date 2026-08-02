@@ -1,3 +1,13 @@
+{{- /*
+  htmlEscape then safeHTML is deliberate: diagram source often contains < and >,
+  which would otherwise break parsing, and Hugo must be told the escaped result
+  is already safe.
+
+  The flag lets head/js.html load the Mermaid chunk only on pages that have a
+  diagram; it is ~1 MB and most pages have none. Page.Store survives into the
+  layout because content renders before the shell.
+*/ -}}
+{{- .Page.Store.Set "hasMermaid" true -}}
 <pre class="mermaid">
   {{- .Inner | htmlEscape | safeHTML }}
 </pre>

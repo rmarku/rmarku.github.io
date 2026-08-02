@@ -1,0 +1,27 @@
+{{- /*
+  Wide tables need to scroll horizontally on narrow screens. A scroll container
+  is only reachable by keyboard if it is focusable and named, hence tabindex and
+  role="region" -- otherwise keyboard users cannot reach the overflowing columns.
+*/ -}}
+<div class="table-wrap" tabindex="0" role="region" aria-label="{{ i18n "table" | default "Table" }}">
+  <table>
+    <thead>
+      {{- range .THead }}
+      <tr>
+        {{- range . }}
+        <th{{ with .Alignment }} style="text-align: {{ . }}"{{ end }}>{{ .Text }}</th>
+        {{- end }}
+      </tr>
+      {{- end }}
+    </thead>
+    <tbody>
+      {{- range .TBody }}
+      <tr>
+        {{- range . }}
+        <td{{ with .Alignment }} style="text-align: {{ . }}"{{ end }}>{{ .Text }}</td>
+        {{- end }}
+      </tr>
+      {{- end }}
+    </tbody>
+  </table>
+</div>

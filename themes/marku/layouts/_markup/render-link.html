@@ -1,2 +1,26 @@
-<a href="{{ .Destination | safeURL }}" {{ with .Title}} title="{{ . }}" {{ end }}{{ if strings.HasPrefix
-    .Destination "http" }} target="_blank" rel="noopener noreferrer" {{ end }}>{{ .Text }}</a>
+{{- /*
+  Adds target="_blank" to genuinely external links only. The previous version
+  tested `strings.HasPrefix .Destination "http"`, which also matched internal
+  absolute links to this site and opened them in a new tab.
+
+  Relative destinations are resolved through .Page.GetPage / .Resources so a
+  typo surfaces as a build warning rather than a shipped 404.
+*/ -}}
+{{- $dest := .Destination -}}
+{{- $external := false -}}
+{{- $parsed := urls.Parse $dest -}}
+
+{{- if or (strings.HasPrefix $dest "//") $parsed.Host -}}
+  {{- $external = ne $parsed.Host (urls.Parse site.BaseURL).Host -}}
+{{- else if not (or (strings.HasPrefix $dest "#") (strings.HasPrefix $dest "mailto:") (strings.HasPrefix $dest "tel:")) -}}
+  {{- with .Page.GetPage $dest -}}
+    {{- $dest = .RelPermalink -}}
+  {{- else -}}
+    {{- with $.Page.Resources.GetMatch $dest -}}
+      {{- $dest = .RelPermalink -}}
+    {{- else -}}
+      {{- warnf "render-link.html: %q on page %q resolves to no page or resource" $.Destination $.Page.Path -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+<a href="{{ $dest | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if $external }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ .Text }}</a>

@@ -1,2 +1,8 @@
-<h{{ .Level }} id="{{ .Anchor | safeURL }}">{{ .Text }} <a href="#{{ .Anchor | safeURL }}"
-        class="anchor">🔗</a></h{{ .Level }}>
+{{- /*
+  Passes block attributes through (goldmark parser.attribute.block is on) and
+  replaces the bare 🔗 with a labelled icon: the emoji was announced literally
+  by screen readers and gave the link no accessible name.
+*/ -}}
+<h{{ .Level }} id="{{ .Anchor }}"
+  {{- range $k, $v := .Attributes }}{{ if ne $k "id" }} {{ $k }}="{{ $v }}"{{ end }}{{ end -}}
+>{{ .Text }}<a class="heading-anchor" href="#{{ .Anchor }}" aria-label="{{ i18n "anchorLabel" | default "Link to this section" }}">{{ partial "icon.html" "link" }}</a></h{{ .Level }}>
