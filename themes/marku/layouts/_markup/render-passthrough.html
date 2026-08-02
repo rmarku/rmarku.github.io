@@ -1,8 +1,18 @@
 {{- /*
-  Renders LaTeX to MathML at build time. Browsers render MathML natively, so
-  unlike the usual KaTeX/MathJax setup this ships no JavaScript and no
-  stylesheet -- a page with maths costs the same as one without.
+  Renders LaTeX to MathML at build time via Hugo's embedded KaTeX (wazero WASM).
+  Browsers render MathML natively, so unlike a typical KaTeX/MathJax setup this
+  ships no JavaScript and no stylesheet -- a page with maths costs the same as
+  one without.
 
   Delimiters are configured under markup.goldmark.extensions.passthrough.
+  Wrapped in `try` so a malformed expression reports its source position
+  instead of failing the build with no context.
 */ -}}
-{{- transform.ToMath .Inner (dict "displayMode" (eq .Type "block")) -}}
+{{- $opts := dict "displayMode" (eq .Type "block") -}}
+{{- with try (transform.ToMath .Inner $opts) -}}
+  {{- with .Err -}}
+    {{- errorf "render-passthrough.html: %s at %s" . $.Position -}}
+  {{- else -}}
+    {{- .Value -}}
+  {{- end -}}
+{{- end -}}

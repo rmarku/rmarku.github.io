@@ -103,3 +103,21 @@ alertWarning:
   other: Warning
 alertCaution:
   other: Caution
+
+skipToContent:
+  other: Skip to content
+mainNav:
+  other: Main
+search:
+  other: Search
+searchPlaceholder:
+  other: Search posts…
+searchNoResults:
+  other: Nothing found.
+close:
+  other: Close
+themeToggle:
+  other: Switch theme
+
+comments:
+  other: Comments

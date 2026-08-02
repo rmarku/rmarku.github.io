@@ -15,6 +15,7 @@
   @param {string} (class)
   @param {string} (sizes)     defaults to the prose measure
   @param {string} (loading)   "lazy" (default) or "eager"
+  @param {bool}   (priority)  adds fetchpriority="high" (use for the LCP image)
   @param {string} (fill)      "WIDTHxHEIGHT" to crop to a fixed ratio
   @param {bool}   (figure)    force <figure> even with no caption
 
@@ -28,6 +29,9 @@
 {{- $class := .class | default "" }}
 {{- $sizes := .sizes | default "(min-width: 52rem) 44rem, 92vw" }}
 {{- $loading := .loading | default "lazy" }}
+{{- /* fetchpriority on the first in-content image is a direct LCP win; .Ordinal
+       on image render hooks arrived in Hugo 0.160. */ -}}
+{{- $fetch := cond (eq (.priority | default false) true) ` fetchpriority="high"` "" }}
 {{- $fill := .fill | default "" }}
 {{- $figure := or .figure (ne $caption "") }}
 
@@ -92,10 +96,10 @@
     {{- $fallback = $base.Resize (printf "%dx webp" (index $widths (sub (len $widths) 1))) }}
   {{- end }}
 
-  {{- $inner = printf `<picture><source type="image/avif" srcset=%q sizes=%q><source type="image/webp" srcset=%q sizes=%q><img src=%q width="%d" height="%d" alt=%q loading=%q decoding="async" class=%q></picture>`
+  {{- $inner = printf `<picture><source type="image/avif" srcset=%q sizes=%q><source type="image/webp" srcset=%q sizes=%q><img src=%q width="%d" height="%d" alt=%q loading=%q%s decoding="async" class=%q></picture>`
         (delimit $avif ", ") $sizes
         (delimit $webp ", ") $sizes
-        $fallback.RelPermalink $fallback.Width $fallback.Height $alt $loading $class }}
+        $fallback.RelPermalink $fallback.Width $fallback.Height $alt $loading $fetch $class }}
 {{- end }}
 
 {{- if $figure -}}

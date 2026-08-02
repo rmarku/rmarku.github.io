@@ -122,3 +122,21 @@ alertWarning:
   other: Advertencia
 alertCaution:
   other: Precaución
+
+skipToContent:
+  other: Ir al contenido
+mainNav:
+  other: Principal
+search:
+  other: Buscar
+searchPlaceholder:
+  other: Buscar artículos…
+searchNoResults:
+  other: No se encontró nada.
+close:
+  other: Cerrar
+themeToggle:
+  other: Cambiar tema
+
+comments:
+  other: Comentarios

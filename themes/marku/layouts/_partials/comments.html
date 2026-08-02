@@ -1,0 +1,15 @@
+{{- /*
+  remark42 mount point. Config moves from a global window.remark_config in
+  <head> to data attributes here, so comments.js has no implicit coupling to
+  baseof and the embed script is only fetched where comments exist.
+
+  Opt out per page with `comments: false` in front matter.
+*/ -}}
+{{- $enabled := and site.Params.comments.enable (ne .Params.comments false) hugo.IsProduction }}
+{{- if $enabled }}
+<section class="comments" aria-label="{{ i18n "comments" }}">
+  <h2>{{ i18n "comments" }}</h2>
+  <div id="remark42" data-host="{{ site.Params.comments.host }}" data-site-id="{{ site.Params.comments.siteId }}"
+    data-locale="{{ site.Language.Lang }}"></div>
+</section>
+{{- end }}

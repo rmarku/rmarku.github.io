@@ -1,43 +1,36 @@
-<nav class="navbar">
-  <section>
-    <input type="checkbox" id="navbar_toggle" />
-    <label for="navbar_toggle" class="hamburger">&#9776;</label>
+{{- /*
+  partialCached in baseof on (language, permalink) -- this used to run an
+  O(languages^2) .AllTranslations x hugo.Sites double loop on every one of the
+  site's pages.
+
+  Menu entries come from pageRef now, so .IsMenuCurrent / .HasMenuCurrent work
+  and the nav can mark the active section.
+*/ -}}
+<nav class="navbar" aria-label="{{ i18n "mainNav" }}">
+  <div class="navbar-inner">
+    <a class="logo" href="{{ site.Home.RelPermalink }}">{{ site.Title }}</a>
+
+    <input type="checkbox" id="navbar_toggle" class="navbar-toggle">
+    <label for="navbar_toggle" class="hamburger" aria-hidden="true">{{ partial "icon.html" "menu" }}</label>
+
     <ul class="nav-links">
-      <div class="menu">
-        {{ range .Site.Menus.main.ByWeight }}
-        <li>
-          <a href="{{ .URL | relLangURL }}">{{ .Name }}</a>
-        </li>
-        {{ end }}
-      </div>
+      {{- range site.Menus.main.ByWeight }}
+      {{- $active := or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }}
+      <li>
+        <a href="{{ .URL }}"{{ if $active }} aria-current="page"{{ end }}>{{ .Name }}</a>
+      </li>
+      {{- end }}
     </ul>
-    <a class="logo" href="{{ .Site.Home.RelPermalink }}">{{ .Site.Title }}</a>
-    <div class="right">
-      <input id="searchInput" type="text" placeholder="Buscar" value="" />
-      <div id="searchResults" class="search-results"></div>
-      {{ $pageLang := .Lang }}
+
+    <div class="nav-actions">
+      {{ partial "search.html" . }}
       {{- range .AllTranslations }}
-      {{ $translation := . }}
-      {{- /* hugo.Sites is already sorted by language weight ascending. */ -}}
-      {{- range hugo.Sites }}
-      {{- $lang := .Language }}
-      {{- if eq $translation.Lang $lang.Lang }}
-      {{ if eq $pageLang $lang.Lang }}
-      <a class="flagselect" href="{{ $translation.RelPermalink }}">{{ $lang.Params.languageNameShort }}{{
-        $lang.Params.languageFlag }}</a>
-      {{ else }}
-      <a class="flagnoselect" href="{{ $translation.RelPermalink }}">{{ $lang.Params.languageNameShort }}{{
-        $lang.Params.languageFlag }}</a>
-      {{ end }}
+      {{- if ne .Lang $.Lang }}
+      <a class="lang-switch" href="{{ .RelPermalink }}" hreflang="{{ .Lang }}"
+        lang="{{ .Lang }}">{{ .Language.Params.languageNameShort }}</a>
       {{- end }}
       {{- end }}
-      {{- end }}
-      <button aria-label="Toggle dark mode" class="dark-button" onclick="setDark(true)">
-        <i class="print-inline fa-regular fa-moon"></i>
-      </button>
-      <button aria-label="Toggle light mode" class="light-button" onclick="setDark(false)">
-        <i class="print-inline fa-regular fa-sun"></i>
-      </button>
+      {{ partial "theme-toggle.html" . }}
     </div>
-  </section>
+  </div>
 </nav>

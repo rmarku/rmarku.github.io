@@ -1,0 +1,11 @@
+{{- /*
+  One button cycling system -> light -> dark, rather than the two
+  always-rendered buttons the old nav shipped and hid with CSS custom
+  properties. Which icon shows is decided in CSS from html[data-theme-choice],
+  set before first paint by head/theme-init.html.
+*/ -}}
+<button type="button" class="theme-toggle" data-theme-toggle aria-label="{{ i18n "themeToggle" }}">
+  <span class="theme-icon theme-icon-system">{{ partial "icon.html" "monitor" }}</span>
+  <span class="theme-icon theme-icon-light">{{ partial "icon.html" "sun" }}</span>
+  <span class="theme-icon theme-icon-dark">{{ partial "icon.html" "moon" }}</span>
+</button>

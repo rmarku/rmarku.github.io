@@ -1,0 +1,13 @@
+{{- /*
+  The one script that must run before first paint, inlined to avoid a flash of
+  the wrong theme. Everything else is deferred.
+
+  Kept to a single statement; the toggle UI lives in js/theme.js.
+*/ -}}
+<script>
+  (function () {
+    var t = localStorage.getItem('theme')
+    if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t)
+    document.documentElement.dataset.themeChoice = t || 'system'
+  })()
+</script>

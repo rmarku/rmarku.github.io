@@ -10,7 +10,7 @@ tags:
 
 Exists so every markdown feature can be checked on one page. `build.list: never`
 keeps it out of lists, feeds, the sitemap and the search index; it still renders
-at `/en/articles/_fixtures/`.
+at `/articles/fixtures/`.
 
 ## Alerts
 

@@ -1,0 +1,40 @@
+{{- /*
+  Three esbuild entry points rather than one bundle with `splitting` on:
+  js.Build's splitting does not emit sibling chunk files, so everything gets
+  inlined -- with Mermaid that meant a 3.5 MB entry bundle on every page.
+
+  Building the optional pieces separately and passing their URLs to main.js via
+  esbuild params keeps the entry small; main.js imports them at runtime only
+  when the page needs them.
+*/ -}}
+
+{{- $base := dict
+      "format" "esm"
+      "minify" hugo.IsProduction
+      "sourceMap" (cond hugo.IsProduction "" "inline")
+      "target" "es2020" }}
+
+
+{{- $mermaid := "" }}
+{{- with resources.Get "js/entry-mermaid.js" | js.Build (merge $base (dict "targetPath" "js/mermaid.js")) }}
+  {{- if hugo.IsProduction }}{{ $mermaid = (. | fingerprint).RelPermalink }}{{ else }}{{ $mermaid = .RelPermalink }}{{ end }}
+{{- end }}
+
+{{- $search := "" }}
+{{- with resources.Get "js/entry-search.js" | js.Build (merge $base (dict "targetPath" "js/search.js")) }}
+  {{- if hugo.IsProduction }}{{ $search = (. | fingerprint).RelPermalink }}{{ else }}{{ $search = .RelPermalink }}{{ end }}
+{{- end }}
+
+{{- $opts := merge $base (dict
+      "targetPath" "js/main.js"
+      "params" (dict "mermaidUrl" $mermaid "searchUrl" $search)) }}
+
+{{- with resources.Get "js/main.js" | js.Build $opts }}
+  {{- if hugo.IsProduction }}
+    {{- with . | fingerprint }}
+<script type="module" src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"></script>
+    {{- end }}
+  {{- else }}
+<script type="module" src="{{ .RelPermalink }}"></script>
+  {{- end }}
+{{- end }}

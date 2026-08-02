@@ -3,11 +3,11 @@
   which would otherwise break parsing, and Hugo must be told the escaped result
   is already safe.
 
-  The flag lets head/js.html load the Mermaid chunk only on pages that have a
-  diagram; it is ~1 MB and most pages have none. Page.Store survives into the
-  layout because content renders before the shell.
+  No Page.Store flag here. Values a render hook stores are indeterminate from
+  baseof unless .Content has already been forced to render, and the entry
+  bundle's `document.querySelector('pre.mermaid')` check is both simpler and
+  exact -- the ~3.5 MB Mermaid entry is only fetched when a diagram is present.
 */ -}}
-{{- .Page.Store.Set "hasMermaid" true -}}
 <pre class="mermaid">
   {{- .Inner | htmlEscape | safeHTML }}
 </pre>

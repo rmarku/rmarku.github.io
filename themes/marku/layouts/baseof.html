@@ -1,76 +1,46 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.Language.Lang }}">
+<html lang="{{ site.Language.Lang }}">
 
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>{{ if not .IsHome }}{{ .Title | title }} | {{ end }}{{ .Site.Title }}</title>
+	<title>{{ if not .IsHome }}{{ .Title }} | {{ end }}{{ site.Title }}</title>
 	<link rel="canonical" href="{{ .Permalink }}">
-	<link rel='alternate' type='application/rss+xml' title="{{ .Site.Title }} RSS" href='{{ "index.xml" | relLangURL }}'>
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link rel="stylesheet"
-		href="https://fonts.googleapis.com/css?family=Roboto+Slab|Open+Sans:400italic,700italic,400,700&display=swap">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-		integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="alternate" type="application/rss+xml" title="{{ site.Title }} RSS" href="{{ "index.xml" | relLangURL }}">
 
-	<script>
-		window.remark_config = {
-			host: 'https://comments.casa.marku.me',
-			site_id: 'marku',
-			simple_view: "false",
-			no_footer: "true",
-			theme: 'dark',
-			locale: '{{ .Site.Language.Lang }}'
-		}
-	</script>
-
-	<script src="https://unpkg.com/htmx.org@1.9.8"
-		integrity="sha384-rgjA7mptc2ETQqXoYC3/zJvkU7K/aP44Y+z7xQuJiVnB/422P/Ak+F/AqFR7E4Wr"
-		crossorigin="anonymous"></script>
-	{{ if hugo.IsProduction }}{{ with site.Params.analytics }}
-	<script async defer data-website-id="{{ .umamiWebsiteId }}" src="{{ .umamiHost }}"></script>
-	{{ end }}{{ end }}
-	<script type="text/javascript" src="{{ "js/site.js" | relURL }}"></script>
-
-	{{ $options := dict "transpiler" "dartsass" "targetPath" "css/style.css" }}
-	{{ with resources.Get "scss/main.scss" | css.Sass $options | minify | fingerprint }}
-	<link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
-	{{ end }}
+	{{ partial "head/theme-init.html" . }}
+	{{ partial "head/css.html" . }}
+	{{ partial "head/js.html" . }}
 
 	{{ partial "opengraph.html" . }}
 	{{ partial "twitter_cards.html" . }}
 	{{ partial "jsonld.html" . }}
 
-	{{ with .Site.Params.favicon }}
-	<link rel="icon" href="{{ . }}">
-	{{ end -}}
-	<meta name="description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Summary }}{{ end }}">
-	{{ if isset .Params "tags" }}
-	<meta name="keywords" content="{{ with .Params.tags }}{{ delimit . " , " }}{{ end }}">
-	{{ end -}}
-
+	{{ with resources.Get site.Params.favicon }}
+	<link rel="icon" href="{{ .RelPermalink }}" type="{{ .MediaType }}">
+	{{ end }}
+	<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Summary }}{{ end }}">
+	{{ with .Params.tags }}
+	<meta name="keywords" content="{{ delimit . ", " }}">
+	{{ end }}
 	<meta name="robots" content="index, follow">
+
+	{{ if hugo.IsProduction }}{{ with site.Params.analytics }}
+	<script async defer data-website-id="{{ .umamiWebsiteId }}" src="{{ .umamiHost }}"></script>
+	{{ end }}{{ end }}
 </head>
 
-<body hx-boost="true">
-	{{ if .Site.Menus.main }}{{ partial "nav.html" . }}{{ end -}}
-	<main>
+<body>
+	<a class="skip-link" href="#content">{{ i18n "skipToContent" }}</a>
+	{{ if site.Menus.main }}{{ partialCached "nav.html" . .Language.Lang .RelPermalink }}{{ end }}
+	<main id="content">
 		{{ block "main" . }}
 		{{ .Content }}
 		{{ end }}
 	</main>
 	{{ block "footer" . }}
-	<hr />
-	<footer>
-		Created by Ricardo Martín Marcucci, © 2019<br>
-		<a href="/index.xml" style="color: orange"><i class="fa-solid fa-rss"></i></a>
-	</footer>
+	{{ partialCached "footer.html" . .Language.Lang }}
 	{{ end }}
-
-	<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
-
 </body>
 
 </html>
