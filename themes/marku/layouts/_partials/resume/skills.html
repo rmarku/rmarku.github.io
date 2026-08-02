@@ -1,11 +1,12 @@
 {{ $data := index . "data" }}
 {{ $lang := index . "lang" }}
-<h2 id="language"><i class="fa-solid fa-wrench"></i> {{ i18n "skills"}}</h2>
-<small class="text-right w-full block">Jr = 1-2 Años | Spec = 2-5 Años | Exp &gt;= 5+ Años</small>
-<ul>
+<h2 id="skills"><i class="fa-solid fa-wrench"></i> {{ i18n "skills"}}</h2>
+<small class="skills-legend">{{ i18n "skillsLegend" }}</small>
+{{- /* Was a <ul> whose direct children were <div>s, which is invalid HTML. */ -}}
+<div class="skills">
     {{ range $data.basics.skills}}
-    <div style="break-inside: avoid-page;">
-        <h4 class="font-bold">{{index .type $lang}}</h4>
+    <div class="skill-group">
+        <h4>{{index .type $lang}}</h4>
         {{ range sort .list "level" "desc" }}
         {{ $exp := "Jr"}}
         {{ if eq .level 100 }}
@@ -13,7 +14,7 @@
         {{ else if ge .level 50 }}
         {{ $exp = "Spec"}}
         {{ end}}
-        <div style="margin: 0.25rem">{{ .name }}<span>{{ $exp }}</span>
+        <div class="skill">{{ .name }}<span>{{ $exp }}</span>
             <div class="progressBar">
                 <div style="width: {{ .level }}%;"></div>
             </div>
@@ -21,4 +22,4 @@
         {{ end }}
     </div>
     {{end}}
-</ul>
+</div>

@@ -2,7 +2,7 @@ years:
   one: '{{.}} año'
   other: '{{.}} años'
 months:
-  one: '{{.}} meses'
+  one: '{{.}} mes'
   other: '{{.}} meses'
 
 details:
@@ -60,13 +60,13 @@ minuteRead:
   other: 'Lectura de {{ .ReadingTime }} minutos'
 
 publishDate:
-  other: '{{ .PublishDate.Format "01/01/2006" }}'
+  other: '{{ .PublishDate.Format "02/01/2006" }}'
 
 publishDateFull:
-  other: '{{ .PublishDate.Format "01/01/2006" }}'
+  other: '{{ .PublishDate.Format "02/01/2006" }}'
 
 birthdayDate:
-  other: '01/01/2006'
+  other: '02/01/2006'
 
 monthAndYear:
   other: '{{ .Format "Jan, 2006" }}'
@@ -87,7 +87,7 @@ poweredBy:
     href='https://github.com/nodejh/hugo-theme-mini'>nodejh</a>
 
 publishDateShort:
-  other: '{{ .PublishDate.Format "01/02" }}'
+  other: '{{ .PublishDate.Format "02/01" }}'
 
 present:
   other: Actualidad
@@ -96,3 +96,9 @@ toc:
 
 coauthored:
   other: En coautoría con
+
+experience:
+  other: Experiencia Laboral
+
+skillsLegend:
+  other: 'Jr = 1-2 años | Spec = 2-5 años | Exp >= 5+ años'

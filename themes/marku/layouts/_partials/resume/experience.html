@@ -1,16 +1,17 @@
 {{ $data := index . "data" }}
 {{ $lang := index . "lang" }}
-<h2 id="experience"><i class="fa-solid fa-suitcase"></i> Experiencia Laboral</h2>
+<h2 id="experience"><i class="fa-solid fa-suitcase"></i> {{ i18n "experience" }}</h2>
 <ul class="experience">
     {{ range $data.experiences }}
     <li>
-        <h2 class="float-right font-bold ml-7">
-            {{ if .url }}
-            <a href="https://www.wilab.io">{{ .organization }}</a>
-            {{ else }}
-            {{ .organization }}
-            {{ end }}
-        </h2>
+        {{- $org := .organization }}
+        <h3 class="organization">
+            {{- with .url }}
+            <a href="{{ . }}">{{ $org }}</a>
+            {{- else }}
+            {{ $org }}
+            {{- end }}
+        </h3>
 
         {{ range sort .positions "period.start" "desc"}}
         <div>

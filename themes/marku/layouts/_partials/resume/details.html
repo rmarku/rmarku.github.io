@@ -1,7 +1,7 @@
 {{ $data := index . "data" }}
 {{ $lang := index . "lang" }}
 
-<div class="px-10 print:p-2">
+<div class="summary">
     <h2><i class="fa-solid fa-user"></i> {{ i18n "careerSummary"}}</h2>
 
     <p>{{ index $data.summary $lang | markdownify }}</p>

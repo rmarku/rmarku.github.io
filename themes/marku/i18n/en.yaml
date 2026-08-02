@@ -77,3 +77,9 @@ present:
   other: Present
 toc:
   other: Table of Contents
+
+experience:
+  other: Work Experience
+
+skillsLegend:
+  other: 'Jr = 1-2 years | Spec = 2-5 years | Exp >= 5+ years'

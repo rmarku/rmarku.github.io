@@ -16,7 +16,11 @@ a:visited {
   transition: 0.3s ease;
   color: var(--blue);
   &:hover {
-    @apply text-blue-700;
+    // Was `@apply text-blue-700`, a Tailwind directive with no Tailwind in the
+    // pipeline: Dart Sass emitted it verbatim and the browser dropped it, so
+    // links had no hover state at all.
+    color: var(--sapphire);
+    text-decoration: underline;
   }
 }
 

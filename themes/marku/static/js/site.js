@@ -11,12 +11,11 @@ function setDark(val) {
     localStorage.setItem('theme', 'light')
   }
 }
-const currentTheme = localStorage.getItem('theme')
-if (currentTheme) {
-  document.documentElement.setAttribute('data-theme', currentTheme)
-}
-
-setDark(window.matchMedia('(prefers-color-scheme: dark)').matches)
+// Fall back to the OS preference only when nothing has been chosen. Calling
+// setDark() unconditionally here meant the stored value was always clobbered a
+// line after being read, so the toggle never survived a reload.
+const storedTheme = localStorage.getItem('theme')
+setDark(storedTheme ? storedTheme === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches)
 
 // search
 

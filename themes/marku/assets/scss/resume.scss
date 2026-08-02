@@ -93,7 +93,7 @@
     width: 23%;
     // padding: 1rem;
     margin-left: 1rem;
-    border-left: 1px ar(--surface1);
+    border-left: 1px solid var(--surface1);
     border-radius: 1rem;
     padding: 1rem;
     float: right;
@@ -107,6 +107,20 @@
       margin: 0;
       padding: 0rem 0.4rem;
       float: right;
+    }
+    .skills-legend {
+      display: block;
+      width: 100%;
+      text-align: right;
+    }
+    .skill-group {
+      break-inside: avoid-page;
+      h4 {
+        font-weight: 700;
+      }
+    }
+    .skill {
+      margin: 0.25rem;
     }
     .progressBar {
       width: 100%;

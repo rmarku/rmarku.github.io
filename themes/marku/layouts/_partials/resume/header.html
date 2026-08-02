@@ -1,12 +1,11 @@
 {{ $data := index . "data" }}
 {{ $lang := index . "lang" }}
-{{ $context := index . "context" }}
 
 {{ with $data.basics }}
 <header class="header">
     <ul>
         <li><i class="print-inline fa-regular fa-envelope"></i> {{ .email }}</li>
-        <li><i class="print-inline fa-solid fa-phone"></i></i> {{ .phone }}</li>
+        <li><i class="print-inline fa-solid fa-phone"></i> {{ .phone }}</li>
         <li><i class="print-inline fa-solid fa-location-pin"></i> {{ .location.city }}, {{
             .location.countryCode }}</li>
         {{ $birthday := .birthday.date |time.AsTime }}

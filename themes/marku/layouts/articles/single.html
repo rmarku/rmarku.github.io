@@ -4,14 +4,18 @@
 <article>
     <h1>{{ .Title }}</h1>
     <section>
-        <i class="fa-solid fa-calendar"></i> <time datetime="{{ .PublishDate }}">{{ i18n "publishDateFull" .
+        <i class="fa-solid fa-calendar"></i> <time datetime="{{ .PublishDate.Format `2006-01-02` }}">{{ i18n "publishDateFull" .
             }}</time><br />
         <i class="fa-solid fa-file-word"></i> {{ i18n "wordCount" . }}<br />
         <i class="fa-solid fa-book-open-reader"></i> {{ i18n "minuteRead" . }}<br />
-        {{ $image := .Resources.Get (index .Params.images 0) }}
-        {{ if $image}}
-        <img src="{{ ($image.Fill " 743x244 90% webp").RelPermalink }}" loading="lazy" decoding="async">
+        {{- /* Guarded: `index .Params.images 0` errors outright on any article
+               with no images in front matter. */ -}}
+        {{ with .Params.images }}{{ with $.Resources.Get (index . 0) }}
+        {{ with .Fill "743x244 q90 webp" }}
+        <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" loading="lazy" decoding="async"
+            alt="">
         {{ end }}
+        {{ end }}{{ end }}
         <hr>
         {{ partial "toc.html" . }}
         <hr>

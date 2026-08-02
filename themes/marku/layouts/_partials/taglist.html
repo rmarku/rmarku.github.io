@@ -1,8 +1,14 @@
-{{- if isset .Params "tags" -}} {{- $tagsLen := len .Params.tags -}} {{- if gt $tagsLen 0 -}}
-<div style="clear: both" class="taglist">
-    {{- with .Site.Params.relatedtext }}{{ . }}<br />{{ end -}} {{- range $k, $v := .Params.tags -}} {{- $url := printf
-    "tags/%s" (. | urlize | lower) -}}
-    <a id="tag_{{ . | lower }}" href="{{ $url | absURL }}">{{ . | title }}</a>
-    {{- if lt $k (sub $tagsLen 1) }} &middot; {{ end -}} {{- end -}}
+{{- /*
+  .GetTerms resolves each term to a real taxonomy page, so links are
+  language-correct. The previous version rebuilt the path by hand and piped it
+  through absURL, which sent every tag link on /en/ to the Spanish site.
+*/ -}}
+{{- with .GetTerms "tags" }}
+<div class="taglist">
+  {{- with site.Params.relatedtext }}{{ . }}<br />{{ end }}
+  {{- range $i, $term := . }}
+  {{- if $i }} &middot; {{ end }}
+  <a href="{{ $term.RelPermalink }}">{{ $term.LinkTitle }}</a>
+  {{- end }}
 </div>
-{{- end -}} {{- end }}
+{{- end }}
