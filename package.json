@@ -5,6 +5,7 @@
   "description": "Build-time dependencies for the marku theme. Hugo's embedded esbuild resolves these from node_modules; there is no separate bundler step.",
   "license": "MIT",
   "type": "module",
+  "packageManager": "pnpm@10.17.1",
   "scripts": {
     "dev": "hugo server --disableFastRender",
     "build": "hugo --gc",

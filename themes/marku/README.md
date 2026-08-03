@@ -9,11 +9,11 @@ scripts and translations all live under `themes/marku/`.
 ## Requirements
 
 - Hugo **extended** ≥ 0.146 (the repo pins 0.164.0 in CI)
-- Node ≥ 20 — only for `npm ci`. Hugo's embedded esbuild does the bundling; there
-  is no separate build step.
+- Node ≥ 20 and [pnpm](https://pnpm.io) — only to populate `node_modules`.
+  Hugo's embedded esbuild does the bundling; there is no separate build step.
 
 ```sh
-npm ci
+pnpm install
 hugo server --disableFastRender
 ```
 
