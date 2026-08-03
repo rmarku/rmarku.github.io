@@ -1,0 +1,28 @@
+/*
+  Native cross-document View Transitions, replacing htmx's hx-boost and the
+  htmx:pushedIntoHistory re-init workarounds that used to live in site.js.
+  `@view-transition` isn't a rule any @layer can hold, so it's declared here,
+  outside the layer order.
+*/
+@view-transition {
+  navigation: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @view-transition {
+    navigation: none;
+  }
+}
+
+/*
+  One element of each kind per page, so a fixed name is enough -- the browser
+  only ever needs to match it against the same-named element on the page
+  being left.
+*/
+.article-title {
+  view-transition-name: article-title;
+}
+
+.article-hero {
+  view-transition-name: article-hero;
+}

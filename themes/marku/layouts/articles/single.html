@@ -1,29 +1,24 @@
 
 
 {{ define "main" -}}
-<article>
-    <h1>{{ .Title }}</h1>
-    <section>
-        <i class="fa-solid fa-calendar"></i> <time datetime="{{ .PublishDate.Format `2006-01-02` }}">{{ i18n "publishDateFull" .
-            }}</time><br />
-        <i class="fa-solid fa-file-word"></i> {{ i18n "wordCount" . }}<br />
-        <i class="fa-solid fa-book-open-reader"></i> {{ i18n "minuteRead" . }}<br />
+<div class="article-layout">
+    <article class="prose">
+        <h1 class="article-title">{{ .Title }}</h1>
+        <ul class="post-meta">
+            <li>{{ partial "icon.html" "calendar" }} <time datetime="{{ .PublishDate.Format `2006-01-02` }}">{{ i18n "publishDateFull" . }}</time></li>
+            <li>{{ partial "icon.html" "file-text" }} {{ i18n "wordCount" . }}</li>
+            <li>{{ partial "icon.html" "clock" }} {{ i18n "minuteRead" . }}</li>
+        </ul>
         {{- /* Guarded: `index .Params.images 0` errors outright on any article
                with no images in front matter. */ -}}
-        {{ with .Params.images }}{{ with $.Resources.Get (index . 0) }}
-        {{ with .Fill "743x244 q90 webp" }}
-        <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" loading="lazy" decoding="async"
-            alt="">
+        {{ with .Params.images }}
+        {{ partial "image.html" (dict "page" $ "src" (index . 0) "fill" "743x244" "loading" "eager" "priority" true "class" "full-bleed article-hero") }}
         {{ end }}
-        {{ end }}{{ end }}
-        <hr>
-        {{ partial "toc.html" . }}
-        <hr>
-    </section>
-    {{ .Content }}
-    {{ partial "nextprev.html" . -}}
-    <br />
-    {{ partial "taglist.html" . }}
-    {{ partial "comments.html" . }}
-</article>
+        {{ .Content }}
+        {{ partial "nextprev.html" . -}}
+        {{ partial "taglist.html" . }}
+        {{ partial "comments.html" . }}
+    </article>
+    <aside class="toc-rail">{{ partial "toc.html" . }}</aside>
+</div>
 {{- end }}

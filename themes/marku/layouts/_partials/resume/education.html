@@ -1,7 +1,7 @@
 {{ $data := index . "data" }}
 {{ $lang := index . "lang" }}
 
-<h2><i class="fa-solid fa-graduation-cap"></i> {{ i18n "education"}}</h2>
+<h2>{{ partial "icon.html" "graduation-cap" }} {{ i18n "education"}}</h2>
 <ul>
     {{ range sort $data.educations "period" "desc"}}
     <li>

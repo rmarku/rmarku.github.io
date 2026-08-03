@@ -1,23 +1,33 @@
 {{- /*
   Builds one stylesheet from the self-hosted @font-face rules plus the theme's
-  own styles, and preloads the body face.
+  own plain CSS, and preloads the body face.
 
   Minify/fingerprint only in production: in development the plain file keeps
-  hugo server's live reload fast and source maps readable. The old pipeline
-  minified unconditionally and had no source maps at all.
+  hugo server's live reload fast. Plain CSS, concatenated in cascade-layer
+  order -- no Sass step, and nothing left in the pipeline to pin a compiler
+  version for.
 */ -}}
 
 {{- $fonts := resources.Get "css/fonts.css" | resources.ExecuteAsTemplate "css/fonts.css" . }}
 
-{{- /* Still Sass until the design-system rewrite lands; same options either way. */ -}}
-{{- $opts := dict
-      "transpiler" "dartsass"
-      "targetPath" "css/theme.css"
-      "enableSourceMap" (not hugo.IsProduction)
-      "outputStyle" (cond hugo.IsProduction "compressed" "expanded") }}
-{{- $theme := resources.Get "scss/main.scss" | css.Sass $opts }}
+{{- $layerFiles := slice
+      "css/reset.css"
+      "css/tokens.css"
+      "css/base.css"
+      "css/layout.css"
+      "css/chroma.css"
+      "css/components.css"
+      "css/utilities.css"
+      "css/view-transitions.css"
+      "css/print.css" }}
+{{- $toConcat := slice $fonts }}
+{{- range $layerFiles }}
+  {{- with resources.Get . }}{{ $toConcat = $toConcat | append . }}
+  {{- else }}{{ errorf "head/css.html: missing %q" . }}
+  {{- end }}
+{{- end }}
 
-{{- $css := slice $fonts $theme | resources.Concat "css/style.css" }}
+{{- $css := $toConcat | resources.Concat "css/style.css" }}
 {{- if hugo.IsProduction }}
   {{- $css = $css | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous">

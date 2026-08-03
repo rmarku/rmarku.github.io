@@ -2,7 +2,7 @@
 {{ $lang := index . "lang" }}
 
 <div class="summary">
-    <h2><i class="fa-solid fa-user"></i> {{ i18n "careerSummary"}}</h2>
+    <h2>{{ partial "icon.html" "user" }} {{ i18n "careerSummary"}}</h2>
 
     <p>{{ index $data.summary $lang | markdownify }}</p>
 </div>

@@ -17,6 +17,12 @@ function theme() {
 export async function render() {
   const nodes = document.querySelectorAll('pre.mermaid:not([data-processed])')
   if (!nodes.length) return
+  // mermaid.run() replaces each node's content with the rendered SVG, so the
+  // diagram source has to be captured before that happens -- afterwards,
+  // textContent is whatever text nodes the SVG itself happens to contain.
+  nodes.forEach((node) => {
+    node.dataset.source = node.textContent
+  })
   mermaid.initialize({ startOnLoad: false, theme: theme() })
   await mermaid.run({ nodes })
 }

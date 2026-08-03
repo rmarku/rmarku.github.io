@@ -1,0 +1,82 @@
+/*
+  A Catppuccin-spirited palette -- pastel, low-chroma accents over near-neutral
+  surfaces -- but a new one, authored directly in OKLCH so the light and dark
+  ramps are perceptually matched instead of hand-tuned to look right twice.
+  `light-dark()` means every color is defined once; [data-theme] below only
+  ever sets `color-scheme`.
+
+  This replaces the two full 24-variable Catppuccin Latte/Mocha blocks that
+  used to live in theme.scss.
+*/
+@layer tokens {
+  :root {
+    color-scheme: light dark;
+
+    /* surfaces: sunken -> raised */
+    --surface-3: light-dark(oklch(94% 0.010 262), oklch(15% 0.020 262));
+    --surface-0: light-dark(oklch(98.5% 0.006 262), oklch(19% 0.020 262));
+    --surface-1: light-dark(oklch(96% 0.009 262), oklch(23% 0.022 262));
+    --surface-2: light-dark(oklch(92% 0.012 262), oklch(28% 0.024 262));
+    --border: light-dark(oklch(85% 0.015 262), oklch(35% 0.026 262));
+
+    /* text */
+    --text: light-dark(oklch(30% 0.032 262), oklch(91% 0.020 262));
+    --text-muted: light-dark(oklch(50% 0.028 262), oklch(72% 0.020 262));
+    --text-faint: light-dark(oklch(64% 0.020 262), oklch(56% 0.018 262));
+
+    /* accents -- one hue family per semantic role */
+    --accent: light-dark(oklch(52% 0.19 258), oklch(78% 0.13 258));
+    --accent-hover: light-dark(oklch(44% 0.20 258), oklch(85% 0.11 258));
+    --accent-2: light-dark(oklch(50% 0.11 195), oklch(80% 0.09 195));
+    --warn: light-dark(oklch(58% 0.16 75), oklch(83% 0.13 75));
+    --danger: light-dark(oklch(54% 0.20 25), oklch(78% 0.15 25));
+    --ok: light-dark(oklch(52% 0.14 150), oklch(80% 0.12 150));
+
+    /* syntax highlighting -- one token set, consumed by chroma.css */
+    --syn-keyword: light-dark(oklch(48% 0.20 305), oklch(80% 0.14 305));
+    --syn-func: light-dark(oklch(48% 0.15 230), oklch(80% 0.12 230));
+    --syn-string: light-dark(oklch(46% 0.14 150), oklch(78% 0.13 150));
+    --syn-number: light-dark(oklch(52% 0.15 45), oklch(82% 0.12 45));
+    --syn-type: light-dark(oklch(52% 0.14 80), oklch(82% 0.12 80));
+    --syn-tag: light-dark(oklch(50% 0.19 340), oklch(82% 0.13 340));
+    --syn-comment: light-dark(oklch(62% 0.020 262), oklch(52% 0.020 262));
+    --syn-error: light-dark(oklch(54% 0.20 25), oklch(78% 0.15 25));
+    --syn-lineno: light-dark(oklch(78% 0.012 262), oklch(38% 0.020 262));
+
+    /* type */
+    --font-body: 'Source Serif 4', ui-serif, Georgia, serif;
+    --font-ui: 'Inter', ui-sans-serif, system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+
+    --step--1: clamp(0.83rem, 0.8rem + 0.15vw, 0.9rem);
+    --step-0: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+    --step-1: clamp(1.2rem, 1.1rem + 0.5vw, 1.4rem);
+    --step-2: clamp(1.5rem, 1.3rem + 1vw, 1.9rem);
+    --step-3: clamp(1.9rem, 1.55rem + 1.75vw, 2.6rem);
+
+    /* rhythm */
+    --measure: 68ch;
+    --space-3xs: 0.25rem;
+    --space-2xs: 0.5rem;
+    --space-xs: 0.75rem;
+    --space-s: 1rem;
+    --space-m: 1.5rem;
+    --space-l: 2.5rem;
+    --space-xl: 4rem;
+
+    --radius-s: 0.375rem;
+    --radius-m: 0.75rem;
+    --radius-full: 999px;
+
+    --shadow-s: 0 1px 2px oklch(0% 0 0 / 8%);
+    --shadow-m: 0 4px 10px oklch(0% 0 0 / 12%);
+  }
+
+  [data-theme='light'] {
+    color-scheme: light;
+  }
+
+  [data-theme='dark'] {
+    color-scheme: dark;
+  }
+}

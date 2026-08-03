@@ -1,6 +1,6 @@
 {{ $data := index . "data" }}
 {{ $lang := index . "lang" }}
-<h2 id="skills"><i class="fa-solid fa-wrench"></i> {{ i18n "skills"}}</h2>
+<h2 id="skills">{{ partial "icon.html" "wrench" }} {{ i18n "skills"}}</h2>
 <small class="skills-legend">{{ i18n "skillsLegend" }}</small>
 {{- /* Was a <ul> whose direct children were <div>s, which is invalid HTML. */ -}}
 <div class="skills">

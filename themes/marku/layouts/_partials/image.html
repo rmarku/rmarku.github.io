@@ -77,7 +77,7 @@
     {{- $spec := printf "%dx" . }}
     {{- if $fill }}
       {{- $ratio := div (float $base.Height) (float $base.Width) }}
-      {{- $spec = printf "%dx%d" . (math.Round (mul (float .) $ratio)) }}
+      {{- $spec = printf "%dx%d" . (math.Round (mul (float .) $ratio) | int) }}
       {{- $avif = $avif | append (printf "%s %dw" ($base.Fill (printf "%s avif" $spec)).RelPermalink .) }}
       {{- $webp = $webp | append (printf "%s %dw" ($base.Fill (printf "%s webp" $spec)).RelPermalink .) }}
     {{- else }}

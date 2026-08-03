@@ -1,6 +1,6 @@
 {{ $data := index . "data" }}
 {{ $lang := index . "lang" }}
-<h2 id="experience"><i class="fa-solid fa-suitcase"></i> {{ i18n "experience" }}</h2>
+<h2 id="experience">{{ partial "icon.html" "briefcase" }} {{ i18n "experience" }}</h2>
 <ul class="experience">
     {{ range $data.experiences }}
     <li>

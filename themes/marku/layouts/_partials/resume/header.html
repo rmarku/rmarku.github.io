@@ -4,25 +4,25 @@
 {{ with $data.basics }}
 <header class="header">
     <ul>
-        <li><i class="print-inline fa-regular fa-envelope"></i> {{ .email }}</li>
-        <li><i class="print-inline fa-solid fa-phone"></i> {{ .phone }}</li>
-        <li><i class="print-inline fa-solid fa-location-pin"></i> {{ .location.city }}, {{
+        <li>{{ partial "icon.html" "mail" }} {{ .email }}</li>
+        <li>{{ partial "icon.html" "phone" }} {{ .phone }}</li>
+        <li>{{ partial "icon.html" "map-pin" }} {{ .location.city }}, {{
             .location.countryCode }}</li>
         {{ $birthday := .birthday.date |time.AsTime }}
         {{ $diff := now.Sub $birthday }}
         {{ $years := math.Floor (div (div $diff.Hours 24) 365.25) | int }}
-        <li><i class="print-inline  fa-solid fa-cake-candles"></i>{{ $birthday.Format (i18n "birthdayDate") }}
+        <li>{{ partial "icon.html" "cake" }} {{ $birthday.Format (i18n "birthdayDate") }}
             ({{ i18n "years" $years }})
         </li>
         <li>
             <a href="https://{{ .website }}">
-                <i class="print-inline  fa-solid fa-globe"></i> {{ .website }}
+                {{ partial "icon.html" "globe" }} {{ .website }}
             </a>
         </li>
         {{ range .profiles}}
         <li>
             <a href="{{ .url }}">
-                <i class="print-inline  fa-brands fa-{{ .network }}"></i> {{ .username }}
+                {{ partial "icon.html" "link" }} {{ .username }}
             </a>
         </li>
         {{ end }}

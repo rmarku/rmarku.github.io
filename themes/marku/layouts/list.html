@@ -4,30 +4,26 @@
 	{{ $esSite := hugo.Sites.Default }}
 	{{ range .RegularPages | lang.Merge (where $esSite.RegularPages "Type" .Type) }}
 	{{ $page := . }}
-	<article>
-		{{ with .Params.images }}{{ with $page.Resources.Get (index . 0) }}
-		<img src="{{ (.Fill "242x144 q90 webp").RelPermalink }}" loading="lazy" decoding="async">
-		{{ end }}{{ end }}
-		<div style="width: 100%;">
+	<article class="post-card">
+		{{ with .Params.images }}
+		{{ partial "image.html" (dict "page" $page "src" (index . 0) "fill" "242x144" "class" "post-card-image") }}
+		{{ end }}
+		<div>
 			<h3><a href="{{ .RelPermalink }}">{{ .Title | title }}</a></h3>
-			<div style="justify-content: space-between; display:flex;width:100%">
-				<time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "02 Jan 2006" }}
-				</time>
+			<time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "02 Jan 2006" }}</time>
 
-				{{ $taxonomy := "tags" }}
-				{{ with .GetTerms $taxonomy }}
-				<ul class="tags">
-					{{ range . }}
-					<li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
-					{{ end }}
-				</ul>
+			{{ $taxonomy := "tags" }}
+			{{ with .GetTerms $taxonomy }}
+			<ul class="tags">
+				{{ range . }}
+				<li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
 				{{ end }}
+			</ul>
+			{{ end }}
 
-			</div>
 			<p>{{ .Description }}</p>
 			<p>{{ i18n "language" }}: <i class="flag-{{ .Lang }}"></i></p>
 		</div>
-
 	</article>
 	{{- end }}
 </section>

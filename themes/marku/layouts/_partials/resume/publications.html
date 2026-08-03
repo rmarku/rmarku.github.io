@@ -1,7 +1,7 @@
 {{ $data := index . "data" }}
 {{ $lang := index . "lang" }}
 
-<h2><i class="fa-solid fa-file-alt"></i> {{ i18n "publications"}}</h2>
+<h2>{{ partial "icon.html" "file-text" }} {{ i18n "publications"}}</h2>
 <ul>
     {{ range $data.publications}}
     <li>

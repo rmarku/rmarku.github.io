@@ -1,0 +1,187 @@
+/*
+  One Chroma rule set instead of two -- highlight-latte.scss and
+  highlight-mocha.scss used to each ship the full ~85-selector stylesheet with
+  hardcoded hex, so light/dark was ~40% of the theme's CSS for the same rules
+  twice. Every color here is a --syn-* token from tokens.css, so this file
+  never needs to change when the palette does.
+*/
+@layer components {
+  .chroma {
+    color: var(--text);
+    background: var(--surface-1);
+  }
+
+  .chroma .err {
+    color: var(--syn-error);
+  }
+
+  .chroma .lnlinks {
+    outline: none;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .chroma .lntd {
+    vertical-align: top;
+    padding: 0;
+    margin: 0;
+    border: 0;
+  }
+
+  .chroma .lntable {
+    border-spacing: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
+  }
+
+  .chroma .hl {
+    background: color-mix(in oklch, var(--accent) 18%, transparent);
+    display: block;
+  }
+
+  .chroma .lnt,
+  .chroma .ln {
+    white-space: pre;
+    user-select: none;
+    margin-right: 0.4em;
+    padding: 0 0.4em;
+    color: var(--syn-lineno);
+  }
+
+  .chroma .line {
+    display: flex;
+  }
+
+  .chroma .k,
+  .chroma .kc,
+  .chroma .kd,
+  .chroma .kn,
+  .chroma .kr,
+  .chroma .nt {
+    color: var(--syn-keyword);
+  }
+
+  .chroma .kp {
+    color: var(--syn-keyword);
+    font-weight: bold;
+  }
+
+  .chroma .kt,
+  .chroma .na,
+  .chroma .nc,
+  .chroma .no,
+  .chroma .nl,
+  .chroma .nn {
+    color: var(--syn-type);
+  }
+
+  .chroma .n,
+  .chroma .bp,
+  .chroma .py,
+  .chroma .vc,
+  .chroma .vg,
+  .chroma .vi,
+  .chroma .vm,
+  .chroma .fm {
+    color: var(--text);
+  }
+
+  .chroma .nb {
+    font-style: italic;
+  }
+
+  .chroma .nd,
+  .chroma .ni {
+    color: var(--syn-tag);
+  }
+
+  .chroma .ne,
+  .chroma .gd,
+  .chroma .gr,
+  .chroma .gt {
+    color: var(--danger);
+  }
+
+  .chroma .nf {
+    color: var(--syn-func);
+  }
+
+  .chroma .s,
+  .chroma .sa,
+  .chroma .sb,
+  .chroma .sc,
+  .chroma .dl,
+  .chroma .sd,
+  .chroma .s2,
+  .chroma .sh,
+  .chroma .si,
+  .chroma .sx,
+  .chroma .s1,
+  .chroma .ss,
+  .chroma .gi {
+    color: var(--syn-string);
+  }
+
+  .chroma .se,
+  .chroma .sr {
+    color: var(--syn-func);
+  }
+
+  .chroma .m,
+  .chroma .mb,
+  .chroma .mf,
+  .chroma .mh,
+  .chroma .mi,
+  .chroma .il,
+  .chroma .mo {
+    color: var(--syn-number);
+  }
+
+  .chroma .o,
+  .chroma .gh,
+  .chroma .gu {
+    color: var(--syn-func);
+  }
+
+  .chroma .ow {
+    color: var(--syn-func);
+    font-weight: bold;
+  }
+
+  .chroma .p {
+    color: var(--text);
+  }
+
+  .chroma .c,
+  .chroma .ch,
+  .chroma .cm,
+  .chroma .c1,
+  .chroma .cs {
+    color: var(--syn-comment);
+    font-style: italic;
+  }
+
+  .chroma .cp,
+  .chroma .cpf {
+    color: var(--syn-func);
+    font-style: italic;
+  }
+
+  .chroma .ge {
+    font-style: italic;
+  }
+
+  .chroma .gp {
+    color: var(--text-faint);
+    font-weight: bold;
+  }
+
+  .chroma .gs {
+    font-weight: bold;
+  }
+
+  .chroma .w {
+    color: var(--surface-2);
+  }
+}

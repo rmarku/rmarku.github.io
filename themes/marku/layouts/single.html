@@ -1,16 +1,13 @@
 
 
 {{ define "main" -}}
-<article>
-    <h1>{{ .Title }}</h1>
-    <section>
-        <i class="fa-solid fa-calendar"></i> <time datetime="{{ .PublishDate.Format `2006-01-02` }}">{{ i18n "publishDateFull" .
-            }}</time><br />
-        <i class="fa-solid fa-file-word"></i> {{ i18n "wordCount" . }}<br />
-        <i class="fa-solid fa-book-open-reader"></i> {{ i18n "minuteRead" . }}<br />
-
-
-    </section>
+<article class="page-shell">
+    <h1 class="article-title">{{ .Title }}</h1>
+    <ul class="post-meta">
+        <li>{{ partial "icon.html" "calendar" }} <time datetime="{{ .PublishDate.Format `2006-01-02` }}">{{ i18n "publishDateFull" . }}</time></li>
+        <li>{{ partial "icon.html" "file-text" }} {{ i18n "wordCount" . }}</li>
+        <li>{{ partial "icon.html" "clock" }} {{ i18n "minuteRead" . }}</li>
+    </ul>
     {{ .Content }}
     {{ partial "comments.html" . }}
 </article>

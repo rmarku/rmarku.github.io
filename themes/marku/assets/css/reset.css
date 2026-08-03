@@ -1,0 +1,62 @@
+/*
+  Layer order for the whole stylesheet is declared once, here, since this file
+  loads first. Everything downstream just adds rules to a layer already in the
+  cascade -- no file has to fight specificity with another.
+*/
+@layer reset, tokens, base, layout, components, utilities;
+
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  * {
+    margin: 0;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    min-height: 100vh;
+  }
+
+  img,
+  picture,
+  svg,
+  video {
+    display: block;
+    max-width: 100%;
+  }
+
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+    color: inherit;
+  }
+
+  button {
+    background: none;
+    border: 0;
+    cursor: pointer;
+  }
+
+  ul,
+  ol {
+    list-style: none;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: inherit;
+  }
+
+  table {
+    border-collapse: collapse;
+  }
+}

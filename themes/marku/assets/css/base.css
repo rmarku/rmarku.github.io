@@ -1,0 +1,99 @@
+@layer base {
+  html {
+    font-family: var(--font-ui);
+    font-size: var(--step-0);
+  }
+
+  body {
+    background: var(--surface-0);
+    color: var(--text);
+    line-height: 1.5;
+  }
+
+  a {
+    color: var(--accent);
+    text-decoration-line: underline;
+    text-decoration-color: color-mix(in oklch, var(--accent) 40%, transparent);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.15em;
+    transition: color 0.15s ease, text-decoration-color 0.15s ease;
+  }
+
+  a:hover {
+    color: var(--accent-hover);
+    text-decoration-color: currentColor;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-ui);
+    font-weight: 650;
+    line-height: 1.2;
+    text-wrap: balance;
+  }
+
+  h1 {
+    font-size: var(--step-3);
+  }
+
+  h2 {
+    font-size: var(--step-2);
+    margin-top: var(--space-l);
+  }
+
+  h3 {
+    font-size: var(--step-1);
+    margin-top: var(--space-m);
+  }
+
+  h4,
+  h5,
+  h6 {
+    font-size: var(--step-0);
+    margin-top: var(--space-m);
+  }
+
+  p {
+    margin-block: var(--space-s);
+    overflow-wrap: anywhere;
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px solid var(--border);
+    margin-block: var(--space-l);
+  }
+
+  code,
+  kbd,
+  samp {
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+  }
+
+  :not(pre) > code {
+    background: var(--surface-2);
+    border-radius: var(--radius-s);
+    padding: 0.15em 0.4em;
+  }
+
+  blockquote:not(.alert) {
+    border-left: 3px solid var(--border);
+    padding-left: var(--space-m);
+    color: var(--text-muted);
+  }
+
+  ::selection {
+    background: color-mix(in oklch, var(--accent) 30%, transparent);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: var(--radius-s);
+  }
+}

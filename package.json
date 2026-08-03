@@ -6,12 +6,10 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "//": "PATH picks up .tools/dart-sass, installed by `npm run setup` and pinned to the version CI uses. Temporary -- the theme is moving off Sass.",
-    "setup": "bash scripts/install-dart-sass.sh",
-    "dev": "PATH=\"$PWD/.tools/dart-sass:$PATH\" hugo server --disableFastRender",
-    "build": "PATH=\"$PWD/.tools/dart-sass:$PATH\" hugo --gc",
-    "check": "PATH=\"$PWD/.tools/dart-sass:$PATH\" hugo --renderToMemory --panicOnWarning --printPathWarnings --printI18nWarnings",
-    "check:unused": "PATH=\"$PWD/.tools/dart-sass:$PATH\" hugo --renderToMemory --printUnusedTemplates"
+    "dev": "hugo server --disableFastRender",
+    "build": "hugo --gc",
+    "check": "hugo --renderToMemory --panicOnWarning --printPathWarnings --printI18nWarnings",
+    "check:unused": "hugo --renderToMemory --printUnusedTemplates"
   },
   "dependencies": {
     "@fontsource-variable/inter": "^5.2.8",

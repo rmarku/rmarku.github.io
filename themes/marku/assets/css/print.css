@@ -1,0 +1,39 @@
+/*
+  Resume print styles, folded into the main bundle behind @media print rather
+  than a second stylesheet -- one less request, and the tokens it needs
+  (--text, --border, ...) are already in scope.
+*/
+@media print {
+  body {
+    background: #fff;
+    color: #000;
+  }
+
+  .navbar,
+  .site-footer,
+  .skip-link,
+  .printButton {
+    display: none;
+  }
+
+  a,
+  a:visited,
+  a:hover {
+    color: #000;
+    text-decoration: none;
+  }
+
+  .resume .right {
+    background: none;
+    border-left: 1px solid #000;
+  }
+
+  @page {
+    size: A4;
+    margin: 1cm;
+
+    @center {
+      content: counter(page) ' of ' counter(pages);
+    }
+  }
+}

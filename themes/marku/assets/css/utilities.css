@@ -1,0 +1,34 @@
+@layer utilities {
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .skip-link {
+    position: absolute;
+    left: var(--space-s);
+    top: -3rem;
+    z-index: 100;
+    background: var(--surface-0);
+    color: var(--text);
+    padding: var(--space-2xs) var(--space-s);
+    border-radius: var(--radius-s);
+    box-shadow: var(--shadow-m);
+    transition: top 0.15s ease;
+  }
+
+  .skip-link:focus-visible {
+    top: var(--space-s);
+  }
+
+  .opaque {
+    opacity: 50%;
+  }
+}

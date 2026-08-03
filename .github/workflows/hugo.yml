@@ -33,23 +33,11 @@ jobs:
     runs-on: ubuntu-latest
     env:
       HUGO_VERSION: 0.164.0
-      # Pinned deliberately: the theme transpiles SCSS with Dart Sass, so an
-      # unpinned install would let a new Sass release change the build (or start
-      # emitting deprecations) with no commit on our side. Keep in step with the
-      # version used locally.
-      DART_SASS_VERSION: 1.102.0
     steps:
       - name: Install Hugo CLI
         run: |
           wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
           && sudo dpkg -i ${{ runner.temp }}/hugo.deb
-
-      - name: Install Dart Sass
-        run: |
-          wget -O ${{ runner.temp }}/dart-sass.tar.gz \
-            https://github.com/sass/dart-sass/releases/download/${DART_SASS_VERSION}/dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz
-          tar -xf ${{ runner.temp }}/dart-sass.tar.gz -C ${{ runner.temp }}
-          echo "${{ runner.temp }}/dart-sass" >> $GITHUB_PATH
 
       - name: Checkout
         uses: actions/checkout@v5
@@ -60,6 +48,15 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install npm dependencies
+        run: npm ci
 
       - name: Build with Hugo
         env:
