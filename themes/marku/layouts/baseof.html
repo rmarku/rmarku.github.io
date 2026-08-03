@@ -14,6 +14,7 @@
 
 	{{ partial "opengraph.html" . }}
 	{{ partial "twitter_cards.html" . }}
+	{{ partial "head/og-image.html" . }}
 	{{ partial "jsonld.html" . }}
 
 	{{ with resources.Get site.Params.favicon }}

@@ -1,0 +1,31 @@
+{{- /*
+  Every page used to declare params.images: [site-feature-image.jpg] in
+  site config, pointing at a file that didn't exist, so og:image and
+  twitter:image 404'd everywhere.
+
+  Hugo's embedded opengraph.html/twitter_cards.html already emit a correct
+  og:image/twitter:image when the page has its own .Params.images or the
+  (now-removed) site.Params.images fallback -- this only fills the gap for
+  pages that have neither, by compositing one at build time.
+
+  Composed with images.Text rather than a page-supplied font: images.Text
+  needs a parseable sfnt font (TTF/OTF), and every font this theme ships is
+  a woff2 variable font -- Hugo's default embedded font avoids adding a
+  static font file just for this.
+*/ -}}
+{{- if not .Params.images }}
+  {{- $page := . }}
+  {{- $bg := resources.Get "img/og-background.png" }}
+  {{- with $bg }}
+    {{- $card := . }}
+    {{- $card = $card.Filter (images.Text $page.Title (dict "color" "#f5f5f7" "size" 54 "x" 80 "y" 220 "linespacing" 4)) }}
+    {{- if ne $page.Title site.Title }}
+    {{- $card = $card.Filter (images.Text site.Title (dict "color" "#9a9ab3" "size" 28 "x" 80 "y" 500)) }}
+    {{- end }}
+<meta property="og:image" content="{{ $card.Permalink }}">
+<meta property="og:image:width" content="{{ $card.Width }}">
+<meta property="og:image:height" content="{{ $card.Height }}">
+<meta name="twitter:image" content="{{ $card.Permalink }}">
+<meta name="twitter:card" content="summary_large_image">
+  {{- end }}
+{{- end }}
