@@ -20,9 +20,11 @@
             </a>
         </li>
         {{ range .profiles}}
+        {{ $icon := "link" }}
+        {{ if in (slice "github" "linkedin" "twitter") .network }}{{ $icon = .network }}{{ end }}
         <li>
             <a href="{{ .url }}">
-                {{ partial "icon.html" "link" }} {{ .username }}
+                {{ partial "icon.html" $icon }} {{ .username }}
             </a>
         </li>
         {{ end }}

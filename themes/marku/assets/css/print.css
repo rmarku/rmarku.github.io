@@ -23,9 +23,83 @@
     text-decoration: none;
   }
 
+  .resume {
+    font-size: 70%;
+  }
+
+  /*
+    Icons are sized in rem (components.css), so like the sidebar width above
+    they ignore the 70% above and print at full screen size -- oversized
+    relative to the shrunk-down print text, and wide enough on their own to
+    wrap the narrow sidebar's contact lines onto their own line.
+  */
+  .resume .icon {
+    width: 0.9em;
+    height: 0.9em;
+  }
+
+  /*
+    Even at 0.9em, a heading's icon is still large relative to a heading's own
+    font-size (headings scale up, the icon doesn't) and wraps onto its own
+    line above the heading text in the narrow sidebar. The contact list and
+    profile links keep their icons -- those carry information (which network
+    a link is on); a section heading's icon is decoration.
+  */
+  .resume h2 .icon {
+    display: none;
+  }
+
+  /*
+    The screen breakpoint (min-width: 900px) never matches a printed page --
+    @media (width) resolves against the @page box, well under 900px -- so
+    without this the two-column layout collapses to a single stacked column
+    and every job entry doubles in height. A CSS grid keeps both tracks
+    running the full page height regardless of content, so pages after the
+    (shorter) sidebar ends would print half-blank; floating the sidebar
+    instead lets the main column reclaim full width once the float ends,
+    matching the old paper-friendly layout.
+  */
+  .resume-layout {
+    display: block;
+  }
+
+  /*
+    18rem is fine on screen, but rem is relative to the root font-size, which
+    `.resume`'s 70% above doesn't touch (that only scales em-relative
+    descendants) -- so on paper it stayed literally 18rem, a much bigger
+    fraction of an A4 page than intended. A percentage scales with the page.
+  */
   .resume .right {
+    float: right;
+    width: 24%;
+    margin-left: var(--space-l);
     background: none;
-    border-left: 1px solid #000;
+    border: none;
+    padding: 0;
+  }
+
+  /*
+    overflow: hidden here (components.css, needed on screen to contain the
+    h2::after underline) clips text mid-word once a job entry's line-wrap
+    width was established against the floated sidebar on an earlier page and
+    then continues onto a page where the float has already ended -- the
+    fragment keeps the old, too-narrow box but overflow hides what no longer
+    fits. Printed job entries don't have the underline trick's box to
+    contain, so this is safe to lift.
+  */
+  .resume .experience li {
+    overflow: visible;
+  }
+
+  .resume .left > ul > li,
+  .resume .skill-group {
+    break-inside: avoid;
+  }
+
+  /* An avoided break can still strand a heading alone at the bottom of a
+     page if the block after it doesn't fit either; keep it with its entry. */
+  .resume h2 {
+    break-after: avoid;
   }
 
   @page {

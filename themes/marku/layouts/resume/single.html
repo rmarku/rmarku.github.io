@@ -10,18 +10,25 @@
     {{ with .basics }}
     <h1>{{ .familyName }}, {{.givenName}} {{.additionalName}}</h1>
     {{ end }}
+    {{- /*
+      .right comes first in source order so the print stylesheet can float it:
+      a float placed after all of .left's (much longer) content would land
+      near the bottom of the resume instead of at the top of the page. The
+      grid layout on screen restores the left-then-right visual order via
+      the `order` property (components.css).
+    */}}
     <div class="resume-layout">
-        <div class="left">
-            {{ partial "resume/details" $data}}
-            {{ partial "resume/experience" $data}}
-            {{ partial "resume/education" $data}}
-            {{ partial "resume/publications" $data}}
-        </div>
         <div class="right">
             {{ partial "resume/header" $data}}
             {{ partial "resume/language" $data}}
             {{ partial "resume/skills" $data}}
             {{ partial "resume/interests" $data}}
+        </div>
+        <div class="left">
+            {{ partial "resume/details" $data}}
+            {{ partial "resume/experience" $data}}
+            {{ partial "resume/education" $data}}
+            {{ partial "resume/publications" $data}}
         </div>
     </div>
 </article>

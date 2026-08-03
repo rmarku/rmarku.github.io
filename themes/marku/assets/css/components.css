@@ -704,6 +704,19 @@
     }
   }
 
+  /*
+    Source order is right-then-left (see resume/single.html) so the print
+    stylesheet can float the sidebar; restore the left-then-right visual
+    order here since grid respects `order` for auto-placed items.
+  */
+  .resume-layout .left {
+    order: 1;
+  }
+
+  .resume-layout .right {
+    order: 2;
+  }
+
   .resume .experience li {
     padding: 0;
     overflow: hidden;
@@ -761,6 +774,14 @@
 
   .resume .skill {
     margin: var(--space-3xs);
+  }
+
+  .resume .skill span {
+    display: inline-block;
+    float: right;
+    background: var(--surface-2);
+    border-radius: var(--radius-full);
+    padding: 0 var(--space-2xs);
   }
 
   .resume .progressBar {
