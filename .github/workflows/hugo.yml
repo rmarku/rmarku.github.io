@@ -58,6 +58,18 @@ jobs:
       - name: Install npm dependencies
         run: npm ci
 
+      - name: Cache Hugo resources
+        uses: actions/cache@v4
+        with:
+          path: resources/_gen
+          # Keyed on content + assets, not just lock files: image and asset
+          # processing (AVIF/WebP variants, the JS/CSS bundles) is what this
+          # cache exists to skip re-running, and it invalidates on the same
+          # inputs Hugo itself would re-derive from.
+          key: hugo-resources-${{ hashFiles('content/**', 'themes/marku/assets/**', 'package-lock.json') }}
+          restore-keys: |
+            hugo-resources-
+
       - name: Build with Hugo
         env:
           HUGO_ENVIRONMENT: production

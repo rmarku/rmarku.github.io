@@ -1,0 +1,17 @@
+version: 2
+updates:
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'monthly'
+
+  - package-ecosystem: 'npm'
+    directory: '/'
+    schedule:
+      interval: 'monthly'
+    # Font/icon/Mermaid/Fuse releases are frequent and low-risk; grouping
+    # keeps them from generating a PR apiece for what's effectively one review.
+    groups:
+      build-dependencies:
+        patterns:
+          - '*'
