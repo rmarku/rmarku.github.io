@@ -1,5 +1,24 @@
+{{- /*
+  One index per language -- each language has its own `home` page, and
+  .Site.RegularPages is already scoped to it, so /en/search.json only ever
+  contains English pages.
+
+  `content` is truncated: the previous body field was unbounded .Plain, which
+  put a full 9.5KB article straight into the Fuse index for every page. Its
+  name also has to match search.js's Fuse `keys` config exactly -- it was
+  "contents" here against "content" there, so body text was silently never
+  searched at all.
+*/ -}}
 {{- $index := slice -}}
 {{- range .Site.RegularPages -}}
-    {{- $index = $index | append (dict "title" .Title "tags" .Params.tags "categories" .Params.categories "contents" .Plain "permalink" .Permalink) -}}
+    {{- $index = $index | append (dict
+          "title" .Title
+          "description" (or .Description .Summary)
+          "section" .Section
+          "date" (.Date.Format "2006-01-02")
+          "tags" .Params.tags
+          "categories" .Params.categories
+          "content" (.Plain | truncate 1200)
+          "permalink" .Permalink) -}}
 {{- end -}}
 {{- $index | jsonify -}}
