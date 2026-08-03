@@ -1,0 +1,18 @@
+{{- /*
+  {{< video src="clip.mp4" poster="frame.jpg" >}} for a page-resource video --
+  self-hosted, no embed origin. For third-party hosts, use markdown links
+  instead; this shortcode is deliberately not a YouTube/Vimeo wrapper.
+
+  @param src (positional or named) page-resource path
+  @param poster (named, optional) page-resource path
+*/ -}}
+{{- $src := .Get "src" | default (.Get 0) }}
+{{- $poster := .Get "poster" }}
+{{- with .Page.Resources.GetMatch $src }}
+<video class="full-bleed" controls preload="metadata"
+  {{- with $poster }}{{ with $.Page.Resources.GetMatch . }} poster="{{ .RelPermalink }}"{{ end }}{{ end }}>
+  <source src="{{ .RelPermalink }}" type="{{ .MediaType }}">
+</video>
+{{- else }}
+{{- errorf "shortcode video: %q resolves to nothing on page %q" $src .Page.Path }}
+{{- end }}

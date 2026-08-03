@@ -1,0 +1,21 @@
+{{- /*
+  {{< gallery >}}
+  photo-1.jpg | First caption
+  photo-2.jpg | Second caption
+  {{< /gallery >}}
+
+  One image per line, path and caption separated by "|". Renders each
+  through the shared image partial in a full-bleed grid.
+*/ -}}
+<div class="gallery full-bleed">
+  {{- range (split (strings.TrimSpace .Inner) "\n") }}
+    {{- $line := strings.TrimSpace . }}
+    {{- if $line }}
+      {{- $parts := split $line "|" }}
+      {{- $src := strings.TrimSpace (index $parts 0) }}
+      {{- $caption := "" }}
+      {{- if gt (len $parts) 1 }}{{ $caption = strings.TrimSpace (index $parts 1) }}{{ end }}
+      {{- partial "image.html" (dict "page" $.Page "src" $src "caption" $caption "fill" "600x600") }}
+    {{- end }}
+  {{- end }}
+</div>

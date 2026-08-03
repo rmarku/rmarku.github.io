@@ -52,6 +52,23 @@ subscribe:
 404subtitle:
   other: La página que buscas no existe.
 
+goHome:
+  other: Volver al inicio
+
+taxonomyTermCount:
+  one: '{{ . }} publicación'
+  other: '{{ . }} publicaciones'
+
+relatedPosts:
+  other: Publicaciones relacionadas
+
+pagination:
+  other: Paginación
+paginationPrev:
+  other: Más nuevas
+paginationNext:
+  other: Más antiguas
+
 readMore:
   other: Leer más
 

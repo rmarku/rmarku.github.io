@@ -1,30 +1,11 @@
 {{ define "main" -}}
 {{ .Content }}
+{{ $esSite := hugo.Sites.Default }}
+{{ $pages := .RegularPages | lang.Merge (where $esSite.RegularPages "Type" .Type) }}
 <section class="post-list">
-	{{ $esSite := hugo.Sites.Default }}
-	{{ range .RegularPages | lang.Merge (where $esSite.RegularPages "Type" .Type) }}
-	{{ $page := . }}
-	<article class="post-card">
-		{{ with .Params.images }}
-		{{ partial "image.html" (dict "page" $page "src" (index . 0) "fill" "242x144" "class" "post-card-image") }}
-		{{ end }}
-		<div>
-			<h3><a href="{{ .RelPermalink }}">{{ .Title | title }}</a></h3>
-			<time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "02 Jan 2006" }}</time>
-
-			{{ $taxonomy := "tags" }}
-			{{ with .GetTerms $taxonomy }}
-			<ul class="tags">
-				{{ range . }}
-				<li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
-				{{ end }}
-			</ul>
-			{{ end }}
-
-			<p>{{ .Description }}</p>
-			<p>{{ i18n "language" }}: <i class="flag-{{ .Lang }}"></i></p>
-		</div>
-	</article>
-	{{- end }}
+    {{ range (.Paginate $pages).Pages }}
+    {{ partial "post-card.html" . }}
+    {{- end }}
 </section>
+{{ partial "pagination.html" . }}
 {{- end }}

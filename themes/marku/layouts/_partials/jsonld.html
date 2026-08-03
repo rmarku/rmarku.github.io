@@ -1,64 +1,79 @@
-{{ if .IsHome -}}
-<script type="application/ld+json">
-  {
-    "@context": "http://schema.org",
-    "@type": "WebSite",
-    "name": "{{ .Site.Title }}",
-    "url": "{{ .Site.BaseURL }}",
-    "description": "{{ .Site.Params.description }}",
-    "thumbnailUrl": "{{ .Site.Params.logo | absURL }}",
-    "license": "{{ .Site.Copyright }}"
-  }
-</script>
-{{ else if .IsPage }} {{ $author := or (.Params.author) (.Site.Params.author.name) }} {{ $organization := .Site.Title }}
-<script type="application/ld+json">
-  {
-      "@context": "http://schema.org",
-      "@type": "BlogPosting",
-      "articleSection": "{{ .Section }}",
-      "name": "{{ .Title | safeJS }}",
-      "headline": "{{ .Title | safeJS }}",
-      "alternativeHeadline": "{{ .Params.lead }}",
-      "description": "{{ if .Description }}{{ .Description | safeJS }}{{ else }}{{if .IsPage}}{{ .Summary  }}{{ end }}{{ end }}",
-      "inLanguage": {{ .Site.Language.Locale | default "en-us" }},
-      "isFamilyFriendly": "true",
-      "mainEntityOfPage": {
-          "@type": "WebPage",
-          "@id": "{{ .Permalink }}"
-      },
-      "author" : {
-          "@type": "Person",
-          "name": "{{ $author }}"
-      },
-      "creator" : {
-          "@type": "Person",
-          "name": "{{ $author }}"
-      },
-      "accountablePerson" : {
-          "@type": "Person",
-          "name": "{{ $author }}"
-      },
-      "copyrightHolder" : "{{ $organization }}",
-      "copyrightYear" : "{{ .Date.Format "2006" }}",
-      "dateCreated": "{{ .Date.Format "2006-01-02T15:04:05.00Z" | safeHTML }}",
-      "datePublished": "{{ .PublishDate.Format "2006-01-02T15:04:05.00Z" | safeHTML }}",
-      "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05.00Z" | safeHTML }}",
-      "publisher":{
-          "@type":"Organization",
-          "name": {{ $organization }},
-          "url": {{ .Site.BaseURL }},
-          "logo": {
-              "@type": "ImageObject",
-              "url": "{{ .Site.Params.logo | absURL }}",
-              "width":"32",
-              "height":"32"
-          }
-      },
-      "image": {{ if .Params.images }}[{{ range $i, $e := .Params.images }}{{ if $i }}, {{ end }}{{ $e | absURL }}{{ end }}]{{ else}}{{.Site.Params.logo | absURL }}{{ end }},
-      "url" : "{{ .Permalink }}",
-      "wordCount" : "{{ .WordCount }}",
-      "genre" : [ {{ range $index, $tag := .Params.tags }}{{ if $index }}, {{ end }}"{{ $tag }}" {{ end }}],
-      "keywords" : [ {{ range $index, $tag := .Params.tags }}{{ if $index }}, {{ end }}"{{ $tag }}" {{ end }}]
-  }
-</script>
-{{ end }}
+{{- /*
+  Rebuilt on dict + jsonify. The old version hand-concatenated JSON strings
+  with inconsistent quoting (some fields quoted, some bare), so a title or
+  description containing a `"` produced invalid JSON on the page.
+*/ -}}
+
+{{- $organization := dict
+      "@type" "Organization"
+      "name" site.Title
+      "url" site.BaseURL
+      "logo" (dict
+        "@type" "ImageObject"
+        "url" (site.Params.logo | absURL)
+        "width" 32
+        "height" 32) }}
+
+{{- if .IsHome }}
+  {{- $data := dict
+        "@context" "https://schema.org"
+        "@type" "WebSite"
+        "name" site.Title
+        "url" site.BaseURL
+        "description" site.Params.description
+        "thumbnailUrl" (site.Params.logo | absURL)
+        "license" site.Copyright }}
+<script type="application/ld+json">{{ $data | jsonify }}</script>
+
+{{- else if eq .Kind "page" }}
+  {{- $author := or .Params.author site.Params.author.name }}
+  {{- $images := slice }}
+  {{- range .Params.images }}{{ $images = $images | append (. | absURL) }}{{ end }}
+  {{- if not $images }}{{ $images = slice (site.Params.logo | absURL) }}{{ end }}
+
+  {{- $breadcrumbs := slice }}
+  {{- $ancestors := .Ancestors.Reverse }}
+  {{- $position := 0 }}
+  {{- range $ancestors }}
+    {{- $position = add $position 1 }}
+    {{- $breadcrumbs = $breadcrumbs | append (dict
+          "@type" "ListItem"
+          "position" $position
+          "name" .Title
+          "item" .Permalink) }}
+  {{- end }}
+  {{- $position = add $position 1 }}
+  {{- $breadcrumbs = $breadcrumbs | append (dict
+        "@type" "ListItem"
+        "position" $position
+        "name" .Title
+        "item" .Permalink) }}
+
+  {{- $data := dict
+        "@context" "https://schema.org"
+        "@type" "BlogPosting"
+        "articleSection" .Section
+        "name" .Title
+        "headline" .Title
+        "alternativeHeadline" .Params.lead
+        "description" (or .Description .Summary)
+        "inLanguage" (site.Language.Locale | default "en")
+        "isFamilyFriendly" true
+        "mainEntityOfPage" (dict "@type" "WebPage" "@id" .Permalink)
+        "author" (dict "@type" "Person" "name" $author)
+        "creator" (dict "@type" "Person" "name" $author)
+        "accountablePerson" (dict "@type" "Person" "name" $author)
+        "copyrightHolder" site.Title
+        "copyrightYear" (.Date.Format "2006")
+        "dateCreated" (.Date.Format "2006-01-02T15:04:05-07:00")
+        "datePublished" (.PublishDate.Format "2006-01-02T15:04:05-07:00")
+        "dateModified" (.Lastmod.Format "2006-01-02T15:04:05-07:00")
+        "publisher" $organization
+        "image" $images
+        "url" .Permalink
+        "wordCount" .WordCount
+        "genre" .Params.tags
+        "keywords" .Params.tags
+        "breadcrumb" (dict "@type" "BreadcrumbList" "itemListElement" $breadcrumbs) }}
+<script type="application/ld+json">{{ $data | jsonify }}</script>
+{{- end }}

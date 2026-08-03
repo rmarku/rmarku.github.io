@@ -1,0 +1,28 @@
+{{- /*
+  One card body, shared by home.html, list.html and term.html -- they used to
+  each carry the same ~20 lines (down to the same inline `style` attributes)
+  with no single place to fix a bug in all three.
+
+  @param {page} .
+*/ -}}
+{{- $page := . }}
+<article class="post-card">
+    {{ with .Params.images }}
+    {{ partial "image.html" (dict "page" $page "src" (index . 0) "fill" "242x144" "class" "post-card-image") }}
+    {{ end }}
+    <div>
+        <h3><a href="{{ .RelPermalink }}">{{ .Title | title }}</a></h3>
+        <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "02 Jan 2006" }}</time>
+
+        {{ with .GetTerms "tags" }}
+        <ul class="tags">
+            {{ range . }}
+            <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+            {{ end }}
+        </ul>
+        {{ end }}
+
+        <p>{{ .Description }}</p>
+        <p>{{ i18n "language" }}: <i class="flag-{{ .Lang }}"></i></p>
+    </div>
+</article>

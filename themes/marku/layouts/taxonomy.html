@@ -1,0 +1,16 @@
+{{- /*
+  The taxonomy list itself (/tags/, /categories/) -- previously unhandled, so
+  it fell back to list.html, which assumes .RegularPages and rendered an
+  empty <section class="post-list"></section>.
+*/ -}}
+{{ define "main" -}}
+{{ .Content }}
+<ul class="term-list page-shell">
+    {{ range .Pages.ByTitle }}
+    <li>
+        <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+        <span class="term-count">{{ i18n "taxonomyTermCount" (len .Pages) }}</span>
+    </li>
+    {{ end }}
+</ul>
+{{- end }}

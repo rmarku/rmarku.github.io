@@ -1,0 +1,18 @@
+{{- /*
+  Thin wrapper over the shared image partial for content authors --
+  {{< figure src="photo.jpg" caption="..." >}} instead of hand-rolling a
+  <figure> that skips the responsive-image pipeline.
+
+  @param src (positional or named)
+  @param alt, caption, class, sizes, fill (named, optional)
+*/ -}}
+{{- partial "image.html" (dict
+      "page" .Page
+      "src" (.Get "src" | default (.Get 0))
+      "alt" (.Get "alt")
+      "caption" (.Get "caption")
+      "class" (.Get "class")
+      "sizes" (.Get "sizes")
+      "fill" (.Get "fill")
+      "figure" true
+) -}}

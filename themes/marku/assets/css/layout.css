@@ -83,6 +83,13 @@
 
   /* Cards adapt to the column they're laid out in (main grid vs a future
      rail), not the viewport -- a container query, not a media query. */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+    gap: var(--space-s);
+    margin-block: var(--space-l);
+  }
+
   .post-list {
     container-type: inline-size;
     display: grid;

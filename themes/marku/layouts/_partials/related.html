@@ -1,0 +1,18 @@
+{{- /*
+  site.RegularPages.Related needs .Params.tags to be indexed as a keyword --
+  the default related-content config already treats "tags" that way, so no
+  extra site config is needed for this to find anything.
+
+  @param {page} .
+*/ -}}
+{{- $related := site.RegularPages.Related . | first 4 }}
+{{- with $related }}
+<section class="related-posts full-bleed">
+    <h2>{{ i18n "relatedPosts" }}</h2>
+    <div class="post-list">
+        {{ range . }}
+        {{ partial "post-card.html" . }}
+        {{ end }}
+    </div>
+</section>
+{{- end }}

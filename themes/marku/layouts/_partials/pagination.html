@@ -1,0 +1,19 @@
+{{- /*
+  pagerSize is configured (config/_default/hugo.yaml) but nothing called
+  .Paginate before this -- every list page rendered every post in the section
+  on one page.
+
+  @param {page} .
+*/ -}}
+{{- with .Paginator }}
+{{- if gt .TotalPages 1 }}
+<nav class="pagination" aria-label="{{ i18n "pagination" | default "Pagination" }}">
+    {{- with .Prev }}
+    <a href="{{ .URL }}" rel="prev">{{ partial "icon.html" "arrow-left" }} {{ i18n "paginationPrev" }}</a>
+    {{- end }}
+    {{- with .Next }}
+    <a href="{{ .URL }}" rel="next">{{ i18n "paginationNext" }} {{ partial "icon.html" "arrow-right" }}</a>
+    {{- end }}
+</nav>
+{{- end }}
+{{- end }}

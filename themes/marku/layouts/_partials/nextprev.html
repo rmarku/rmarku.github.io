@@ -2,11 +2,11 @@
 <div id="nextprev">
     {{- with .PrevInSection }}
     <div id="prevart">
-        Previous: <a href="{{ .RelPermalink}}">{{.Title}}</a>
+        {{ i18n "postsNewer" }}: <a href="{{ .RelPermalink}}">{{.Title}}</a>
     </div>
     {{ end -}} {{- with .NextInSection -}}
     <div id="nextart">
-        Next: <a href="{{ .RelPermalink}}">{{ .Title}}</a>
+        {{ i18n "postsOlder" }}: <a href="{{ .RelPermalink}}">{{ .Title}}</a>
     </div>
     {{ end -}}
 </div>

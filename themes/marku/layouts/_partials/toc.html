@@ -1,14 +1,18 @@
-{{ with .TableOfContents }}
-{{ if ne . "<nav id=\"TableOfContents\"></nav>" }}
+{{- /*
+  .Content has to have rendered already for .Fragments to be populated --
+  true here since toc.html is always called after {{ .Content }} in the page
+  templates that use it.
+
+  The old guard compared .TableOfContents against the literal string
+  "<nav id=\"TableOfContents\"></nav>", which is what Hugo emits for a page
+  with no headings; .Fragments.Headings says the same thing without hardcoding
+  Hugo's empty-render output.
+*/ -}}
+{{- if .Fragments.Headings }}
 <aside class="toc">
-    <details>
-        <summary>
-            {{- i18n "toc" | default "Table of Contents" }}
-        </summary>
-        <div>
-            {{ . }}
-        </div>
+    <details open>
+        <summary>{{ i18n "toc" | default "Table of Contents" }}</summary>
+        <div>{{ .TableOfContents }}</div>
     </details>
 </aside>
-{{ end }}
-{{ end }}
+{{- end }}

@@ -1,0 +1,18 @@
+{{- /*
+  A single term's pages (/tags/homelab/) -- previously handled by list.html's
+  fallback, which happened to work because .Pages resolves correctly here,
+  but conflated two different page kinds under one template. Unlike
+  home.html/list.html this doesn't merge in the other language's pages --
+  tags are per-language taxonomies, so there's no equivalent term to borrow
+  from without a separate lookup by term name.
+*/ -}}
+{{ define "main" -}}
+<h1 class="page-shell">{{ .Title }}</h1>
+{{ .Content }}
+<section class="post-list">
+    {{ range (.Paginate .Pages).Pages }}
+    {{ partial "post-card.html" . }}
+    {{- end }}
+</section>
+{{ partial "pagination.html" . }}
+{{- end }}
