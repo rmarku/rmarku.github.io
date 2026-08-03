@@ -17,7 +17,7 @@
     "@fontsource-variable/jetbrains-mono": "^5.2.8",
     "@fontsource-variable/source-serif-4": "^5.2.8",
     "fuse.js": "^7.1.0",
-    "lucide-static": "^0.548.0",
+    "lucide-static": "^1.28.0",
     "mermaid": "^11.12.0"
   }
 }
